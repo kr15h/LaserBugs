@@ -20,8 +20,10 @@ const int L_BUMPER = 2;
 const int R_BUMPER = 3;
 const int RECV_PIN = 11;
 const int CDS = 0;
-const int JUMP_0 = 15;
-const int JUMP_1 = 16;
+// const int JUMP_0 = 15;
+// const int JUMP_1 = 16;
+const int CDS_L = 1;
+const int CDS_R = 2;
 const int BAT_CHK = 17;
 
 // IRrecv
@@ -123,7 +125,8 @@ long BMPconstant = 180000;
 long reactionLength_BMP = BMPconstant / motorSpeed;
 
 // following Light for collect robots for charging
-boolean followLightFunc = false;
+boolean followLightFlag = false;
+float direction[] = {0.0, 0.0}; // -1.0 ~ 1.0 (L ~ R)
 
 void setup() {
   Serial.begin(57600);
@@ -141,8 +144,8 @@ void setup() {
   pinMode(L_BUMPER, INPUT_PULLUP);
   pinMode(R_BUMPER, INPUT_PULLUP);
   pinMode(CDS, INPUT);
-  pinMode(JUMP_0, INPUT_PULLUP);
-  pinMode(JUMP_1, INPUT_PULLUP);
+  // pinMode(JUMP_0, INPUT_PULLUP);
+  // pinMode(JUMP_1, INPUT_PULLUP);
   pinMode(BAT_CHK, INPUT);
   irrecv.enableIRIn(); // Start the receiver
   digitalWrite(MTR_STNBY, HIGH); // activate motor
@@ -176,9 +179,9 @@ void loop() {
   laserDetect();
   irCommand();
   battery_check();
-  jump_led();
   bumperFunction();
   play();
+  followLight();
 }
 
 void laserDetect(){
@@ -321,16 +324,19 @@ void irCommand(){
         switch (value) {
           case 0:
             playFlag = true;
+            followLightFlag = false;
             irCommandFlag = false;
             irNotification = true;
             break;
           case 1:
             playFlag = false;
+            followLightFlag = false;
             irCommandFlag = false;
             irNotification = true;
             break;
           case 2:
-            followLightFunc = true;
+            followLightFlag = true;
+            playFlag = false;
             irCommandFlag = false;
             irNotification = true;
             break;
@@ -394,13 +400,6 @@ void battery_check(){
     if(millis() % 500 < 250) digitalWrite(LED_R, HIGH);
     else digitalWrite(LED_R, LOW);
   }
-}
-
-void jump_led(){
-  if(!digitalRead(JUMP_0)) digitalWrite(LED_R, HIGH);
-  else digitalWrite(LED_R, LOW);
-  if(!digitalRead(JUMP_1)) digitalWrite(LED_G, HIGH);
-  else digitalWrite(LED_G, LOW);  
 }
 
 void bumperFunction(){
@@ -511,7 +510,7 @@ void play(){
       blinkFlag = false;
     }
   }
-  else{
+  else if(!followLightFlag){
     analogWrite(MTR_A_PWM, 0);
     analogWrite(MTR_B_PWM, 0);
     digitalWrite(LASER, LOW);
@@ -519,9 +518,39 @@ void play(){
 }
 
 void followLight(){
+  if(followLightFlag){ // "followLight" only works when followLightFlag is true
   // considering charging at night, this function make collecting robots easier.
   // basically it just following light.
   // but need to figure out how to stop it...
+  int brghtnsL = analogRead(CDS_L); 
+  int brghtnsR = analogRead(CDS_R);
+  // float brDif = map(brghtnsL - brghtnsR, -1024.0, 1024.0, -1.0, 1.0);
+  float brDif = (brghtnsL - brghtnsR) / 1000.0;
+
+  if(brDif > 0){ // means light is on the LEFT. so left wheel should be turn less.
+    direction[0] = brDif;  // less power for LEFT 
+    direction[1] = 1;      // full power for RIGHT
+  }
+  else if(brDif < 0){ 
+    direction[0] = 1;          // full power for LEFT
+    direction[1] = abs(brDif); // less power for RIGHT, minus change to plus.
+  }
+
+  digitalWrite(MTR_A_F, HIGH);
+  digitalWrite(MTR_A_B, LOW);
+  analogWrite(MTR_A_PWM, motorSpeed * direction[0]);
+  digitalWrite(MTR_B_F, HIGH);
+  digitalWrite(MTR_B_B, LOW);
+  analogWrite(MTR_B_PWM, motorSpeed * direction[1]);
+
+  // Serial.print("left value is ");
+  // Serial.print(brghtnsL);
+  // Serial.print(" right value is ");
+  // Serial.print(brghtnsR);
+  // Serial.print(" brDif is ");
+  // Serial.println(brDif);
+  // delay(10);
+  }
 }
 
 

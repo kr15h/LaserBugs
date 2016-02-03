@@ -1488,8 +1488,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "int", "" ],
-									"patching_rect" : [ 135.0, 220.0, 65.0, 17.0 ],
-									"text" : "serial f 57600"
+									"patching_rect" : [ 135.0, 220.0, 127.0, 17.0 ],
+									"text" : "serial usbmodem1421 57600"
 								}
 
 							}
