@@ -1,30 +1,59 @@
+
+// #define boardproduction1
+#define boardproduction2
+
+#ifdef boardproduction1
+  // #define boardproduction 1
+  #define MTR_A_F 12
+  #define MTR_A_B 10
+  #define MTR_A_PWM 9
+  #define MTR_B_F 5
+  #define MTR_B_B 8
+  #define MTR_B_PWM 6
+  #define MTR_STNBY 18
+  #define SOLENOID 7
+  #define LASER 4
+  #define LED_G 13
+  #define LED_R 19
+  // in
+  #define L_BUMPER 2
+  #define R_BUMPER 3
+  #define RECV_PIN 11
+  #define CDS 0
+  // #define JUMP_0 15
+  // #define JUMP_1 16
+  #define CDS_L 1
+  #define CDS_R 2
+  #define BAT_CHK 17  
+#endif
+
+#ifdef boardproduction2
+  // #define boardproduction 2
+  #define MTR_A_F 12
+  #define MTR_A_B 10
+  #define MTR_A_PWM 9
+  #define MTR_B_F 5
+  #define MTR_B_B 8
+  #define MTR_B_PWM 6
+  #define JUMP A4
+  // #define JUMP 18
+  #define SOLENOID 7
+  #define LASER 4
+  #define LED_G 13
+  #define LED_R A5
+  // in
+  #define L_BUMPER 2
+  #define R_BUMPER 3
+  #define RECV_PIN 11
+  #define CDS A0
+  #define CDS_L A1
+  #define CDS_R A2
+  #define BAT_CHK A3
+#endif
+
 // libraries
 #include <IRremote.h>
 #include <EEPROM.h>
-
-// pin assign
-// out
-const int MTR_A_F = 12;
-const int MTR_A_B = 10;
-const int MTR_A_PWM = 9;
-const int MTR_B_F = 5;
-const int MTR_B_B = 8;
-const int MTR_B_PWM = 6;
-const int MTR_STNBY = 18;
-const int SOLENOID = 7;
-const int LASER = 4;
-const int LED_G = 13;
-const int LED_R = 19;
-// in
-const int L_BUMPER = 2;
-const int R_BUMPER = 3;
-const int RECV_PIN = 11;
-const int CDS = 0;
-// const int JUMP_0 = 15;
-// const int JUMP_1 = 16;
-const int CDS_L = 1;
-const int CDS_R = 2;
-const int BAT_CHK = 17;
 
 // IRrecv
 IRrecv irrecv(RECV_PIN);
@@ -48,13 +77,13 @@ o  slow   3164    12bit
 DIY IR-Commander command list 
 func is 3bit, value is 12bit
 func 
-0 reactionLength_LSR  
-1 delayTime
-2 reactionLength_BMP
-3 cycleLength
-4 threshold
-5 motorSpeed
-6
+0 Cycle Length (0-4096 ms)
+1 Laser Reaction Length (%)
+2 Motor Speed (0-255 PWM value)
+3 Threshold of Light Detect (0-255)
+4 Solenoid On Time (0-255 ms)
+5 -
+6 -
 7 functions*
 
 *functions
@@ -77,17 +106,13 @@ int blinkCount;
 int countFlag = true;
 
 // EEPROM
-// int reactionLength_LSR_add_0 = 0;
-// int reactionLength_LSR_add_1 = 1;
-int reactionLength_ratio_add = 0;
-int delayTime_add = 2;
-// int reactionLength_BMP_add_0 = 3;
-// int reactionLength_BMP_add_1 = 4;
-int cycleLength_add_0 = 5;
-int cycleLength_add_1 = 6;
-int threshold_add = 7;
-int motorSpeed_add = 8;
-int reactionLength_SLND_add = 9;
+boolean readFromEEPROM = false; 
+int cycleLength_add_0 = 0;
+int cycleLength_add_1 = 1;
+int laser_reactionLength_ratio_add = 2;
+int motorSpeed_add = 3;
+int threshold_add = 4;
+int reactionLength_SLND_add = 5;
 
 // play
 int motorSpeed = 150;
@@ -106,12 +131,12 @@ int index = 0;
 // detect laser
 int threshold = 10; // used to be 3
 // for reaction_LSR 
-float reactionLength_ratio = 0.3;
+float laser_reactionLength_ratio = 0.3;
 unsigned long timeStamp_LSR;
 boolean reaction_LSR = false;
-int reactionLength_LSR = cycleLength * reactionLength_ratio;
+int reactionLength_LSR = cycleLength * laser_reactionLength_ratio;
 int reactionLength_SLND = 20;
-int delayTime = 0;
+// int delayTime = 0;
 
 // bumper function
 boolean bumpLstate;
@@ -136,7 +161,6 @@ void setup() {
   pinMode(MTR_B_F, OUTPUT);
   pinMode(MTR_B_B, OUTPUT);
   pinMode(MTR_B_PWM, OUTPUT);
-  pinMode(MTR_STNBY, OUTPUT);
   pinMode(SOLENOID, OUTPUT);
   pinMode(LASER, OUTPUT);
   pinMode(LED_G, OUTPUT);
@@ -144,12 +168,17 @@ void setup() {
   pinMode(L_BUMPER, INPUT_PULLUP);
   pinMode(R_BUMPER, INPUT_PULLUP);
   pinMode(CDS, INPUT);
-  // pinMode(JUMP_0, INPUT_PULLUP);
   // pinMode(JUMP_1, INPUT_PULLUP);
   pinMode(BAT_CHK, INPUT);
   irrecv.enableIRIn(); // Start the receiver
-  digitalWrite(MTR_STNBY, HIGH); // activate motor
 
+  #ifdef boardproduction1
+    pinMode(MTR_STNBY, OUTPUT);
+    digitalWrite(MTR_STNBY, HIGH); // activate motor  
+  #endif
+  #ifdef boardproduction2
+    pinMode(JUMP, INPUT_PULLUP);
+  #endif
   // prepare mean filter 
   for(int i=0; i<BUFFER_LENGTH; i++){
     buffer[i] = analogRead(CDS);
@@ -157,22 +186,15 @@ void setup() {
   randomSeed(analogRead(A6));
 
   // EEPROM reading 
- // byte a = EEPROM.read(reactionLength_LSR_add_0);
- // byte b = EEPROM.read(reactionLength_LSR_add_1);
- // reactionLength_LSR = (a << 8) + b;
- reactionLength_ratio = EEPROM.read(reactionLength_ratio_add) / 100.0;
- delayTime = EEPROM.read(delayTime_add);
- // byte c = EEPROM.read(reactionLength_BMP_add_0);
- // byte d = EEPROM.read(reactionLength_BMP_add_1);
- // reactionLength_BMP = (c << 8) + d;
- byte e = EEPROM.read(cycleLength_add_0);
- byte f = EEPROM.read(cycleLength_add_1);
- cycleLength = (e << 8) + f;
- threshold = EEPROM.read(threshold_add);
- motorSpeed = EEPROM.read(motorSpeed_add);
- reactionLength_SLND = EEPROM.read(reactionLength_SLND_add);
- reactionLength_LSR = int(cycleLength * reactionLength_ratio);
- reactionLength_BMP = int(BMPconstant / motorSpeed);
+  if(readFromEEPROM){
+    byte a = EEPROM.read(cycleLength_add_0);
+    byte b = EEPROM.read(cycleLength_add_1);
+    cycleLength = (a << 8) + b;
+    laser_reactionLength_ratio = EEPROM.read(laser_reactionLength_ratio_add) / 100.0;
+    motorSpeed = EEPROM.read(motorSpeed_add);
+    threshold = EEPROM.read(threshold_add);
+    reactionLength_SLND = EEPROM.read(reactionLength_SLND_add);
+  }
 }
 
 void loop() {
@@ -186,6 +208,7 @@ void loop() {
 
 void laserDetect(){
   int raw = analogRead(CDS);
+  // Serial.println(raw);
   //mean filter
   int smoothedByMeanFilter = smoothByMeanFilter();
 
@@ -196,15 +219,19 @@ void laserDetect(){
     // shiftAmount = shiftAmount + (millis()%cycleLength);
     shiftAmount = millis() % cycleLength;
   }
-  if(reaction_LSR && millis() > timeStamp_LSR + delayTime){
-    digitalWrite(LASER, HIGH);
-    digitalWrite(SOLENOID, HIGH);  
-  }
-  if(reaction_LSR && (timeStamp_LSR + reactionLength_SLND + delayTime) < millis()){
-    digitalWrite(SOLENOID, LOW);
-  }
-  if(reaction_LSR && (timeStamp_LSR + reactionLength_LSR + delayTime) < millis()){
+  if(reaction_LSR && millis() > timeStamp_LSR){
+    // digitalWrite(LASER, HIGH);
+    // digitalWrite(SOLENOID, HIGH);  
     digitalWrite(LASER, LOW);
+    digitalWrite(SOLENOID, LOW);  
+  }
+  if(reaction_LSR && (timeStamp_LSR + reactionLength_SLND) < millis()){
+    // digitalWrite(SOLENOID, LOW);
+    digitalWrite(SOLENOID, HIGH);
+  }
+  if(reaction_LSR && (timeStamp_LSR + reactionLength_LSR) < millis()){
+    // digitalWrite(LASER, LOW);
+    digitalWrite(LASER, HIGH);
     // Serial.println("reaction_LSR finished");
     reaction_LSR = false;
   }
@@ -283,40 +310,37 @@ void irCommand(){
 
     switch (func) {
       case 0:
-        reactionLength_ratio = value / 100.0;
-        reactionLength_LSR = int(cycleLength * reactionLength_ratio);
+        cycleLength = value;
+        reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
         irCommandFlag = false;
         irNotification = true;
         break;
       case 1:
-        delayTime = value;
+        laser_reactionLength_ratio = value / 100.0;
+        reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
         irCommandFlag = false;
         irNotification = true;
         break;
       case 2:
-        // reactionLength_BMP = value;
+        motorSpeed = value;
         irCommandFlag = false;
         irNotification = true;
         break;
       case 3:
-        cycleLength = value;
-        reactionLength_LSR = int(cycleLength * reactionLength_ratio);
-        irCommandFlag = false;
-        irNotification = true;
-        break;
-      case 4:
         threshold = value;
         irCommandFlag = false;
         irNotification = true;
         break;
+      case 4:
+        reactionLength_SLND = value;
+        irCommandFlag = false;
+        irNotification = true;
+        break;
       case 5:
-        motorSpeed = value;
-        reactionLength_BMP = int(BMPconstant / motorSpeed);
         irCommandFlag = false;
         irNotification = true;
         break;
       case 6:
-        reactionLength_SLND = value;
         irCommandFlag = false;
         irNotification = true;
         break;
@@ -343,26 +367,18 @@ void irCommand(){
           case 3:
             //EEPROM saving function
             /*
-            int reactionLength_LSR_add_0 = 0;
-            int reactionLength_LSR_add_1 = 1;
-            int delayTime_add = 2;
-            int reactionLength_BMP_add_0 = 3;
-            int reactionLength_BMP_add_1 = 4;
-            int cycleLength_add_0 = 5;
-            int cycleLength_add_1 = 6;
-            int threshold_add = 7;
-            int motorSpeed_add = 8;
+            int cycleLength_add_0 = 0;
+            int cycleLength_add_1 = 1;
+            int laser_reactionLength_ratio_add = 2;
+            int motorSpeed_add = 3;
+            int threshold_add = 4;
+            int reactionLength_SLND_add = 5;
             */ 
-            // EEPROM.write(reactionLength_LSR_add_0, reactionLength_LSR >> 8);
-            // EEPROM.write(reactionLength_LSR_add_1, reactionLength_LSR - ((reactionLength_LSR >> 8) << 8));
-            EEPROM.write(reactionLength_ratio_add, int(reactionLength_ratio*100));
-            EEPROM.write(delayTime_add, delayTime);
-            // EEPROM.write(reactionLength_BMP_add_0, reactionLength_BMP >> 8);
-            // EEPROM.write(reactionLength_BMP_add_1, reactionLength_BMP - ((reactionLength_BMP >> 8) << 8));
             EEPROM.write(cycleLength_add_0, cycleLength >> 8);
             EEPROM.write(cycleLength_add_1, cycleLength - ((cycleLength >> 8) << 8));
-            EEPROM.write(threshold_add, threshold);
+            EEPROM.write(laser_reactionLength_ratio_add, int(laser_reactionLength_ratio * 100));
             EEPROM.write(motorSpeed_add, motorSpeed);
+            EEPROM.write(threshold_add, threshold);
             EEPROM.write(reactionLength_SLND_add, reactionLength_SLND);
             irCommandFlag = false;
             irNotification = true;
@@ -376,14 +392,16 @@ void irCommand(){
   if(irNotification){
     if(blinkCount < 5){
       if(millis()%100 > 50){
-        digitalWrite(LED_R, HIGH);
+        // digitalWrite(LED_R, HIGH);
+        digitalWrite(LED_R, LOW);
         if(countFlag){
           blinkCount++;
           countFlag = false;
         }
       }
       else{
-        digitalWrite(LED_R, LOW);
+        // digitalWrite(LED_R, LOW);
+        digitalWrite(LED_R, HIGH);
         if(!countFlag) countFlag = true;
       } 
     }
