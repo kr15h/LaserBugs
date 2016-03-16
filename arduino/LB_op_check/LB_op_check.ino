@@ -1,9 +1,8 @@
 
 // #define boardproduction1
-#define boardproduction2
+// #define boardproduction2
 
-#ifdef boardproduction1
-  // #define boardproduction 1
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
   #define MTR_A_F 12
   #define MTR_A_B 10
   #define MTR_A_PWM 9
@@ -27,14 +26,18 @@
   #define BAT_CHK 17  
 #endif
 
-#ifdef boardproduction2
-  // #define boardproduction 2
+#if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)  
+  /*
+  note:
+  because irremote using different timer on Leonardo Board,
+  board2 cannot use D6 pin as PWM output.
+  */
   #define MTR_A_F 12
   #define MTR_A_B 10
   #define MTR_A_PWM 9
-  #define MTR_B_F 5
+  #define MTR_B_F 6 // used to be 5
   #define MTR_B_B 8
-  #define MTR_B_PWM 6
+  #define MTR_B_PWM 5 // used to be 6
   #define JUMP A4
   // #define JUMP 18
   #define SOLENOID 7
@@ -115,10 +118,17 @@ int threshold_add = 4;
 int reactionLength_SLND_add = 5;
 
 // play
-int motorSpeed = 150;
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+  int motorSpeed = 60; //
+#endif
+#if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)  
+  int motorSpeed = 150;
+#endif
+
 boolean playFlag = false;
 int cycleLength = 1500;
-boolean blinkFlag = false;
+boolean bangFlag_LSR = false;
+boolean bangFlag_SLND = false;
 unsigned long shiftAmount = 0;
 boolean turnRightFlag = false;
 boolean turnLeftFlag = false;
@@ -129,14 +139,13 @@ const int BUFFER_LENGTH = 10;
 int buffer[BUFFER_LENGTH];
 int index = 0;
 // detect laser
-int threshold = 10; // used to be 3
-// for reaction_LSR 
-float laser_reactionLength_ratio = 0.3;
+int threshold = 8; // used to be 3
+// for bangFlag
+float laser_reactionLength_ratio = 0.2;
 unsigned long timeStamp_LSR;
-boolean reaction_LSR = false;
+// boolean bangFlag= false;
 int reactionLength_LSR = cycleLength * laser_reactionLength_ratio;
-int reactionLength_SLND = 20;
-// int delayTime = 0;
+int reactionLength_SLND = 10;
 
 // bumper function
 boolean bumpLstate;
@@ -172,18 +181,18 @@ void setup() {
   pinMode(BAT_CHK, INPUT);
   irrecv.enableIRIn(); // Start the receiver
 
-  #ifdef boardproduction1
+  #if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
     pinMode(MTR_STNBY, OUTPUT);
     digitalWrite(MTR_STNBY, HIGH); // activate motor  
   #endif
-  #ifdef boardproduction2
+  #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)  
     pinMode(JUMP, INPUT_PULLUP);
   #endif
   // prepare mean filter 
   for(int i=0; i<BUFFER_LENGTH; i++){
     buffer[i] = analogRead(CDS);
   }
-  randomSeed(analogRead(A6));
+  // randomSeed(analogRead(A6));
 
   // EEPROM reading 
   if(readFromEEPROM){
@@ -198,7 +207,13 @@ void setup() {
 }
 
 void loop() {
-  laserDetect();
+  /*
+  note:
+  "laserDetect_React()" turns "bangFlag" Booleans on and off.
+  and does digitalWrite for Laser and Solenoid. 
+  "play()" only turns booleans on and off.
+  */
+  laserDetect_React();
   irCommand();
   battery_check();
   bumperFunction();
@@ -206,34 +221,32 @@ void loop() {
   followLight();
 }
 
-void laserDetect(){
+void laserDetect_React(){
   int raw = analogRead(CDS);
   // Serial.println(raw);
   //mean filter
   int smoothedByMeanFilter = smoothByMeanFilter();
 
-  if(!reaction_LSR && raw - smoothedByMeanFilter > threshold){  
-    // Serial.println("light detected");
+  if(!bangFlag_LSR && raw - smoothedByMeanFilter > threshold){  
     timeStamp_LSR = millis();
-    reaction_LSR = true;
+    bangFlag_LSR = true;
+    bangFlag_SLND = true;
     // shiftAmount = shiftAmount + (millis()%cycleLength);
     shiftAmount = millis() % cycleLength;
   }
-  if(reaction_LSR && millis() > timeStamp_LSR){
-    // digitalWrite(LASER, HIGH);
-    // digitalWrite(SOLENOID, HIGH);  
-    digitalWrite(LASER, LOW);
-    digitalWrite(SOLENOID, LOW);  
-  }
-  if(reaction_LSR && (timeStamp_LSR + reactionLength_SLND) < millis()){
-    // digitalWrite(SOLENOID, LOW);
+  if(bangFlag_SLND){
     digitalWrite(SOLENOID, HIGH);
   }
-  if(reaction_LSR && (timeStamp_LSR + reactionLength_LSR) < millis()){
-    // digitalWrite(LASER, LOW);
+  if(millis() > timeStamp_LSR + reactionLength_SLND){
+    digitalWrite(SOLENOID, LOW);
+    bangFlag_SLND = false;
+  }
+  if(bangFlag_LSR){
     digitalWrite(LASER, HIGH);
-    // Serial.println("reaction_LSR finished");
-    reaction_LSR = false;
+  }
+  if(millis() > timeStamp_LSR + reactionLength_LSR){
+    digitalWrite(LASER, LOW);
+    bangFlag_LSR = false;
   }
 
   buffer[index] = raw;
@@ -418,6 +431,7 @@ void battery_check(){
     if(millis() % 500 < 250) digitalWrite(LED_R, HIGH);
     else digitalWrite(LED_R, LOW);
   }
+  Serial.prinln(analogRead(BAT_CHK));
 }
 
 void bumperFunction(){
@@ -441,7 +455,7 @@ void bumperFunction(){
       digitalWrite(MTR_A_F, HIGH);
       digitalWrite(MTR_A_B, LOW);
       analogWrite(MTR_A_PWM, motorSpeed);
-      digitalWrite(LED_R, HIGH);
+      // digitalWrite(LED_R, HIGH);
     }
     else{
       digitalWrite(MTR_B_F, HIGH);
@@ -460,7 +474,7 @@ void bumperFunction(){
       digitalWrite(MTR_B_F, HIGH);
       digitalWrite(MTR_B_B, LOW);
       analogWrite(MTR_B_PWM, motorSpeed);
-      digitalWrite(LED_G, HIGH);
+      // digitalWrite(LED_G, HIGH);
     }
     else{
       digitalWrite(MTR_A_F, HIGH);
@@ -485,11 +499,13 @@ void play(){
       digitalWrite(MTR_B_F, HIGH);
       digitalWrite(MTR_B_B, LOW);
       analogWrite(MTR_B_PWM, motorSpeed);
+      Serial.println("motorB should work");
     }
 
     //blinking and hitting
-    if(((millis() + shiftAmount) % cycleLength) < reactionLength_LSR && !blinkFlag){
-      blinkFlag = true;
+    if(((millis() + shiftAmount) % cycleLength) < reactionLength_LSR && !bangFlag_LSR){
+      bangFlag_LSR = true;
+      bangFlag_SLND = true;
       timeStamp_LSR = millis();
       // Serial.println("blinks");
       if(!bumpRreactFlag && !bumpLreactFlag){
@@ -497,9 +513,7 @@ void play(){
         else turnLeftFlag = true;
       }
     }
-    if(blinkFlag){
-      digitalWrite(LASER, HIGH);
-      digitalWrite(SOLENOID, HIGH);
+    if(bangFlag_LSR){
       // turn
       if(turnRightFlag){
         digitalWrite(MTR_B_F, LOW);
@@ -510,11 +524,8 @@ void play(){
         digitalWrite(MTR_A_B, HIGH);
       }
     }
-    if(blinkFlag && millis() > timeStamp_LSR + reactionLength_SLND){
-      digitalWrite(SOLENOID, LOW);
-    }
-    if(blinkFlag && millis() > timeStamp_LSR + reactionLength_LSR){
-      digitalWrite(LASER, LOW);
+    if(millis() > timeStamp_LSR + reactionLength_LSR){
+      // digitalWrite(LASER, LOW);
       if(turnRightFlag){
         digitalWrite(MTR_B_F, HIGH);
         digitalWrite(MTR_B_B, LOW);
@@ -525,18 +536,17 @@ void play(){
         digitalWrite(MTR_A_B, LOW);
         turnLeftFlag = false;
       }
-      blinkFlag = false;
     }
   }
   else if(!followLightFlag){
     analogWrite(MTR_A_PWM, 0);
     analogWrite(MTR_B_PWM, 0);
-    digitalWrite(LASER, LOW);
   }
 }
 
 void followLight(){
-  if(followLightFlag){ // "followLight" only works when followLightFlag is true
+  if(followLightFlag){ 
+  // "followLight" only works when followLightFlag is true
   // considering charging at night, this function make collecting robots easier.
   // basically it just following light.
   // but need to figure out how to stop it...
