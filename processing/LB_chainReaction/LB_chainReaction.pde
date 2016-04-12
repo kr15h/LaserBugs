@@ -30,7 +30,6 @@ int detectCount = 0;
 int totalLT = 0;
 String date;
 
-
 ArrayList<Rotator> rots;
 //number and size of modules
 int row = 7;
