@@ -100,7 +100,7 @@ address
 7 sequence count reset
 8 cue
 */
-const int myId = 5;
+const int myId = 14;
 /*
 memo about id
 0 means for everything
@@ -153,7 +153,7 @@ const int debounce = 4;
 
 // LASER DETECTION
 // buffer for mean filter
-const int BUFFER_LENGTH = 10;
+const int BUFFER_LENGTH = 60;
 int buffer[BUFFER_LENGTH];
 int index = 0;
 // detect laser
@@ -180,6 +180,7 @@ long BMPconstant = 180000; //180000 * 0.5
 #if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)
 long BMPconstant = 180000; // 500000
 #endif
+//id 1 ~ 5 has various gear ratio. should have some different BMPconstant
 
 long reactionLength_BMP = BMPconstant / motorSpeed;
 
@@ -196,6 +197,7 @@ int seqCount = 0;
 boolean seqCountFlag = true;
 
 void setup() {
+  if(id == 5) BMPconstant = 100000;
   Serial.begin(57600);
   pinMode(MTR_A_F, OUTPUT);
   pinMode(MTR_A_B, OUTPUT);
@@ -283,9 +285,25 @@ void laserDetect_React() {
     digitalWrite(LASER, LOW);
     bangFlag_LSR = false;
   }
+  // if(sequenceMode){
+  //   if (millis() > timeStamp_LSR + reactionLength_LSR / 2) {
+  //     digitalWrite(LASER, LOW);
+  //     bangFlag_LSR = false;
+  //   }
+  // }
+  // else if(!sequenceMode){
+  //   if (millis() > timeStamp_LSR + reactionLength_LSR) {
+  //     digitalWrite(LASER, LOW);
+  //     bangFlag_LSR = false;
+  //   }
+  // }
+  
 
   buffer[index] = raw;
   index = (index + 1) % BUFFER_LENGTH;
+  // if(index % BUFFER_LENGTH == 0){
+  //   Serial.println(millis());
+  // }
 
   // Serial.print(raw);
   // Serial.print(' ');
@@ -383,7 +401,7 @@ void irCommand() {
       if (value > 100 && address == 1 ||
               value > 255 && address == 2 ||
               value > 127 && address == 3 ||
-              value > 511 && address == 4 ||
+              value > 127 && address == 4 ||
               value > 16  && address == 6 ||
               value > 9 && address == 7 
             ){
@@ -432,13 +450,15 @@ void irCommand() {
         switch (address) {
           case 0:
             if (value < 4096) cycleLength = value;
-            reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
+            if(!sequenceMode) reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
+            else if(sequenceMode) reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio/2);
             irCommandFlag = false;
             irNotification = true;
             break;
           case 1:
             laser_reactionLength_ratio = value / 100.0;
-            reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
+            if(!sequenceMode) reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
+            else if(sequenceMode) reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio/2);
             irCommandFlag = false;
             irNotification = true;
             break;
@@ -521,12 +541,14 @@ void irCommand() {
                 break;
               case 5: // sequence mode on
                 sequenceMode = true;
+                reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio / 2);
                 bangFlag = false;
                 irCommandFlag = false;
                 irNotification = true;
                 break;
               case 6: // sequence mode off
                 sequenceMode = false;
+                reactionLength_LSR = int(cycleLength * laser_reactionLength_ratio);
                 bangFlag = false;
                 irCommandFlag = false;
                 irNotification = true;
@@ -674,6 +696,7 @@ void bumperFunction() {
 void play() {
   if (playFlag) { // "play" only works when playFlag is true
 
+
     if (sequenceMode) {
       // if((millis() % cycleLength) > (shiftAmount % cycleLength) &&
       //    (millis() % cycleLength) < (shiftAmount % cycleLength) + debounce && !bangFlag){
@@ -691,21 +714,8 @@ void play() {
         // Serial.println(beat[seqCount]);
         if (seqCount >= loopDigit) seqCount = 0;
       }
-      if (millis() - timeStamp_LSR > debounce) {
-        bangFlag = false;
-      }
     }
     else if (!sequenceMode) {
-      // move forward
-      if (!bumpLreactFlag && !bumpRreactFlag) {
-        digitalWrite(MTR_A_F, HIGH);
-        digitalWrite(MTR_A_B, LOW);
-        analogWrite(MTR_A_PWM, motorSpeed);
-        digitalWrite(MTR_B_F, HIGH);
-        digitalWrite(MTR_B_B, LOW);
-        analogWrite(MTR_B_PWM, motorSpeed);
-        // Serial.println("motorB should work");
-      }
 
       //blinking and hitting
       // if(((millis() + shiftAmount) % cycleLength) < reactionLength_LSR && !bangFlag_LSR){
@@ -724,38 +734,50 @@ void play() {
         // Serial.print(' ');
         // Serial.println(shiftAmount);
       }
-      if (millis() - timeStamp_LSR > debounce) {
-        bangFlag = false;
+    }
+
+    // something common in Seq mode and non-seq mode
+    if (millis() - timeStamp_LSR > debounce) {
+      bangFlag = false;
+    }
+    if (!bumpLreactFlag && !bumpRreactFlag) {
+      digitalWrite(MTR_A_F, HIGH);
+      digitalWrite(MTR_A_B, LOW);
+      analogWrite(MTR_A_PWM, motorSpeed);
+      digitalWrite(MTR_B_F, HIGH);
+      digitalWrite(MTR_B_B, LOW);
+      analogWrite(MTR_B_PWM, motorSpeed);
+      // Serial.println("motorB should work");
+    }
+    if (!bumpRreactFlag && !bumpLreactFlag) {
+      if (int(random(50)) % 2 == 1) turnRightFlag = true;
+      else turnLeftFlag = true;
+    }
+    if (bangFlag_LSR) {
+      // turn
+      if (turnRightFlag) {
+        digitalWrite(MTR_B_F, LOW);
+        digitalWrite(MTR_B_B, HIGH);
       }
-      if (!bumpRreactFlag && !bumpLreactFlag) {
-        if (int(random(50)) % 2 == 1) turnRightFlag = true;
-        else turnLeftFlag = true;
-      }
-      if (bangFlag_LSR) {
-        // turn
-        if (turnRightFlag) {
-          digitalWrite(MTR_B_F, LOW);
-          digitalWrite(MTR_B_B, HIGH);
-        }
-        else if (turnLeftFlag) {
-          digitalWrite(MTR_A_F, LOW);
-          digitalWrite(MTR_A_B, HIGH);
-        }
-      }
-      if (millis() > timeStamp_LSR + reactionLength_LSR) {
-        // digitalWrite(LASER, LOW);
-        if (turnRightFlag) {
-          digitalWrite(MTR_B_F, HIGH);
-          digitalWrite(MTR_B_B, LOW);
-          turnRightFlag = false;
-        }
-        else if (turnLeftFlag) {
-          digitalWrite(MTR_A_F, HIGH);
-          digitalWrite(MTR_A_B, LOW);
-          turnLeftFlag = false;
-        }
+      else if (turnLeftFlag) {
+        digitalWrite(MTR_A_F, LOW);
+        digitalWrite(MTR_A_B, HIGH);
       }
     }
+    if (millis() > timeStamp_LSR + reactionLength_LSR) {
+      // digitalWrite(LASER, LOW);
+      if (turnRightFlag) {
+        digitalWrite(MTR_B_F, HIGH);
+        digitalWrite(MTR_B_B, LOW);
+        turnRightFlag = false;
+      }
+      else if (turnLeftFlag) {
+        digitalWrite(MTR_A_F, HIGH);
+        digitalWrite(MTR_A_B, LOW);
+        turnLeftFlag = false;
+      }
+    }
+    
   }
   else if (!followLightFlag) {
     analogWrite(MTR_A_PWM, 0);
