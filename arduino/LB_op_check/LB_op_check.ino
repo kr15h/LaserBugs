@@ -142,13 +142,15 @@ int motorSpeed = 125; // 250 for slow motor
 #endif
 
 boolean playFlag = false;
-int cycleLength = 476; // = bpm126
+unsigned int cycleLength = 476; // = bpm126
 boolean bangFlag = false;
 boolean bangFlag_LSR = false;
 boolean bangFlag_SLND = false;
 unsigned long shiftAmount = 0;
-boolean turnRightFlag = false;
-boolean turnLeftFlag = false;
+boolean turnDirection = false; // true is left, false is left
+boolean turnFlag = false;
+// boolean turnRightFlag = false;
+// boolean turnLeftFlag = false;
 const int debounce = 4;
 
 // LASER DETECTION
@@ -162,8 +164,8 @@ int threshold = 10; // used to be 3
 float laser_reactionLength_ratio = 0.2;
 unsigned long timeStamp_LSR;
 // boolean bangFlag= false;
-int reactionLength_LSR = cycleLength * laser_reactionLength_ratio;
-int reactionLength_SLND = 20;
+unsigned int reactionLength_LSR = cycleLength * laser_reactionLength_ratio;
+unsigned int reactionLength_SLND = 20;
 
 // bumper function
 boolean bumpLstate;
@@ -398,18 +400,23 @@ void irCommand() {
         op >= 0 && op < 5 &&
         address >= 0 && address < 8 &&
         value >= 0 && value < 65536) {
-      if (value > 100 && address == 1 ||
-              value > 255 && address == 2 ||
-              value > 127 && address == 3 ||
-              value > 127 && address == 4 ||
-              value > 16  && address == 6 ||
-              value > 9 && address == 7 
+      if (value > 4096 && address == 0 || // cycleLength
+          value > 100 && address == 1 ||  // laserReaction_ratio
+          value > 255 && address == 2 ||  // motorSpeed
+          value > 127 && address == 3 ||  // threshold
+          value < 3   && address == 3 ||
+          value > 127 && address == 4 ||  // solenoid on time
+          value > 16  && address == 6 ||  // loopDigit
+          value > 9 && address == 7       // functions
             ){
         Serial.println("irCommand Error");
         irCommandFlag = false;
       }
+      else if(id == 0 && op == 0 && address == 0){
+        Serial.println("irCommand Error");
+        irCommandFlag = false;
+      }
       // those are in case of error, prevent values replacing
-
       else if (id == 0) {
         correspond = true;
       }
@@ -709,6 +716,7 @@ void play() {
         timeStamp_LSR = millis();
         seqCount ++;
         bangFlag = true;
+        turnFlag = true;
         // Serial.print(seqCount-1);
         // Serial.print(' ');
         // Serial.println(beat[seqCount]);
@@ -728,6 +736,7 @@ void play() {
         bangFlag_SLND = true;
         timeStamp_LSR = millis();
         bangFlag = true;
+        turnFlag = true;
         // Serial.print("blinks");
         // Serial.print(' ');
         // Serial.print(cycleLength);
@@ -749,35 +758,33 @@ void play() {
       analogWrite(MTR_B_PWM, motorSpeed);
       // Serial.println("motorB should work");
     }
-    if (!bumpRreactFlag && !bumpLreactFlag) {
-      if (int(random(50)) % 2 == 1) turnRightFlag = true;
-      else turnLeftFlag = true;
-    }
     if (bangFlag_LSR) {
       // turn
-      if (turnRightFlag) {
+      if (turnDirection) {
         digitalWrite(MTR_B_F, LOW);
         digitalWrite(MTR_B_B, HIGH);
       }
-      else if (turnLeftFlag) {
+      else if (!turnDirection) {
         digitalWrite(MTR_A_F, LOW);
         digitalWrite(MTR_A_B, HIGH);
       }
     }
-    if (millis() > timeStamp_LSR + reactionLength_LSR) {
+    if (millis() > timeStamp_LSR + reactionLength_LSR && turnFlag == true) {
       // digitalWrite(LASER, LOW);
-      if (turnRightFlag) {
+      if (turnDirection) {
         digitalWrite(MTR_B_F, HIGH);
         digitalWrite(MTR_B_B, LOW);
-        turnRightFlag = false;
+        turnFlag = false;
       }
-      else if (turnLeftFlag) {
+      else if (!turnDirection) {
         digitalWrite(MTR_A_F, HIGH);
         digitalWrite(MTR_A_B, LOW);
-        turnLeftFlag = false;
+        turnFlag = false;
       }
+      if (int(random(50)) % 2 == 1) turnDirection = true;
+      else turnDirection = false;
+      // Serial.println(turnDirection);
     }
-    
   }
   else if (!followLightFlag) {
     analogWrite(MTR_A_PWM, 0);
