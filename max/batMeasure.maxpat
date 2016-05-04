@@ -7,7 +7,7 @@
 			"revision" : 8
 		}
 ,
-		"rect" : [ 108.0, 388.0, 246.0, 121.0 ],
+		"rect" : [ 108.0, 388.0, 273.0, 443.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 9.0,
@@ -230,8 +230,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "" ],
-					"patching_rect" : [ 28.0, 102.0, 60.0, 17.0 ],
-					"text" : "serial f 9600"
+					"patching_rect" : [ 28.0, 102.0, 62.0, 17.0 ],
+					"text" : "serial g 9600"
 				}
 
 			}
