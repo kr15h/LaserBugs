@@ -42,7 +42,8 @@ float turnAmount = 2.416;
 
 void setup() {
   //size(1200, 800);
-  size(1000, 500);
+  //size(1000, 500);
+  size(1920, 1160);
   // frameRate(30);
 
   osc = new OscP5(this, 12000);
@@ -100,12 +101,12 @@ void setup() {
   cp5.addSlider("row")
     .setPosition(20, 110)
       .setSize(100, 20)
-        .setRange(1, 10)
+        .setRange(1, 15)
           .setValue(row);
   cp5.addSlider("column")
     .setPosition(20, 140)
       .setSize(100, 20)
-        .setRange(1, 10)
+        .setRange(1, 15)
           .setValue(column);
   cp5.addButton("Start")
      .setPosition(20, height-50)

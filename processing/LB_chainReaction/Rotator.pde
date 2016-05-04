@@ -227,8 +227,14 @@ class Rotator {
     // if(detectCount != 0 || turnMode != "OFF" || lightMode == "ON"){ // when it's on the corner, light is on
     if (lightMode == "ON") { // when it's on the corner, light is on
       // if(detectCount != 0){
-      line(location.x + cos(angle)*rotSize, location.y + sin(angle)*rotSize, 
-      location.x + cos(angle)*rotSize*300, location.y + sin(angle)*rotSize*300);
+
+      // line(location.x + cos(angle)*rotSize, location.y + sin(angle)*rotSize, 
+      // location.x + cos(angle)*rotSize*300, location.y + sin(angle)*rotSize*300);
+
+      for(int i = 0; i<600; i++){
+        stroke(0, 255, 0, 255-i*255/600);
+        point(location.x + cos(angle)*i, location.y + sin(angle)*i);
+      }
     }
 
     // reset detect count when finish to draw
