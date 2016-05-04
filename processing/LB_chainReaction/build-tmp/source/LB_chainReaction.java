@@ -38,8 +38,8 @@ NetAddress supercollider;
 //for control parameters
 
 ControlP5 cp5;
-int blinkTime = 50;
-int loopTime = 2000;
+int blinkTime = 200;
+int loopTime = 3000;
 float range = 1.0f;
 boolean startFlag = false;
 
@@ -60,10 +60,13 @@ int moduleSize = 5; //half diamiter
 // from science of leaf angle of "5/13".
 float turnAmount = 2.416f; 
 
+int laserRange = 300;
+
 public void setup() {
+  println(loopTime);
   //size(1200, 800);
-  //size(1000, 500);
   
+  // size(1920, 1160); //MBP15inch Fullscreen
   // frameRate(30);
 
   osc = new OscP5(this, 12000);
@@ -102,16 +105,20 @@ public void setup() {
 
   // cp5
   cp5 = new ControlP5(this);
-  cp5.addSlider("blinkTimeSlider")
+  cp5.addSlider("blinkTime")
     .setPosition(20, 20)
       .setSize(100, 20)
-        .setRange(1, 100)
-          .setValue(blinkTime);
-  cp5.addSlider("loopTimeSlider")
+        .setRange(1, 1000)
+          // .setValue(blinkTime);
+          .setValue(200);
+
+
+  cp5.addSlider("loopTime")
     .setPosition(20, 50)
       .setSize(100, 20)
-        .setRange(1000, 8000)
-          .setValue(loopTime);
+        .setRange(100, 5000)
+          // .setValue(loopTime);
+          .setValue(2000);
   // cp5.addSlider("blinkTimeRangeSlider")
   //   .setPosition(20, 80)
   //     .setSize(100, 20)
@@ -136,6 +143,8 @@ public void setup() {
   date = year() + nf(month(),2) + nf(day(),2) + "-"  + nf(hour(),2) + nf(minute(),2) + ".csv";
   println(startFlag);
   //output = createWriter(date); 
+    println(loopTime);
+
 }
 
 public void draw() {
@@ -176,8 +185,8 @@ public void draw() {
         }
         // int loopTime = 1000;
         int shiftTime = PApplet.parseInt(random(0, loopTime));
-        float blinkTime = 50; // in milli seconds.
-        rots.add(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime));
+        // float blinkTime = 50; // in milli seconds.
+        rots.add(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime, laserRange));
         // 0));
       }
     }
@@ -242,14 +251,14 @@ Hao Hao \u306e\u771f\u4f3c\u3057\u3066\u307f\u305f\u3044\u306a
    - \u305f\u3060\u3001\u5149\u3092\u53d7\u3051\u306a\u3044\u9650\u308a\u52d5\u304d\u59cb\u3081\u306a\u3044\u3068\u3059\u308b\u3068\u3001\u6700\u521d\u306e\u304d\u3063\u304b\u3051\u304c\u3051\u3063\u3053\u3046\u91cd\u8981\u306b\u306a\u308b\u3002
  
  */
-class Rotator {
+  class Rotator {
   PVector location;
-  float rSpeed, mSpeed, rotSize, angle, targetAngle, capAngle, blinkTime;
-  int detectCount, shift, type, loopTime, defaultTime;
+  float rSpeed, mSpeed, rotSize, angle, targetAngle, capAngle, blinkTime, r;
+  int detectCount, shift, type, loopTime, defaultTime, laserRange;
   long shiftTime;
   boolean pairing, angleMatch, detectFlag, lastDetectFlag, soundFlag;
   String turnMode, lightMode;
-  Rotator (float x, float y, float rs, float ms, int lt, int dt, float bt) {
+  Rotator (float x, float y, float rs, float ms, int lt, int dt, float bt, int rr) {
     location = new PVector(x, y);
     rSpeed = rs;
     mSpeed = ms;
@@ -263,13 +272,15 @@ class Rotator {
     shiftTime = dt;
     soundFlag = true;
     blinkTime = bt;
+    laserRange = rr;
   }
 
   // detecting other rotator's laser
   public void selfblinking() {
     if ((millis() + shiftTime) % loopTime < blinkTime) {
       lightMode = "ON";
-      angle += rSpeed;
+      if(r > 0.5f) angle += rSpeed;
+      else angle -= rSpeed;
       if (soundFlag) {
         OscMessage msg = new OscMessage("/collision");
         float xpos = map(location.x, 0, width, -1, 1);
@@ -280,6 +291,7 @@ class Rotator {
         msg.add(440);
         osc.send(msg, supercollider); 
         soundFlag = false;
+        r = random(0, 1);
       }
       // println(lightMode);
     } else {
@@ -307,10 +319,10 @@ class Rotator {
         if (other.lightMode == "ON") { 
           // when it's on the corner, light is on
           // if(other.detectCount > 1){ 
-          if (diff < tolerance || abs(diff - TWO_PI) < tolerance) {
+          // if (diff < tolerance || abs(diff - TWO_PI) < tolerance) {
+          if (diff < tolerance || abs(diff - TWO_PI) < tolerance && distance < laserRange) {
             detectCount ++;
             shift = shift + 5; 
-
             detectFlag = true;
             // if (detectFlag && !lastDetectFlag && lightMode == "OFF") {
             if (detectFlag && !lastDetectFlag) {
@@ -455,8 +467,8 @@ class Rotator {
   public void update() {
     // change color to fill depend on it's detecting or not.
     if (lightMode == "ON")  fill(0, 200, 0);  
-    // else fill(60);
-    else fill(loopTime / 10);
+    else fill(150);
+    // else fill(loopTime / 10);
 
     //drawing Modules
     strokeWeight(1);
@@ -475,8 +487,8 @@ class Rotator {
       // line(location.x + cos(angle)*rotSize, location.y + sin(angle)*rotSize, 
       // location.x + cos(angle)*rotSize*300, location.y + sin(angle)*rotSize*300);
 
-      for(int i = 0; i<600; i++){
-        stroke(0, 255, 0, 255-i*255/600);
+      for(int i = 0; i<laserRange; i++){
+        stroke(0, 255, 0, 255-i*255/laserRange);
         point(location.x + cos(angle)*i, location.y + sin(angle)*i);
       }
     }
@@ -546,7 +558,7 @@ public void report() {
   output.close();
   exit();
 }
-  public void settings() {  size(1920, 1160); }
+  public void settings() {  size(1000, 500); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "LB_chainReaction" };
     if (passedArgs != null) {

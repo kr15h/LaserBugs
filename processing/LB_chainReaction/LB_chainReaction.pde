@@ -18,8 +18,8 @@ NetAddress supercollider;
 //for control parameters
 import controlP5.*;
 ControlP5 cp5;
-int blinkTime = 50;
-int loopTime = 2000;
+int blinkTime = 200;
+int loopTime = 3000;
 float range = 1.0;
 boolean startFlag = false;
 
@@ -40,10 +40,13 @@ int moduleSize = 5; //half diamiter
 // from science of leaf angle of "5/13".
 float turnAmount = 2.416; 
 
+int laserRange = 300;
+
 void setup() {
+  println(loopTime);
   //size(1200, 800);
-  //size(1000, 500);
-  size(1920, 1160);
+  size(1000, 500);
+  // size(1920, 1160); //MBP15inch Fullscreen
   // frameRate(30);
 
   osc = new OscP5(this, 12000);
@@ -82,16 +85,20 @@ void setup() {
 
   // cp5
   cp5 = new ControlP5(this);
-  cp5.addSlider("blinkTimeSlider")
+  cp5.addSlider("blinkTime")
     .setPosition(20, 20)
       .setSize(100, 20)
-        .setRange(1, 100)
-          .setValue(blinkTime);
-  cp5.addSlider("loopTimeSlider")
+        .setRange(1, 1000)
+          // .setValue(blinkTime);
+          .setValue(200);
+
+
+  cp5.addSlider("loopTime")
     .setPosition(20, 50)
       .setSize(100, 20)
-        .setRange(1000, 8000)
-          .setValue(loopTime);
+        .setRange(100, 5000)
+          // .setValue(loopTime);
+          .setValue(2000);
   // cp5.addSlider("blinkTimeRangeSlider")
   //   .setPosition(20, 80)
   //     .setSize(100, 20)
@@ -116,6 +123,8 @@ void setup() {
   date = year() + nf(month(),2) + nf(day(),2) + "-"  + nf(hour(),2) + nf(minute(),2) + ".csv";
   println(startFlag);
   //output = createWriter(date); 
+    println(loopTime);
+
 }
 
 void draw() {
@@ -156,8 +165,8 @@ void draw() {
         }
         // int loopTime = 1000;
         int shiftTime = int(random(0, loopTime));
-        float blinkTime = 50; // in milli seconds.
-        rots.add(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime));
+        // float blinkTime = 50; // in milli seconds.
+        rots.add(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime, laserRange));
         // 0));
       }
     }

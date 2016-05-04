@@ -1,11 +1,11 @@
-class Rotator {
+  class Rotator {
   PVector location;
-  float rSpeed, mSpeed, rotSize, angle, targetAngle, capAngle, blinkTime;
-  int detectCount, shift, type, loopTime, defaultTime;
+  float rSpeed, mSpeed, rotSize, angle, targetAngle, capAngle, blinkTime, r;
+  int detectCount, shift, type, loopTime, defaultTime, laserRange;
   long shiftTime;
   boolean pairing, angleMatch, detectFlag, lastDetectFlag, soundFlag;
   String turnMode, lightMode;
-  Rotator (float x, float y, float rs, float ms, int lt, int dt, float bt) {
+  Rotator (float x, float y, float rs, float ms, int lt, int dt, float bt, int rr) {
     location = new PVector(x, y);
     rSpeed = rs;
     mSpeed = ms;
@@ -19,13 +19,15 @@ class Rotator {
     shiftTime = dt;
     soundFlag = true;
     blinkTime = bt;
+    laserRange = rr;
   }
 
   // detecting other rotator's laser
   void selfblinking() {
     if ((millis() + shiftTime) % loopTime < blinkTime) {
       lightMode = "ON";
-      angle += rSpeed;
+      if(r > 0.5) angle += rSpeed;
+      else angle -= rSpeed;
       if (soundFlag) {
         OscMessage msg = new OscMessage("/collision");
         float xpos = map(location.x, 0, width, -1, 1);
@@ -36,6 +38,7 @@ class Rotator {
         msg.add(440);
         osc.send(msg, supercollider); 
         soundFlag = false;
+        r = random(0, 1);
       }
       // println(lightMode);
     } else {
@@ -63,10 +66,10 @@ class Rotator {
         if (other.lightMode == "ON") { 
           // when it's on the corner, light is on
           // if(other.detectCount > 1){ 
-          if (diff < tolerance || abs(diff - TWO_PI) < tolerance) {
+          // if (diff < tolerance || abs(diff - TWO_PI) < tolerance) {
+          if (diff < tolerance || abs(diff - TWO_PI) < tolerance && distance < laserRange) {
             detectCount ++;
             shift = shift + 5; 
-
             detectFlag = true;
             // if (detectFlag && !lastDetectFlag && lightMode == "OFF") {
             if (detectFlag && !lastDetectFlag) {
@@ -211,8 +214,8 @@ class Rotator {
   void update() {
     // change color to fill depend on it's detecting or not.
     if (lightMode == "ON")  fill(0, 200, 0);  
-    // else fill(60);
-    else fill(loopTime / 10);
+    else fill(150);
+    // else fill(loopTime / 10);
 
     //drawing Modules
     strokeWeight(1);
@@ -231,8 +234,8 @@ class Rotator {
       // line(location.x + cos(angle)*rotSize, location.y + sin(angle)*rotSize, 
       // location.x + cos(angle)*rotSize*300, location.y + sin(angle)*rotSize*300);
 
-      for(int i = 0; i<600; i++){
-        stroke(0, 255, 0, 255-i*255/600);
+      for(int i = 0; i<laserRange; i++){
+        stroke(0, 255, 0, 255-i*255/laserRange);
         point(location.x + cos(angle)*i, location.y + sin(angle)*i);
       }
     }
