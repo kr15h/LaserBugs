@@ -3,26 +3,57 @@
 #include <EEPROM.h>
 
 // pin assign
-// out
-const int MTR_A_F = 12;
-const int MTR_A_B = 10;
-const int MTR_A_PWM = 9;
-const int MTR_B_F = 5;
-const int MTR_B_B = 8;
-const int MTR_B_PWM = 6;
-const int MTR_STNBY = 18;
-const int SOLENOID = 7;
-const int LASER = 4;
-const int LED_G = 13;
-const int LED_R = 19;
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+#define MTR_A_F 12
+#define MTR_A_B 10
+#define MTR_A_PWM 9
+#define MTR_B_F 5
+#define MTR_B_B 8
+#define MTR_B_PWM 6
+#define MTR_STNBY 18
+#define SOLENOID 7
+#define LASER 4
+#define LED_G 13
+#define LED_R 19
 // in
-const int L_BUMPER = 2;
-// const int R_BUMPER = 3;
-const int RECV_PIN = 11;
-const int CDS = 0;
-const int JUMP_0 = 15;
-const int JUMP_1 = 16;
-const int BAT_CHK = 17;
+#define L_BUMPER 2
+#define R_BUMPER 3
+#define RECV_PIN 11
+#define CDS 0
+// #define JUMP_0 15
+// #define JUMP_1 16
+#define CDS_L 1
+#define CDS_R 2
+#define BAT_CHK 17
+#endif
+
+#if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)
+/*
+note:
+because irremote using different timer on Leonardo Board,
+board2 cannot use D6 pin as PWM output.
+*/
+#define MTR_A_F 12
+#define MTR_A_B 10
+#define MTR_A_PWM 9
+#define MTR_B_F 6 // used to be 5
+#define MTR_B_B 8
+#define MTR_B_PWM 5 // used to be 6
+#define JUMP A4
+// #define JUMP 18
+#define SOLENOID 7
+#define LASER 4
+#define LED_G 13
+#define LED_R A5
+// in
+#define L_BUMPER 2
+#define R_BUMPER 3
+#define RECV_PIN 11
+#define CDS A0
+#define CDS_L A1
+#define CDS_R A2
+#define BAT_CHK A3
+#endif
 
 // IRrecv
 IRrecv irrecv(RECV_PIN);
@@ -135,20 +166,24 @@ void setup() {
   pinMode(MTR_B_F, OUTPUT);
   pinMode(MTR_B_B, OUTPUT);
   pinMode(MTR_B_PWM, OUTPUT);
-  pinMode(MTR_STNBY, OUTPUT);
   pinMode(SOLENOID, OUTPUT);
   pinMode(LASER, OUTPUT);
   pinMode(LED_G, OUTPUT);
   pinMode(LED_R, OUTPUT);
   pinMode(L_BUMPER, INPUT_PULLUP);
-  // pinMode(R_BUMPER, INPUT_PULLUP);
+  pinMode(R_BUMPER, INPUT_PULLUP);
   pinMode(CDS, INPUT);
-  pinMode(JUMP_0, INPUT_PULLUP);
-  pinMode(JUMP_1, INPUT_PULLUP);
+  // pinMode(JUMP_1, INPUT_PULLUP);
   pinMode(BAT_CHK, INPUT);
   irrecv.enableIRIn(); // Start the receiver
-  digitalWrite(MTR_STNBY, HIGH); // activate motor
 
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+  pinMode(MTR_STNBY, OUTPUT);
+  digitalWrite(MTR_STNBY, HIGH); // activate motor
+#endif
+#if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega16U4__)
+  pinMode(JUMP, INPUT_PULLUP);
+#endif
   // prepare mean filter 
   for(int i=0; i<BUFFER_LENGTH; i++){
     buffer[i] = analogRead(CDS);
@@ -182,7 +217,7 @@ void loop() {
   laserDetect();
   irCommand();
   battery_check();
-  jump_led();
+//  jump_led();
   bumperFunction();
   play();
 
@@ -403,12 +438,12 @@ void battery_check(){
   }
 }
 
-void jump_led(){
-  if(!digitalRead(JUMP_0)) digitalWrite(LED_R, HIGH);
-  else digitalWrite(LED_R, LOW);
-  if(!digitalRead(JUMP_1)) digitalWrite(LED_G, HIGH);
-  else digitalWrite(LED_G, LOW);  
-}
+//void jump_led(){
+//  if(!digitalRead(JUMP_0)) digitalWrite(LED_R, HIGH);
+//  else digitalWrite(LED_R, LOW);
+//  if(!digitalRead(JUMP_1)) digitalWrite(LED_G, HIGH);
+//  else digitalWrite(LED_G, LOW);  
+//}
 
 void bumperFunction(){
   bumpLstate = digitalRead(L_BUMPER);
