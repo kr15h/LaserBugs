@@ -25,6 +25,7 @@ SynthDef('test3', {
 }).store
 )
 
+Synth(\test3)
 
 
 

@@ -44,8 +44,9 @@ int laserRange = 300;
 
 void setup() {
   println(loopTime);
-  //size(1200, 800);
+  // size(1366, 730); //MBA11inch Fullscreen
   size(1000, 500);
+  // size(360, 240);
   // size(1920, 1160); //MBP15inch Fullscreen
   // frameRate(30);
 
@@ -99,11 +100,11 @@ void setup() {
         .setRange(100, 5000)
           // .setValue(loopTime);
           .setValue(2000);
-  // cp5.addSlider("blinkTimeRangeSlider")
-  //   .setPosition(20, 80)
-  //     .setSize(100, 20)
-  //       .setRange(0.5, 1.0)
-  //         .setValue(range);
+  cp5.addSlider("laserRange")
+    .setPosition(20, 80)
+      .setSize(100, 20)
+        .setRange(100, 1000)
+          .setValue(laserRange);
 
   cp5.addSlider("row")
     .setPosition(20, 110)
