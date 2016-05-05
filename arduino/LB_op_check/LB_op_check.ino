@@ -142,6 +142,7 @@ int motorSpeed = 125; // 250 for slow motor
 #endif
 
 boolean playFlag = false;
+boolean lastPlayFlag = false;
 unsigned int cycleLength = 476; // = bpm126
 boolean bangFlag = false;
 boolean bangFlag_LSR = false;
@@ -152,6 +153,7 @@ boolean turnFlag = false;
 // boolean turnRightFlag = false;
 // boolean turnLeftFlag = false;
 const int debounce = 4;
+boolean rotateReactFlag = false;
 
 // LASER DETECTION
 // buffer for mean filter
@@ -268,6 +270,7 @@ void laserDetect_React() {
     timeStamp_LSR = millis();
     bangFlag_LSR = true;
     bangFlag_SLND = true;
+    turnFlag = true;
     // shiftAmount = shiftAmount + (millis()%cycleLength);
     shiftAmount = millis() % cycleLength;
   }
@@ -310,6 +313,51 @@ void laserDetect_React() {
   // Serial.print(raw);
   // Serial.print(' ');
   // Serial.println(smoothedByMeanFilter);
+
+  if(rotateReactFlag && !playFlag){
+    // truning around while laser is on
+    if (bangFlag_LSR) {
+      // turn
+      if (turnDirection) {
+        digitalWrite(MTR_A_F, HIGH);
+        digitalWrite(MTR_A_B, LOW);
+        digitalWrite(MTR_B_F, LOW);
+        digitalWrite(MTR_B_B, HIGH);
+        analogWrite(MTR_A_PWM, motorSpeed);
+        analogWrite(MTR_B_PWM, motorSpeed);
+      }
+      else if (!turnDirection) {
+        digitalWrite(MTR_A_F, LOW);
+        digitalWrite(MTR_A_B, HIGH);
+        digitalWrite(MTR_B_F, HIGH);
+        digitalWrite(MTR_B_B, LOW);
+        analogWrite(MTR_A_PWM, motorSpeed);
+        analogWrite(MTR_B_PWM, motorSpeed);
+      }
+    }
+    // finish turning when laser blink has finished
+    if (millis() > timeStamp_LSR + reactionLength_LSR && turnFlag == true) {
+      // digitalWrite(LASER, LOW);
+      if (turnDirection) {
+        analogWrite(MTR_A_PWM, 0);
+        analogWrite(MTR_B_PWM, 0);
+        // digitalWrite(MTR_B_F, HIGH);
+        // digitalWrite(MTR_B_B, LOW);
+        turnFlag = false;
+      }
+      else if (!turnDirection) {
+        analogWrite(MTR_A_PWM, 0);
+        analogWrite(MTR_B_PWM, 0);
+        // digitalWrite(MTR_A_F, HIGH);
+        // digitalWrite(MTR_A_B, LOW);
+        turnFlag = false;
+      }
+      // Serial.println("turn finished");
+      if (int(random(50)) % 2 == 1) turnDirection = true;
+      else turnDirection = false;
+      // Serial.println(turnDirection);
+    }
+  }
 }
 
 int smoothByMeanFilter() {
@@ -407,7 +455,7 @@ void irCommand() {
           value < 3   && address == 3 ||
           value > 127 && address == 4 ||  // solenoid on time
           value > 16  && address == 6 ||  // loopDigit
-          value > 9 && address == 7       // functions
+          value > 11 && address == 7       // functions
             ){
         Serial.println("irCommand Error");
         irCommandFlag = false;
@@ -599,10 +647,18 @@ void irCommand() {
                 irCommandFlag = false;
                 irNotification = true;
                 break;
-                // default:
+              case 10:
+                rotateReactFlag = true;
+                irCommandFlag = false;
+                irNotification = true;
+                break;
+              case 11:
+                rotateReactFlag = false;
+                irCommandFlag = false;
+                irNotification = true;
+                break;
             }
             break;
-            // default:
         }
       }
     }
@@ -749,6 +805,8 @@ void play() {
     if (millis() - timeStamp_LSR > debounce) {
       bangFlag = false;
     }
+
+    // moving forward 
     if (!bumpLreactFlag && !bumpRreactFlag) {
       digitalWrite(MTR_A_F, HIGH);
       digitalWrite(MTR_A_B, LOW);
@@ -758,6 +816,8 @@ void play() {
       analogWrite(MTR_B_PWM, motorSpeed);
       // Serial.println("motorB should work");
     }
+
+    // truning around while laser is on
     if (bangFlag_LSR) {
       // turn
       if (turnDirection) {
@@ -769,6 +829,7 @@ void play() {
         digitalWrite(MTR_A_B, HIGH);
       }
     }
+    // finish turning when laser blink has finished
     if (millis() > timeStamp_LSR + reactionLength_LSR && turnFlag == true) {
       // digitalWrite(LASER, LOW);
       if (turnDirection) {
@@ -786,10 +847,17 @@ void play() {
       // Serial.println(turnDirection);
     }
   }
-  else if (!followLightFlag) {
+  else if (!playFlag && lastPlayFlag){
     analogWrite(MTR_A_PWM, 0);
     analogWrite(MTR_B_PWM, 0);
+    Serial.println("motor off");
   }
+
+  // else if (!followLightFlag || !rotateReactFlag) {
+    // analogWrite(MTR_A_PWM, 0);
+    // analogWrite(MTR_B_PWM, 0);
+  // }
+  lastPlayFlag = playFlag;
 }
 
 void followLight() {
