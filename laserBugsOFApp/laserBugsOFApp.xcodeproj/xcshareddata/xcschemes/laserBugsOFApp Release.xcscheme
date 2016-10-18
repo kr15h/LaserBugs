@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "laserBugsDebug.app"
+               BuildableName = "laserBugsOFAppDebug.app"
                BlueprintName = "laserBugsOFApp"
                ReferencedContainer = "container:laserBugsOFApp.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "laserBugsDebug.app"
+            BuildableName = "laserBugsOFAppDebug.app"
             BlueprintName = "laserBugsOFApp"
             ReferencedContainer = "container:laserBugsOFApp.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "laserBugsDebug.app"
+            BuildableName = "laserBugsOFAppDebug.app"
             BlueprintName = "laserBugsOFApp"
             ReferencedContainer = "container:laserBugsOFApp.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "laserBugsDebug.app"
+            BuildableName = "laserBugsOFAppDebug.app"
             BlueprintName = "laserBugsOFApp"
             ReferencedContainer = "container:laserBugsOFApp.xcodeproj">
          </BuildableReference>
