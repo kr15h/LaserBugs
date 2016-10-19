@@ -18,4 +18,16 @@ void ofApp::update(){
 
 void ofApp::draw(){
 	mapper.draw();
+	
+	if(sharedData->debug){
+		stringstream ss;
+		ss << "fps: " << ofGetFrameRate();
+		ofDrawBitmapStringHighlight(ss.str(), 10, 20, ofColor(0, 100));
+	}
+}
+
+void ofApp::keyPressed(int key){
+	if(key == ' '){
+		sharedData->debug = !sharedData->debug;
+	}
 }

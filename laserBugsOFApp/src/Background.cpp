@@ -22,6 +22,7 @@ void Background::setup(){
 	texData.width = _sharedData->getAppWidth();
 	texData.height = _sharedData->getAppHeight();
 	_gridTexture.allocate(texData);
+	_cellNumbersTexture.allocate(texData);
 	
 	_numCols = BACKGROUND_INIT_COLS;
 	_numRows = BACKGROUND_INIT_ROWS;
@@ -43,6 +44,10 @@ void Background::draw(){
 	}
 	
 	_gridTexture.draw(0, 0, getWidth(), getHeight());
+	
+	if(_sharedData->debug){
+		_cellNumbersTexture.draw(0, 0, getWidth(), getHeight());
+	}
 }
 
 void Background::calcGrid(){
@@ -77,6 +82,31 @@ void Background::calcGrid(){
 	fbo.end();
 	
 	_gridTexture = fbo.getTexture();
+	
+	drawCellNumbers();
+}
+
+void Background::drawCellNumbers(){
+	ofFbo fbo;
+	fbo.allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	
+	fbo.begin();
+	ofClear(0);
+	
+	for(int y = 0; y < _numRows; ++y){
+		for(int x = 0; x < _numCols; ++x){
+			stringstream ss;
+			ss << x << ", " << y;
+			ofDrawBitmapString(
+				ss.str(),
+				(float)x * _colWidth + 10,
+				(float)y * _rowHeight + 20);
+		}
+	}
+	
+	fbo.end();
+	
+	_cellNumbersTexture = fbo.getTexture();
 }
 
 void Background::setSharedData(shared_ptr<SharedData> sd){

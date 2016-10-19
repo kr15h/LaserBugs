@@ -3,6 +3,8 @@
 namespace laserbugs{
 
 SharedData::SharedData(){
+	debug = false;
+
 	_appWidth = SHARED_DATA_APP_WIDTH;
 	_appHeight = SHARED_DATA_APP_HEIGHT;
 }

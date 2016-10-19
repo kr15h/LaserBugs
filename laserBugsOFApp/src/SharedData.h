@@ -9,6 +9,8 @@ class SharedData{
 	public:
 		SharedData();
 	
+		bool debug;
+	
 		unsigned int getAppWidth();
 		unsigned int getAppHeight();
 	
