@@ -37,6 +37,8 @@ class Background : public ofx::piMapper::FboSource{
 		float _rowHeight;
 	
 		shared_ptr<SharedData> _sharedData;
+	
+		ofTexture _gridTexture;
 };
 
 } // namespace laserbugs

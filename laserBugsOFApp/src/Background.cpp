@@ -17,8 +17,15 @@ void Background::setup(){
 	}
 
 	allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	
+	ofTextureData texData;
+	texData.width = _sharedData->getAppWidth();
+	texData.height = _sharedData->getAppHeight();
+	_gridTexture.allocate(texData);
+	
 	_numCols = BACKGROUND_INIT_COLS;
 	_numRows = BACKGROUND_INIT_ROWS;
+	
 	calcGrid();
 }
 
@@ -27,7 +34,6 @@ void Background::update(){
 		ofLogError("Background::setup", "Please provide SharedData");
 		return;
 	}
-	calcGrid();
 }
 
 void Background::draw(){
@@ -36,6 +42,17 @@ void Background::draw(){
 		return;
 	}
 	
+	_gridTexture.draw(0, 0, getWidth(), getHeight());
+}
+
+void Background::calcGrid(){
+	_colWidth = (float)getWidth() / (float)_numCols;
+	_rowHeight = (float)getHeight() / (float)_numRows;
+	
+	ofFbo fbo;
+	fbo.allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	
+	fbo.begin();
 	ofClear(0);
 	
 	ofPushStyle();
@@ -56,11 +73,10 @@ void Background::draw(){
 		}
 	}
 	ofPopStyle();
-}
-
-void Background::calcGrid(){
-	_colWidth = (float)getWidth() / (float)_numCols;
-	_rowHeight = (float)getHeight() / (float)_numRows;
+	
+	fbo.end();
+	
+	_gridTexture = fbo.getTexture();
 }
 
 void Background::setSharedData(shared_ptr<SharedData> sd){
