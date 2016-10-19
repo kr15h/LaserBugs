@@ -12,8 +12,8 @@ Background::Background(){
 void Background::setup(){
 	allocate(BACKGROUND_WIDTH, BACKGROUND_HEIGHT);
 	ofBackground(0);
-	_numCols = 10;
-	_numRows = 8;
+	_numCols = 16;
+	_numRows = 9;
 	calcGrid();
 }
 
@@ -45,6 +45,16 @@ void Background::draw(){
 void Background::calcGrid(){
 	_colWidth = (float)getWidth() / (float)_numCols;
 	_rowHeight = (float)getHeight() / (float)_numRows;
+}
+
+void Background::setNumCols(unsigned int cols){
+	_numCols = cols;
+	calcGrid();
+}
+
+void Background::setNumRows(unsigned int rows){
+	_numRows = rows;
+	calcGrid();
 }
 
 } // namespace laserbugs

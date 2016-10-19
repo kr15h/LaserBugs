@@ -23,6 +23,9 @@ class Background : public ofx::piMapper::FboSource{
 	
 		void calcGrid();
 	
+		void setNumCols(unsigned int cols);
+		void setNumRows(unsigned int rows);
+	
 	private:
 		unsigned int _numCols;
 		unsigned int _numRows;
