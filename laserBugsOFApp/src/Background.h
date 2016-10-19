@@ -1,7 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
+#include "FboSource.h"
 
+#define BACKGROUND_WIDTH 1920
+#define BACKGROUND_HEIGHT 1080
 #define BACKGROUND_DOT_SIZE 2.0f
 #define BACKGROUND_DOT_BRIGHTNESS 75
 #define BACKGROUND_LINE_WIDTH 2.0f
@@ -10,7 +13,7 @@
 
 namespace laserbugs{
 
-class Background{
+class Background : public ofx::piMapper::FboSource{
 	public:
 		Background();
 	

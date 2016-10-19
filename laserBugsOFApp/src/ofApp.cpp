@@ -5,16 +5,16 @@ namespace laserbugs{
 void ofApp::setup(){
 	cout << "LaserBugs says hello!" << endl;
 	
-	_background = make_shared<Background>();
-	_background->setup();
+	mapper.registerFboSource(background);
+	mapper.setup();
 }
 
 void ofApp::update(){
-	_background->update();
+	mapper.update();
 }
 
 void ofApp::draw(){
-	_background->draw();
+	mapper.draw();
 }
 
 } // namespace laserbugs

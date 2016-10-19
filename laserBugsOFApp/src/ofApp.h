@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxPiMapper.h"
 #include "Background.h"
 
 namespace laserbugs{
@@ -11,7 +12,9 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
 	
-		shared_ptr<Background> _background;
+		ofxPiMapper mapper;
+	
+		laserbugs::Background background;
 };
 
 } // namespace laserbugs
