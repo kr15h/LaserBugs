@@ -24,6 +24,7 @@ class Background : public ofx::piMapper::FboSource{
 		void draw();
 	
 		void calcGrid();
+		void drawGrid();
 		void drawCellNumbers();
 	
 		void setSharedData(shared_ptr<SharedData> sd);

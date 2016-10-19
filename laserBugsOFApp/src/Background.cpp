@@ -54,6 +54,11 @@ void Background::calcGrid(){
 	_colWidth = (float)getWidth() / (float)_numCols;
 	_rowHeight = (float)getHeight() / (float)_numRows;
 	
+	drawGrid();
+	drawCellNumbers();
+}
+
+void Background::drawGrid(){
 	ofFbo fbo;
 	fbo.allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
 	
@@ -82,8 +87,6 @@ void Background::calcGrid(){
 	fbo.end();
 	
 	_gridTexture = fbo.getTexture();
-	
-	drawCellNumbers();
 }
 
 void Background::drawCellNumbers(){
