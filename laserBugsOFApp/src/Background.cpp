@@ -22,10 +22,18 @@ void Background::update(){
 
 void Background::draw(){
 	ofPushStyle();
-	ofSetColor(255);
 	for(float y = _rowHeight; y < ofGetHeight(); y += _rowHeight){
+		ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
+		ofDrawLine(0, y, ofGetWidth(), y);
 		for(float x = _colWidth; x < ofGetWidth(); x += _colWidth){
-			ofDrawCircle(x, y, 5);
+			if(y == _rowHeight){
+				ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
+				ofDrawLine(x, 0, x, ofGetHeight());
+			}
+			ofSetColor(0);
+			ofDrawCircle(x, y, BACKGROUND_DOT_SIZE + BACKGROUND_DOT_MARGIN);
+			ofSetColor(BACKGROUND_DOT_BRIGHTNESS);
+			ofDrawCircle(x, y, BACKGROUND_DOT_SIZE);
 		}
 	}
 	ofPopStyle();
