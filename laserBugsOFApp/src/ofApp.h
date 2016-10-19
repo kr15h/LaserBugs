@@ -2,9 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxPiMapper.h"
+#include "SharedData.h"
 #include "Background.h"
-
-namespace laserbugs{
 
 class ofApp : public ofBaseApp{
 	public:
@@ -14,7 +13,7 @@ class ofApp : public ofBaseApp{
 	
 		ofxPiMapper mapper;
 	
+		shared_ptr<laserbugs::SharedData> sharedData;
+	
 		laserbugs::Background background;
 };
-
-} // namespace laserbugs

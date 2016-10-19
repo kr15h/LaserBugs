@@ -3,6 +3,7 @@
 namespace laserbugs{
 
 Background::Background(){
+	_sharedData = 0;
 	_numCols = 0;
 	_numRows = 0;
 	_colWidth = 0.0f;
@@ -10,21 +11,36 @@ Background::Background(){
 }
 
 void Background::setup(){
-	allocate(BACKGROUND_WIDTH, BACKGROUND_HEIGHT);
-	ofBackground(0);
-	_numCols = 16;
-	_numRows = 9;
+	if(_sharedData == 0){
+		ofLogError("Background::setup", "Please provide SharedData");
+		return;
+	}
+
+	allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	_numCols = BACKGROUND_INIT_COLS;
+	_numRows = BACKGROUND_INIT_ROWS;
 	calcGrid();
 }
 
 void Background::update(){
+	if(_sharedData == 0){
+		ofLogError("Background::setup", "Please provide SharedData");
+		return;
+	}
 	calcGrid();
 }
 
 void Background::draw(){
+	if(_sharedData == 0){
+		ofLogError("Background::setup", "Please provide SharedData");
+		return;
+	}
+	
 	ofClear(0);
-
+	
 	ofPushStyle();
+	ofSetColor(0);
+	ofDrawRectangle(0, 0, getWidth(), getHeight());
 	for(float y = _rowHeight; y < getHeight(); y += _rowHeight){
 		ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
 		ofDrawLine(0, y, getWidth(), y);
@@ -45,6 +61,10 @@ void Background::draw(){
 void Background::calcGrid(){
 	_colWidth = (float)getWidth() / (float)_numCols;
 	_rowHeight = (float)getHeight() / (float)_numRows;
+}
+
+void Background::setSharedData(shared_ptr<SharedData> sd){
+	_sharedData = sd;
 }
 
 void Background::setNumCols(unsigned int cols){
