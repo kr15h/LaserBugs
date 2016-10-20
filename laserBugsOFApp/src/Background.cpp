@@ -3,6 +3,8 @@
 namespace laserbugs{
 
 Background::Background(){
+	name = "Background";
+	
 	_sharedData = 0;
 	_numCols = 0;
 	_numRows = 0;

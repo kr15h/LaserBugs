@@ -7,8 +7,10 @@ void ofApp::setup(){
 	
 	sharedData = make_shared<laserbugs::SharedData>();
 	background.setSharedData(sharedData);
+	container.setSharedData(sharedData);
 	
 	mapper.registerFboSource(background);
+	mapper.registerFboSource(container);
 	mapper.setup();
 }
 

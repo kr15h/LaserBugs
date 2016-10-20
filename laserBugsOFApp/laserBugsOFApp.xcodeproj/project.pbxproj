@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01172AA21DB9574800B2BB04 /* BugsContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01172AA11DB9574800B2BB04 /* BugsContainer.cpp */; };
 		01C63B7A1DB661440065ADDF /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C63B791DB661440065ADDF /* Background.cpp */; };
 		01DE4CCE1DB7FD70004C41C2 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C161DB7FD70004C41C2 /* Application.cpp */; };
 		01DE4CCF1DB7FD70004C41C2 /* ApplicationBaseMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C191DB7FD70004C41C2 /* ApplicationBaseMode.cpp */; };
@@ -157,6 +158,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01172AA01DB9574800B2BB04 /* BugsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugsContainer.h; sourceTree = "<group>"; };
+		01172AA11DB9574800B2BB04 /* BugsContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BugsContainer.cpp; sourceTree = "<group>"; };
 		01C63B781DB661440065ADDF /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		01C63B791DB661440065ADDF /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
 		01DE4C161DB7FD70004C41C2 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
@@ -988,6 +991,8 @@
 				01DE4DF61DB80532004C41C2 /* SharedData.cpp */,
 				01C63B781DB661440065ADDF /* Background.h */,
 				01C63B791DB661440065ADDF /* Background.cpp */,
+				01172AA01DB9574800B2BB04 /* BugsContainer.h */,
+				01172AA11DB9574800B2BB04 /* BugsContainer.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1126,6 +1131,7 @@
 				01DE4CF81DB7FD70004C41C2 /* Gui.cpp in Sources */,
 				01DE4D0D1DB7FD70004C41C2 /* SurfaceFactory.cpp in Sources */,
 				01DE4DE01DB7FDAC004C41C2 /* Compression.cpp in Sources */,
+				01172AA21DB9574800B2BB04 /* BugsContainer.cpp in Sources */,
 				01DE4D0A1DB7FD70004C41C2 /* GridWarpSurface.cpp in Sources */,
 				01DE4D021DB7FD70004C41C2 /* MediaServer.cpp in Sources */,
 				01DE4CD81DB7FD70004C41C2 /* ClearSurfacesCmd.cpp in Sources */,
