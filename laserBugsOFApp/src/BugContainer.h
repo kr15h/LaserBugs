@@ -4,13 +4,11 @@
 #include "FboSource.h"
 #include "SharedData.h"
 
-//#define BACKGROUND_BRIGHTNESS 0
-
 namespace laserbugs{
 
-class BugsContainer : public ofx::piMapper::FboSource{
+class BugContainer : public ofx::piMapper::FboSource{
 	public:
-		BugsContainer();
+		BugContainer();
 	
 		void setup();
 		void update();

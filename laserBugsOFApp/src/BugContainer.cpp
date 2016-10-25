@@ -1,14 +1,14 @@
-#include "BugsContainer.h"
+#include "BugContainer.h"
 
 namespace laserbugs{
 
-BugsContainer::BugsContainer(){
+BugContainer::BugContainer(){
 	name = "Bugs Container";
 
 	_sharedData = 0;
 }
 
-void BugsContainer::setup(){
+void BugContainer::setup(){
 	if(_sharedData == 0){
 		ofLogError("Background::setup", "Please provide SharedData");
 		return;
@@ -17,14 +17,14 @@ void BugsContainer::setup(){
 	allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
 }
 
-void BugsContainer::update(){
+void BugContainer::update(){
 	if(_sharedData == 0){
 		ofLogError("Background::setup", "Please provide SharedData");
 		return;
 	}
 }
 
-void BugsContainer::draw(){
+void BugContainer::draw(){
 	if(_sharedData == 0){
 		ofLogError("Background::setup", "Please provide SharedData");
 		return;
@@ -44,7 +44,7 @@ void BugsContainer::draw(){
 	ofPopStyle();
 }
 
-void BugsContainer::setSharedData(shared_ptr<SharedData> sd){
+void BugContainer::setSharedData(shared_ptr<SharedData> sd){
 	_sharedData = sd;
 }
 
