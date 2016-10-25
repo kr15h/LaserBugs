@@ -7,80 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01172AA21DB9574800B2BB04 /* BugsContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01172AA11DB9574800B2BB04 /* BugsContainer.cpp */; };
+		01172AA21DB9574800B2BB04 /* BugContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01172AA11DB9574800B2BB04 /* BugContainer.cpp */; };
+		01BBE2541DBFE4D1000DC469 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1B21DBFE4D1000DC469 /* Application.cpp */; };
+		01BBE2551DBFE4D1000DC469 /* ApplicationBaseMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1B51DBFE4D1000DC469 /* ApplicationBaseMode.cpp */; };
+		01BBE2561DBFE4D1000DC469 /* PresentationMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1B71DBFE4D1000DC469 /* PresentationMode.cpp */; };
+		01BBE2571DBFE4D1000DC469 /* ProjectionMappingMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1B91DBFE4D1000DC469 /* ProjectionMappingMode.cpp */; };
+		01BBE2581DBFE4D1000DC469 /* SourceSelectionMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1BB1DBFE4D1000DC469 /* SourceSelectionMode.cpp */; };
+		01BBE2591DBFE4D1000DC469 /* TextureMappingMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1BD1DBFE4D1000DC469 /* TextureMappingMode.cpp */; };
+		01BBE25A1DBFE4D1000DC469 /* SettingsLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1BF1DBFE4D1000DC469 /* SettingsLoader.cpp */; };
+		01BBE25B1DBFE4D1000DC469 /* AddGridColCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1C21DBFE4D1000DC469 /* AddGridColCmd.cpp */; };
+		01BBE25C1DBFE4D1000DC469 /* AddGridRowCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1C41DBFE4D1000DC469 /* AddGridRowCmd.cpp */; };
+		01BBE25D1DBFE4D1000DC469 /* AddSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1C61DBFE4D1000DC469 /* AddSurfaceCmd.cpp */; };
+		01BBE25E1DBFE4D1000DC469 /* ClearSurfacesCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1C91DBFE4D1000DC469 /* ClearSurfacesCmd.cpp */; };
+		01BBE25F1DBFE4D1000DC469 /* CmdManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1CB1DBFE4D1000DC469 /* CmdManager.cpp */; };
+		01BBE2601DBFE4D1000DC469 /* DeselectSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1CD1DBFE4D1000DC469 /* DeselectSurfaceCmd.cpp */; };
+		01BBE2611DBFE4D1000DC469 /* DeselectTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1CF1DBFE4D1000DC469 /* DeselectTexCoordCmd.cpp */; };
+		01BBE2621DBFE4D1000DC469 /* DuplicateSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1D11DBFE4D1000DC469 /* DuplicateSurfaceCmd.cpp */; };
+		01BBE2631DBFE4D1000DC469 /* MvAllTexCoordsCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1D31DBFE4D1000DC469 /* MvAllTexCoordsCmd.cpp */; };
+		01BBE2641DBFE4D1000DC469 /* MvLayerDnCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1D51DBFE4D1000DC469 /* MvLayerDnCmd.cpp */; };
+		01BBE2651DBFE4D1000DC469 /* MvLayerUpCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1D71DBFE4D1000DC469 /* MvLayerUpCmd.cpp */; };
+		01BBE2661DBFE4D1000DC469 /* MvSelectionCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1D91DBFE4D1000DC469 /* MvSelectionCmd.cpp */; };
+		01BBE2671DBFE4D1000DC469 /* MvSurfaceVertCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1DB1DBFE4D1000DC469 /* MvSurfaceVertCmd.cpp */; };
+		01BBE2681DBFE4D1000DC469 /* MvTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1DD1DBFE4D1000DC469 /* MvTexCoordCmd.cpp */; };
+		01BBE2691DBFE4D1000DC469 /* RmGridColCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1DF1DBFE4D1000DC469 /* RmGridColCmd.cpp */; };
+		01BBE26A1DBFE4D1000DC469 /* RmGridRowCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1E11DBFE4D1000DC469 /* RmGridRowCmd.cpp */; };
+		01BBE26B1DBFE4D1000DC469 /* RmSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1E31DBFE4D1000DC469 /* RmSurfaceCmd.cpp */; };
+		01BBE26C1DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1E51DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.cpp */; };
+		01BBE26D1DBFE4D1000DC469 /* SelNextSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1E71DBFE4D1000DC469 /* SelNextSurfaceCmd.cpp */; };
+		01BBE26E1DBFE4D1000DC469 /* SelNextTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1E91DBFE4D1000DC469 /* SelNextTexCoordCmd.cpp */; };
+		01BBE26F1DBFE4D1000DC469 /* SelNextVertexCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1EB1DBFE4D1000DC469 /* SelNextVertexCmd.cpp */; };
+		01BBE2701DBFE4D1000DC469 /* SelPrevSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1ED1DBFE4D1000DC469 /* SelPrevSurfaceCmd.cpp */; };
+		01BBE2711DBFE4D1000DC469 /* SelPrevTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1EF1DBFE4D1000DC469 /* SelPrevTexCoordCmd.cpp */; };
+		01BBE2721DBFE4D1000DC469 /* SelPrevVertexCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1F11DBFE4D1000DC469 /* SelPrevVertexCmd.cpp */; };
+		01BBE2731DBFE4D1000DC469 /* SelSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1F31DBFE4D1000DC469 /* SelSurfaceCmd.cpp */; };
+		01BBE2741DBFE4D1000DC469 /* SelVertexCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1F51DBFE4D1000DC469 /* SelVertexCmd.cpp */; };
+		01BBE2751DBFE4D1000DC469 /* SetApplicationModeCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1F71DBFE4D1000DC469 /* SetApplicationModeCmd.cpp */; };
+		01BBE2761DBFE4D1000DC469 /* SetNextSourceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1F91DBFE4D1000DC469 /* SetNextSourceCmd.cpp */; };
+		01BBE2771DBFE4D1000DC469 /* SetPresetCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1FB1DBFE4D1000DC469 /* SetPresetCmd.cpp */; };
+		01BBE2781DBFE4D1000DC469 /* SetSourceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1FD1DBFE4D1000DC469 /* SetSourceCmd.cpp */; };
+		01BBE2791DBFE4D1000DC469 /* SetTexMapDrawModeCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE1FF1DBFE4D1000DC469 /* SetTexMapDrawModeCmd.cpp */; };
+		01BBE27A1DBFE4D1000DC469 /* StartDragSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2011DBFE4D1000DC469 /* StartDragSurfaceCmd.cpp */; };
+		01BBE27B1DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2031DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.cpp */; };
+		01BBE27C1DBFE4D1000DC469 /* TogglePerspectiveCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2051DBFE4D1000DC469 /* TogglePerspectiveCmd.cpp */; };
+		01BBE27D1DBFE4D1000DC469 /* TranslateCanvasCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2071DBFE4D1000DC469 /* TranslateCanvasCmd.cpp */; };
+		01BBE27E1DBFE4D1000DC469 /* Gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE20A1DBFE4D1000DC469 /* Gui.cpp */; };
+		01BBE27F1DBFE4D1000DC469 /* LayerPanelWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE20E1DBFE4D1000DC469 /* LayerPanelWidget.cpp */; };
+		01BBE2801DBFE4D1000DC469 /* ProjectionEditorWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2101DBFE4D1000DC469 /* ProjectionEditorWidget.cpp */; };
+		01BBE2811DBFE4D1000DC469 /* ScaleWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2121DBFE4D1000DC469 /* ScaleWidget.cpp */; };
+		01BBE2821DBFE4D1000DC469 /* SourcesEditorWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2141DBFE4D1000DC469 /* SourcesEditorWidget.cpp */; };
+		01BBE2831DBFE4D1000DC469 /* SurfaceHighlightWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2161DBFE4D1000DC469 /* SurfaceHighlightWidget.cpp */; };
+		01BBE2841DBFE4D1000DC469 /* TextureConsumersWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2181DBFE4D1000DC469 /* TextureConsumersWidget.cpp */; };
+		01BBE2851DBFE4D1000DC469 /* TextureEditorWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE21A1DBFE4D1000DC469 /* TextureEditorWidget.cpp */; };
+		01BBE2861DBFE4D1000DC469 /* TextureHighlightWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE21C1DBFE4D1000DC469 /* TextureHighlightWidget.cpp */; };
+		01BBE2871DBFE4D1000DC469 /* Info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE21F1DBFE4D1000DC469 /* Info.cpp */; };
+		01BBE2881DBFE4D1000DC469 /* DirectoryWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2221DBFE4D1000DC469 /* DirectoryWatcher.cpp */; };
+		01BBE2891DBFE4D1000DC469 /* MediaServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2241DBFE4D1000DC469 /* MediaServer.cpp */; };
+		01BBE28A1DBFE4D1000DC469 /* ofxPiMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2261DBFE4D1000DC469 /* ofxPiMapper.cpp */; };
+		01BBE28B1DBFE4D1000DC469 /* BaseSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2291DBFE4D1000DC469 /* BaseSource.cpp */; };
+		01BBE28C1DBFE4D1000DC469 /* FboSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE22B1DBFE4D1000DC469 /* FboSource.cpp */; };
+		01BBE28D1DBFE4D1000DC469 /* ImageSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE22D1DBFE4D1000DC469 /* ImageSource.cpp */; };
+		01BBE28E1DBFE4D1000DC469 /* OMXPlayerCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE22F1DBFE4D1000DC469 /* OMXPlayerCache.cpp */; };
+		01BBE28F1DBFE4D1000DC469 /* VideoSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2321DBFE4D1000DC469 /* VideoSource.cpp */; };
+		01BBE2901DBFE4D1000DC469 /* BaseSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2351DBFE4D1000DC469 /* BaseSurface.cpp */; };
+		01BBE2911DBFE4D1000DC469 /* GridWarpSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2371DBFE4D1000DC469 /* GridWarpSurface.cpp */; };
+		01BBE2921DBFE4D1000DC469 /* HexagonSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2391DBFE4D1000DC469 /* HexagonSurface.cpp */; };
+		01BBE2931DBFE4D1000DC469 /* QuadSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE23B1DBFE4D1000DC469 /* QuadSurface.cpp */; };
+		01BBE2941DBFE4D1000DC469 /* SurfaceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE23D1DBFE4D1000DC469 /* SurfaceFactory.cpp */; };
+		01BBE2951DBFE4D1000DC469 /* SurfaceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE23F1DBFE4D1000DC469 /* SurfaceManager.cpp */; };
+		01BBE2961DBFE4D1000DC469 /* SurfaceStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2411DBFE4D1000DC469 /* SurfaceStack.cpp */; };
+		01BBE2971DBFE4D1000DC469 /* TriangleSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2441DBFE4D1000DC469 /* TriangleSurface.cpp */; };
+		01BBE2981DBFE4D1000DC469 /* BaseJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2471DBFE4D1000DC469 /* BaseJoint.cpp */; };
+		01BBE2991DBFE4D1000DC469 /* CircleJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2491DBFE4D1000DC469 /* CircleJoint.cpp */; };
+		01BBE29A1DBFE4D1000DC469 /* RadioList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE24D1DBFE4D1000DC469 /* RadioList.cpp */; };
+		01BBE29B1DBFE4D1000DC469 /* HomographyHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2501DBFE4D1000DC469 /* HomographyHelper.cpp */; };
+		01BBE29C1DBFE4D1000DC469 /* TerminalListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE2521DBFE4D1000DC469 /* TerminalListener.cpp */; };
+		01BBE29F1DBFE730000DC469 /* Bug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01BBE29E1DBFE730000DC469 /* Bug.cpp */; };
 		01C63B7A1DB661440065ADDF /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01C63B791DB661440065ADDF /* Background.cpp */; };
-		01DE4CCE1DB7FD70004C41C2 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C161DB7FD70004C41C2 /* Application.cpp */; };
-		01DE4CCF1DB7FD70004C41C2 /* ApplicationBaseMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C191DB7FD70004C41C2 /* ApplicationBaseMode.cpp */; };
-		01DE4CD01DB7FD70004C41C2 /* PresentationMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C1B1DB7FD70004C41C2 /* PresentationMode.cpp */; };
-		01DE4CD11DB7FD70004C41C2 /* ProjectionMappingMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C1D1DB7FD70004C41C2 /* ProjectionMappingMode.cpp */; };
-		01DE4CD21DB7FD70004C41C2 /* SourceSelectionMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C1F1DB7FD70004C41C2 /* SourceSelectionMode.cpp */; };
-		01DE4CD31DB7FD70004C41C2 /* TextureMappingMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C211DB7FD70004C41C2 /* TextureMappingMode.cpp */; };
-		01DE4CD41DB7FD70004C41C2 /* SettingsLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C231DB7FD70004C41C2 /* SettingsLoader.cpp */; };
-		01DE4CD51DB7FD70004C41C2 /* AddGridColCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C261DB7FD70004C41C2 /* AddGridColCmd.cpp */; };
-		01DE4CD61DB7FD70004C41C2 /* AddGridRowCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C281DB7FD70004C41C2 /* AddGridRowCmd.cpp */; };
-		01DE4CD71DB7FD70004C41C2 /* AddSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C2A1DB7FD70004C41C2 /* AddSurfaceCmd.cpp */; };
-		01DE4CD81DB7FD70004C41C2 /* ClearSurfacesCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C2D1DB7FD70004C41C2 /* ClearSurfacesCmd.cpp */; };
-		01DE4CD91DB7FD70004C41C2 /* CmdManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C2F1DB7FD70004C41C2 /* CmdManager.cpp */; };
-		01DE4CDA1DB7FD70004C41C2 /* DeselectSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C311DB7FD70004C41C2 /* DeselectSurfaceCmd.cpp */; };
-		01DE4CDB1DB7FD70004C41C2 /* DeselectTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C331DB7FD70004C41C2 /* DeselectTexCoordCmd.cpp */; };
-		01DE4CDC1DB7FD70004C41C2 /* DuplicateSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C351DB7FD70004C41C2 /* DuplicateSurfaceCmd.cpp */; };
-		01DE4CDD1DB7FD70004C41C2 /* MvAllTexCoordsCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C371DB7FD70004C41C2 /* MvAllTexCoordsCmd.cpp */; };
-		01DE4CDE1DB7FD70004C41C2 /* MvLayerDnCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C391DB7FD70004C41C2 /* MvLayerDnCmd.cpp */; };
-		01DE4CDF1DB7FD70004C41C2 /* MvLayerUpCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C3B1DB7FD70004C41C2 /* MvLayerUpCmd.cpp */; };
-		01DE4CE01DB7FD70004C41C2 /* MvSelectionCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C3D1DB7FD70004C41C2 /* MvSelectionCmd.cpp */; };
-		01DE4CE11DB7FD70004C41C2 /* MvSurfaceVertCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C3F1DB7FD70004C41C2 /* MvSurfaceVertCmd.cpp */; };
-		01DE4CE21DB7FD70004C41C2 /* MvTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C411DB7FD70004C41C2 /* MvTexCoordCmd.cpp */; };
-		01DE4CE31DB7FD70004C41C2 /* RmGridColCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C431DB7FD70004C41C2 /* RmGridColCmd.cpp */; };
-		01DE4CE41DB7FD70004C41C2 /* RmGridRowCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C451DB7FD70004C41C2 /* RmGridRowCmd.cpp */; };
-		01DE4CE51DB7FD70004C41C2 /* RmSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C471DB7FD70004C41C2 /* RmSurfaceCmd.cpp */; };
-		01DE4CE61DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C491DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.cpp */; };
-		01DE4CE71DB7FD70004C41C2 /* SelNextSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C4B1DB7FD70004C41C2 /* SelNextSurfaceCmd.cpp */; };
-		01DE4CE81DB7FD70004C41C2 /* SelNextTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C4D1DB7FD70004C41C2 /* SelNextTexCoordCmd.cpp */; };
-		01DE4CE91DB7FD70004C41C2 /* SelNextVertexCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C4F1DB7FD70004C41C2 /* SelNextVertexCmd.cpp */; };
-		01DE4CEA1DB7FD70004C41C2 /* SelPrevSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C511DB7FD70004C41C2 /* SelPrevSurfaceCmd.cpp */; };
-		01DE4CEB1DB7FD70004C41C2 /* SelPrevTexCoordCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C531DB7FD70004C41C2 /* SelPrevTexCoordCmd.cpp */; };
-		01DE4CEC1DB7FD70004C41C2 /* SelPrevVertexCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C551DB7FD70004C41C2 /* SelPrevVertexCmd.cpp */; };
-		01DE4CED1DB7FD70004C41C2 /* SelSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C571DB7FD70004C41C2 /* SelSurfaceCmd.cpp */; };
-		01DE4CEE1DB7FD70004C41C2 /* SelVertexCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C591DB7FD70004C41C2 /* SelVertexCmd.cpp */; };
-		01DE4CEF1DB7FD70004C41C2 /* SetActivePresetCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C5B1DB7FD70004C41C2 /* SetActivePresetCmd.cpp */; };
-		01DE4CF01DB7FD70004C41C2 /* SetApplicationModeCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C5D1DB7FD70004C41C2 /* SetApplicationModeCmd.cpp */; };
-		01DE4CF11DB7FD70004C41C2 /* SetNextSourceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C5F1DB7FD70004C41C2 /* SetNextSourceCmd.cpp */; };
-		01DE4CF21DB7FD70004C41C2 /* SetSourceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C611DB7FD70004C41C2 /* SetSourceCmd.cpp */; };
-		01DE4CF31DB7FD70004C41C2 /* SetTexMapDrawModeCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C631DB7FD70004C41C2 /* SetTexMapDrawModeCmd.cpp */; };
-		01DE4CF41DB7FD70004C41C2 /* StartDragSurfaceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C651DB7FD70004C41C2 /* StartDragSurfaceCmd.cpp */; };
-		01DE4CF51DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C671DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.cpp */; };
-		01DE4CF61DB7FD70004C41C2 /* TogglePerspectiveCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C691DB7FD70004C41C2 /* TogglePerspectiveCmd.cpp */; };
-		01DE4CF71DB7FD70004C41C2 /* TranslateCanvasCmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C6B1DB7FD70004C41C2 /* TranslateCanvasCmd.cpp */; };
-		01DE4CF81DB7FD70004C41C2 /* Gui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C6E1DB7FD70004C41C2 /* Gui.cpp */; };
-		01DE4CF91DB7FD70004C41C2 /* LayerPanelWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C721DB7FD70004C41C2 /* LayerPanelWidget.cpp */; };
-		01DE4CFA1DB7FD70004C41C2 /* ProjectionEditorWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C741DB7FD70004C41C2 /* ProjectionEditorWidget.cpp */; };
-		01DE4CFB1DB7FD70004C41C2 /* ScaleWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C761DB7FD70004C41C2 /* ScaleWidget.cpp */; };
-		01DE4CFC1DB7FD70004C41C2 /* SourcesEditorWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C781DB7FD70004C41C2 /* SourcesEditorWidget.cpp */; };
-		01DE4CFD1DB7FD70004C41C2 /* SurfaceHighlightWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C7A1DB7FD70004C41C2 /* SurfaceHighlightWidget.cpp */; };
-		01DE4CFE1DB7FD70004C41C2 /* TextureEditorWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C7C1DB7FD70004C41C2 /* TextureEditorWidget.cpp */; };
-		01DE4CFF1DB7FD70004C41C2 /* TextureHighlightWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C7E1DB7FD70004C41C2 /* TextureHighlightWidget.cpp */; };
-		01DE4D001DB7FD70004C41C2 /* Info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C811DB7FD70004C41C2 /* Info.cpp */; };
-		01DE4D011DB7FD70004C41C2 /* DirectoryWatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C841DB7FD70004C41C2 /* DirectoryWatcher.cpp */; };
-		01DE4D021DB7FD70004C41C2 /* MediaServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C861DB7FD70004C41C2 /* MediaServer.cpp */; };
-		01DE4D031DB7FD70004C41C2 /* ofxPiMapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C881DB7FD70004C41C2 /* ofxPiMapper.cpp */; };
-		01DE4D041DB7FD70004C41C2 /* BaseSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C8B1DB7FD70004C41C2 /* BaseSource.cpp */; };
-		01DE4D051DB7FD70004C41C2 /* FboSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C8D1DB7FD70004C41C2 /* FboSource.cpp */; };
-		01DE4D061DB7FD70004C41C2 /* ImageSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C8F1DB7FD70004C41C2 /* ImageSource.cpp */; };
-		01DE4D071DB7FD70004C41C2 /* OMXPlayerCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C911DB7FD70004C41C2 /* OMXPlayerCache.cpp */; };
-		01DE4D081DB7FD70004C41C2 /* VideoSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C941DB7FD70004C41C2 /* VideoSource.cpp */; };
-		01DE4D091DB7FD70004C41C2 /* BaseSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C971DB7FD70004C41C2 /* BaseSurface.cpp */; };
-		01DE4D0A1DB7FD70004C41C2 /* GridWarpSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C991DB7FD70004C41C2 /* GridWarpSurface.cpp */; };
-		01DE4D0B1DB7FD70004C41C2 /* HexagonSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C9B1DB7FD70004C41C2 /* HexagonSurface.cpp */; };
-		01DE4D0C1DB7FD70004C41C2 /* QuadSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C9D1DB7FD70004C41C2 /* QuadSurface.cpp */; };
-		01DE4D0D1DB7FD70004C41C2 /* SurfaceFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4C9F1DB7FD70004C41C2 /* SurfaceFactory.cpp */; };
-		01DE4D0E1DB7FD70004C41C2 /* SurfaceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CA11DB7FD70004C41C2 /* SurfaceManager.cpp */; };
-		01DE4D0F1DB7FD70004C41C2 /* SurfaceStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CA31DB7FD70004C41C2 /* SurfaceStack.cpp */; };
-		01DE4D101DB7FD70004C41C2 /* TriangleSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CA61DB7FD70004C41C2 /* TriangleSurface.cpp */; };
-		01DE4D111DB7FD70004C41C2 /* BaseJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CA91DB7FD70004C41C2 /* BaseJoint.cpp */; };
-		01DE4D121DB7FD70004C41C2 /* CircleJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CAB1DB7FD70004C41C2 /* CircleJoint.cpp */; };
-		01DE4D131DB7FD70004C41C2 /* RadioList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CAF1DB7FD70004C41C2 /* RadioList.cpp */; };
-		01DE4D141DB7FD70004C41C2 /* HomographyHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CB21DB7FD70004C41C2 /* HomographyHelper.cpp */; };
-		01DE4D151DB7FD70004C41C2 /* TerminalListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4CB41DB7FD70004C41C2 /* TerminalListener.cpp */; };
 		01DE4D251DB7FD89004C41C2 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4D1E1DB7FD89004C41C2 /* tinyxml.cpp */; };
 		01DE4D261DB7FD89004C41C2 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4D201DB7FD89004C41C2 /* tinyxmlerror.cpp */; };
 		01DE4D271DB7FD89004C41C2 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 01DE4D211DB7FD89004C41C2 /* tinyxmlparser.cpp */; };
@@ -158,160 +160,164 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		01172AA01DB9574800B2BB04 /* BugsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugsContainer.h; sourceTree = "<group>"; };
-		01172AA11DB9574800B2BB04 /* BugsContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BugsContainer.cpp; sourceTree = "<group>"; };
+		01172AA01DB9574800B2BB04 /* BugContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugContainer.h; sourceTree = "<group>"; };
+		01172AA11DB9574800B2BB04 /* BugContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BugContainer.cpp; sourceTree = "<group>"; };
+		01BBE1B21DBFE4D1000DC469 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		01BBE1B31DBFE4D1000DC469 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		01BBE1B51DBFE4D1000DC469 /* ApplicationBaseMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationBaseMode.cpp; sourceTree = "<group>"; };
+		01BBE1B61DBFE4D1000DC469 /* ApplicationBaseMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationBaseMode.h; sourceTree = "<group>"; };
+		01BBE1B71DBFE4D1000DC469 /* PresentationMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PresentationMode.cpp; sourceTree = "<group>"; };
+		01BBE1B81DBFE4D1000DC469 /* PresentationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationMode.h; sourceTree = "<group>"; };
+		01BBE1B91DBFE4D1000DC469 /* ProjectionMappingMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectionMappingMode.cpp; sourceTree = "<group>"; };
+		01BBE1BA1DBFE4D1000DC469 /* ProjectionMappingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionMappingMode.h; sourceTree = "<group>"; };
+		01BBE1BB1DBFE4D1000DC469 /* SourceSelectionMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourceSelectionMode.cpp; sourceTree = "<group>"; };
+		01BBE1BC1DBFE4D1000DC469 /* SourceSelectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceSelectionMode.h; sourceTree = "<group>"; };
+		01BBE1BD1DBFE4D1000DC469 /* TextureMappingMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMappingMode.cpp; sourceTree = "<group>"; };
+		01BBE1BE1DBFE4D1000DC469 /* TextureMappingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureMappingMode.h; sourceTree = "<group>"; };
+		01BBE1BF1DBFE4D1000DC469 /* SettingsLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsLoader.cpp; sourceTree = "<group>"; };
+		01BBE1C01DBFE4D1000DC469 /* SettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLoader.h; sourceTree = "<group>"; };
+		01BBE1C21DBFE4D1000DC469 /* AddGridColCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddGridColCmd.cpp; sourceTree = "<group>"; };
+		01BBE1C31DBFE4D1000DC469 /* AddGridColCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGridColCmd.h; sourceTree = "<group>"; };
+		01BBE1C41DBFE4D1000DC469 /* AddGridRowCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddGridRowCmd.cpp; sourceTree = "<group>"; };
+		01BBE1C51DBFE4D1000DC469 /* AddGridRowCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGridRowCmd.h; sourceTree = "<group>"; };
+		01BBE1C61DBFE4D1000DC469 /* AddSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1C71DBFE4D1000DC469 /* AddSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1C81DBFE4D1000DC469 /* BaseCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCmd.h; sourceTree = "<group>"; };
+		01BBE1C91DBFE4D1000DC469 /* ClearSurfacesCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClearSurfacesCmd.cpp; sourceTree = "<group>"; };
+		01BBE1CA1DBFE4D1000DC469 /* ClearSurfacesCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearSurfacesCmd.h; sourceTree = "<group>"; };
+		01BBE1CB1DBFE4D1000DC469 /* CmdManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdManager.cpp; sourceTree = "<group>"; };
+		01BBE1CC1DBFE4D1000DC469 /* CmdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdManager.h; sourceTree = "<group>"; };
+		01BBE1CD1DBFE4D1000DC469 /* DeselectSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeselectSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1CE1DBFE4D1000DC469 /* DeselectSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeselectSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1CF1DBFE4D1000DC469 /* DeselectTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeselectTexCoordCmd.cpp; sourceTree = "<group>"; };
+		01BBE1D01DBFE4D1000DC469 /* DeselectTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeselectTexCoordCmd.h; sourceTree = "<group>"; };
+		01BBE1D11DBFE4D1000DC469 /* DuplicateSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DuplicateSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1D21DBFE4D1000DC469 /* DuplicateSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuplicateSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1D31DBFE4D1000DC469 /* MvAllTexCoordsCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvAllTexCoordsCmd.cpp; sourceTree = "<group>"; };
+		01BBE1D41DBFE4D1000DC469 /* MvAllTexCoordsCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvAllTexCoordsCmd.h; sourceTree = "<group>"; };
+		01BBE1D51DBFE4D1000DC469 /* MvLayerDnCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvLayerDnCmd.cpp; sourceTree = "<group>"; };
+		01BBE1D61DBFE4D1000DC469 /* MvLayerDnCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvLayerDnCmd.h; sourceTree = "<group>"; };
+		01BBE1D71DBFE4D1000DC469 /* MvLayerUpCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvLayerUpCmd.cpp; sourceTree = "<group>"; };
+		01BBE1D81DBFE4D1000DC469 /* MvLayerUpCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvLayerUpCmd.h; sourceTree = "<group>"; };
+		01BBE1D91DBFE4D1000DC469 /* MvSelectionCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvSelectionCmd.cpp; sourceTree = "<group>"; };
+		01BBE1DA1DBFE4D1000DC469 /* MvSelectionCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvSelectionCmd.h; sourceTree = "<group>"; };
+		01BBE1DB1DBFE4D1000DC469 /* MvSurfaceVertCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvSurfaceVertCmd.cpp; sourceTree = "<group>"; };
+		01BBE1DC1DBFE4D1000DC469 /* MvSurfaceVertCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvSurfaceVertCmd.h; sourceTree = "<group>"; };
+		01BBE1DD1DBFE4D1000DC469 /* MvTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvTexCoordCmd.cpp; sourceTree = "<group>"; };
+		01BBE1DE1DBFE4D1000DC469 /* MvTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvTexCoordCmd.h; sourceTree = "<group>"; };
+		01BBE1DF1DBFE4D1000DC469 /* RmGridColCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RmGridColCmd.cpp; sourceTree = "<group>"; };
+		01BBE1E01DBFE4D1000DC469 /* RmGridColCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmGridColCmd.h; sourceTree = "<group>"; };
+		01BBE1E11DBFE4D1000DC469 /* RmGridRowCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RmGridRowCmd.cpp; sourceTree = "<group>"; };
+		01BBE1E21DBFE4D1000DC469 /* RmGridRowCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmGridRowCmd.h; sourceTree = "<group>"; };
+		01BBE1E31DBFE4D1000DC469 /* RmSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RmSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1E41DBFE4D1000DC469 /* RmSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1E51DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleSurfaceFromToCmd.cpp; sourceTree = "<group>"; };
+		01BBE1E61DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleSurfaceFromToCmd.h; sourceTree = "<group>"; };
+		01BBE1E71DBFE4D1000DC469 /* SelNextSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelNextSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1E81DBFE4D1000DC469 /* SelNextSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelNextSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1E91DBFE4D1000DC469 /* SelNextTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelNextTexCoordCmd.cpp; sourceTree = "<group>"; };
+		01BBE1EA1DBFE4D1000DC469 /* SelNextTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelNextTexCoordCmd.h; sourceTree = "<group>"; };
+		01BBE1EB1DBFE4D1000DC469 /* SelNextVertexCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelNextVertexCmd.cpp; sourceTree = "<group>"; };
+		01BBE1EC1DBFE4D1000DC469 /* SelNextVertexCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelNextVertexCmd.h; sourceTree = "<group>"; };
+		01BBE1ED1DBFE4D1000DC469 /* SelPrevSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelPrevSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1EE1DBFE4D1000DC469 /* SelPrevSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPrevSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1EF1DBFE4D1000DC469 /* SelPrevTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelPrevTexCoordCmd.cpp; sourceTree = "<group>"; };
+		01BBE1F01DBFE4D1000DC469 /* SelPrevTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPrevTexCoordCmd.h; sourceTree = "<group>"; };
+		01BBE1F11DBFE4D1000DC469 /* SelPrevVertexCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelPrevVertexCmd.cpp; sourceTree = "<group>"; };
+		01BBE1F21DBFE4D1000DC469 /* SelPrevVertexCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPrevVertexCmd.h; sourceTree = "<group>"; };
+		01BBE1F31DBFE4D1000DC469 /* SelSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1F41DBFE4D1000DC469 /* SelSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE1F51DBFE4D1000DC469 /* SelVertexCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelVertexCmd.cpp; sourceTree = "<group>"; };
+		01BBE1F61DBFE4D1000DC469 /* SelVertexCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelVertexCmd.h; sourceTree = "<group>"; };
+		01BBE1F71DBFE4D1000DC469 /* SetApplicationModeCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetApplicationModeCmd.cpp; sourceTree = "<group>"; };
+		01BBE1F81DBFE4D1000DC469 /* SetApplicationModeCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetApplicationModeCmd.h; sourceTree = "<group>"; };
+		01BBE1F91DBFE4D1000DC469 /* SetNextSourceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetNextSourceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1FA1DBFE4D1000DC469 /* SetNextSourceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNextSourceCmd.h; sourceTree = "<group>"; };
+		01BBE1FB1DBFE4D1000DC469 /* SetPresetCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetPresetCmd.cpp; sourceTree = "<group>"; };
+		01BBE1FC1DBFE4D1000DC469 /* SetPresetCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetPresetCmd.h; sourceTree = "<group>"; };
+		01BBE1FD1DBFE4D1000DC469 /* SetSourceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetSourceCmd.cpp; sourceTree = "<group>"; };
+		01BBE1FE1DBFE4D1000DC469 /* SetSourceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSourceCmd.h; sourceTree = "<group>"; };
+		01BBE1FF1DBFE4D1000DC469 /* SetTexMapDrawModeCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetTexMapDrawModeCmd.cpp; sourceTree = "<group>"; };
+		01BBE2001DBFE4D1000DC469 /* SetTexMapDrawModeCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTexMapDrawModeCmd.h; sourceTree = "<group>"; };
+		01BBE2011DBFE4D1000DC469 /* StartDragSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartDragSurfaceCmd.cpp; sourceTree = "<group>"; };
+		01BBE2021DBFE4D1000DC469 /* StartDragSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDragSurfaceCmd.h; sourceTree = "<group>"; };
+		01BBE2031DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleAnimatedSourceCmd.cpp; sourceTree = "<group>"; };
+		01BBE2041DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleAnimatedSourceCmd.h; sourceTree = "<group>"; };
+		01BBE2051DBFE4D1000DC469 /* TogglePerspectiveCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TogglePerspectiveCmd.cpp; sourceTree = "<group>"; };
+		01BBE2061DBFE4D1000DC469 /* TogglePerspectiveCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TogglePerspectiveCmd.h; sourceTree = "<group>"; };
+		01BBE2071DBFE4D1000DC469 /* TranslateCanvasCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TranslateCanvasCmd.cpp; sourceTree = "<group>"; };
+		01BBE2081DBFE4D1000DC469 /* TranslateCanvasCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateCanvasCmd.h; sourceTree = "<group>"; };
+		01BBE20A1DBFE4D1000DC469 /* Gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gui.cpp; sourceTree = "<group>"; };
+		01BBE20B1DBFE4D1000DC469 /* Gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gui.h; sourceTree = "<group>"; };
+		01BBE20D1DBFE4D1000DC469 /* GuiBaseWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiBaseWidget.h; sourceTree = "<group>"; };
+		01BBE20E1DBFE4D1000DC469 /* LayerPanelWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerPanelWidget.cpp; sourceTree = "<group>"; };
+		01BBE20F1DBFE4D1000DC469 /* LayerPanelWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerPanelWidget.h; sourceTree = "<group>"; };
+		01BBE2101DBFE4D1000DC469 /* ProjectionEditorWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectionEditorWidget.cpp; sourceTree = "<group>"; };
+		01BBE2111DBFE4D1000DC469 /* ProjectionEditorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionEditorWidget.h; sourceTree = "<group>"; };
+		01BBE2121DBFE4D1000DC469 /* ScaleWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleWidget.cpp; sourceTree = "<group>"; };
+		01BBE2131DBFE4D1000DC469 /* ScaleWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleWidget.h; sourceTree = "<group>"; };
+		01BBE2141DBFE4D1000DC469 /* SourcesEditorWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourcesEditorWidget.cpp; sourceTree = "<group>"; };
+		01BBE2151DBFE4D1000DC469 /* SourcesEditorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourcesEditorWidget.h; sourceTree = "<group>"; };
+		01BBE2161DBFE4D1000DC469 /* SurfaceHighlightWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceHighlightWidget.cpp; sourceTree = "<group>"; };
+		01BBE2171DBFE4D1000DC469 /* SurfaceHighlightWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceHighlightWidget.h; sourceTree = "<group>"; };
+		01BBE2181DBFE4D1000DC469 /* TextureConsumersWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureConsumersWidget.cpp; sourceTree = "<group>"; };
+		01BBE2191DBFE4D1000DC469 /* TextureConsumersWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureConsumersWidget.h; sourceTree = "<group>"; };
+		01BBE21A1DBFE4D1000DC469 /* TextureEditorWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureEditorWidget.cpp; sourceTree = "<group>"; };
+		01BBE21B1DBFE4D1000DC469 /* TextureEditorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureEditorWidget.h; sourceTree = "<group>"; };
+		01BBE21C1DBFE4D1000DC469 /* TextureHighlightWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureHighlightWidget.cpp; sourceTree = "<group>"; };
+		01BBE21D1DBFE4D1000DC469 /* TextureHighlightWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureHighlightWidget.h; sourceTree = "<group>"; };
+		01BBE21F1DBFE4D1000DC469 /* Info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Info.cpp; sourceTree = "<group>"; };
+		01BBE2201DBFE4D1000DC469 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
+		01BBE2221DBFE4D1000DC469 /* DirectoryWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryWatcher.cpp; sourceTree = "<group>"; };
+		01BBE2231DBFE4D1000DC469 /* DirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryWatcher.h; sourceTree = "<group>"; };
+		01BBE2241DBFE4D1000DC469 /* MediaServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaServer.cpp; sourceTree = "<group>"; };
+		01BBE2251DBFE4D1000DC469 /* MediaServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaServer.h; sourceTree = "<group>"; };
+		01BBE2261DBFE4D1000DC469 /* ofxPiMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxPiMapper.cpp; sourceTree = "<group>"; };
+		01BBE2271DBFE4D1000DC469 /* ofxPiMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxPiMapper.h; sourceTree = "<group>"; };
+		01BBE2291DBFE4D1000DC469 /* BaseSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSource.cpp; sourceTree = "<group>"; };
+		01BBE22A1DBFE4D1000DC469 /* BaseSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSource.h; sourceTree = "<group>"; };
+		01BBE22B1DBFE4D1000DC469 /* FboSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FboSource.cpp; sourceTree = "<group>"; };
+		01BBE22C1DBFE4D1000DC469 /* FboSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FboSource.h; sourceTree = "<group>"; };
+		01BBE22D1DBFE4D1000DC469 /* ImageSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSource.cpp; sourceTree = "<group>"; };
+		01BBE22E1DBFE4D1000DC469 /* ImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSource.h; sourceTree = "<group>"; };
+		01BBE22F1DBFE4D1000DC469 /* OMXPlayerCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OMXPlayerCache.cpp; sourceTree = "<group>"; };
+		01BBE2301DBFE4D1000DC469 /* OMXPlayerCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMXPlayerCache.h; sourceTree = "<group>"; };
+		01BBE2311DBFE4D1000DC469 /* SourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceType.h; sourceTree = "<group>"; };
+		01BBE2321DBFE4D1000DC469 /* VideoSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoSource.cpp; sourceTree = "<group>"; };
+		01BBE2331DBFE4D1000DC469 /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
+		01BBE2351DBFE4D1000DC469 /* BaseSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSurface.cpp; sourceTree = "<group>"; };
+		01BBE2361DBFE4D1000DC469 /* BaseSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSurface.h; sourceTree = "<group>"; };
+		01BBE2371DBFE4D1000DC469 /* GridWarpSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GridWarpSurface.cpp; sourceTree = "<group>"; };
+		01BBE2381DBFE4D1000DC469 /* GridWarpSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridWarpSurface.h; sourceTree = "<group>"; };
+		01BBE2391DBFE4D1000DC469 /* HexagonSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HexagonSurface.cpp; sourceTree = "<group>"; };
+		01BBE23A1DBFE4D1000DC469 /* HexagonSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonSurface.h; sourceTree = "<group>"; };
+		01BBE23B1DBFE4D1000DC469 /* QuadSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadSurface.cpp; sourceTree = "<group>"; };
+		01BBE23C1DBFE4D1000DC469 /* QuadSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadSurface.h; sourceTree = "<group>"; };
+		01BBE23D1DBFE4D1000DC469 /* SurfaceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceFactory.cpp; sourceTree = "<group>"; };
+		01BBE23E1DBFE4D1000DC469 /* SurfaceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceFactory.h; sourceTree = "<group>"; };
+		01BBE23F1DBFE4D1000DC469 /* SurfaceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceManager.cpp; sourceTree = "<group>"; };
+		01BBE2401DBFE4D1000DC469 /* SurfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceManager.h; sourceTree = "<group>"; };
+		01BBE2411DBFE4D1000DC469 /* SurfaceStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceStack.cpp; sourceTree = "<group>"; };
+		01BBE2421DBFE4D1000DC469 /* SurfaceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceStack.h; sourceTree = "<group>"; };
+		01BBE2431DBFE4D1000DC469 /* SurfaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceType.h; sourceTree = "<group>"; };
+		01BBE2441DBFE4D1000DC469 /* TriangleSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleSurface.cpp; sourceTree = "<group>"; };
+		01BBE2451DBFE4D1000DC469 /* TriangleSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleSurface.h; sourceTree = "<group>"; };
+		01BBE2471DBFE4D1000DC469 /* BaseJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseJoint.cpp; sourceTree = "<group>"; };
+		01BBE2481DBFE4D1000DC469 /* BaseJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseJoint.h; sourceTree = "<group>"; };
+		01BBE2491DBFE4D1000DC469 /* CircleJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleJoint.cpp; sourceTree = "<group>"; };
+		01BBE24A1DBFE4D1000DC469 /* CircleJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleJoint.h; sourceTree = "<group>"; };
+		01BBE24B1DBFE4D1000DC469 /* EditorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorType.h; sourceTree = "<group>"; };
+		01BBE24C1DBFE4D1000DC469 /* GuiMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiMode.h; sourceTree = "<group>"; };
+		01BBE24D1DBFE4D1000DC469 /* RadioList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RadioList.cpp; sourceTree = "<group>"; };
+		01BBE24E1DBFE4D1000DC469 /* RadioList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioList.h; sourceTree = "<group>"; };
+		01BBE2501DBFE4D1000DC469 /* HomographyHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HomographyHelper.cpp; sourceTree = "<group>"; };
+		01BBE2511DBFE4D1000DC469 /* HomographyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomographyHelper.h; sourceTree = "<group>"; };
+		01BBE2521DBFE4D1000DC469 /* TerminalListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerminalListener.cpp; sourceTree = "<group>"; };
+		01BBE2531DBFE4D1000DC469 /* TerminalListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerminalListener.h; sourceTree = "<group>"; };
+		01BBE29D1DBFE730000DC469 /* Bug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bug.h; sourceTree = "<group>"; };
+		01BBE29E1DBFE730000DC469 /* Bug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bug.cpp; sourceTree = "<group>"; };
 		01C63B781DB661440065ADDF /* Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Background.h; sourceTree = "<group>"; };
 		01C63B791DB661440065ADDF /* Background.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Background.cpp; sourceTree = "<group>"; };
-		01DE4C161DB7FD70004C41C2 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
-		01DE4C171DB7FD70004C41C2 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		01DE4C191DB7FD70004C41C2 /* ApplicationBaseMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ApplicationBaseMode.cpp; sourceTree = "<group>"; };
-		01DE4C1A1DB7FD70004C41C2 /* ApplicationBaseMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationBaseMode.h; sourceTree = "<group>"; };
-		01DE4C1B1DB7FD70004C41C2 /* PresentationMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PresentationMode.cpp; sourceTree = "<group>"; };
-		01DE4C1C1DB7FD70004C41C2 /* PresentationMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentationMode.h; sourceTree = "<group>"; };
-		01DE4C1D1DB7FD70004C41C2 /* ProjectionMappingMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectionMappingMode.cpp; sourceTree = "<group>"; };
-		01DE4C1E1DB7FD70004C41C2 /* ProjectionMappingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionMappingMode.h; sourceTree = "<group>"; };
-		01DE4C1F1DB7FD70004C41C2 /* SourceSelectionMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourceSelectionMode.cpp; sourceTree = "<group>"; };
-		01DE4C201DB7FD70004C41C2 /* SourceSelectionMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceSelectionMode.h; sourceTree = "<group>"; };
-		01DE4C211DB7FD70004C41C2 /* TextureMappingMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMappingMode.cpp; sourceTree = "<group>"; };
-		01DE4C221DB7FD70004C41C2 /* TextureMappingMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureMappingMode.h; sourceTree = "<group>"; };
-		01DE4C231DB7FD70004C41C2 /* SettingsLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsLoader.cpp; sourceTree = "<group>"; };
-		01DE4C241DB7FD70004C41C2 /* SettingsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLoader.h; sourceTree = "<group>"; };
-		01DE4C261DB7FD70004C41C2 /* AddGridColCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddGridColCmd.cpp; sourceTree = "<group>"; };
-		01DE4C271DB7FD70004C41C2 /* AddGridColCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGridColCmd.h; sourceTree = "<group>"; };
-		01DE4C281DB7FD70004C41C2 /* AddGridRowCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddGridRowCmd.cpp; sourceTree = "<group>"; };
-		01DE4C291DB7FD70004C41C2 /* AddGridRowCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGridRowCmd.h; sourceTree = "<group>"; };
-		01DE4C2A1DB7FD70004C41C2 /* AddSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AddSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C2B1DB7FD70004C41C2 /* AddSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C2C1DB7FD70004C41C2 /* BaseCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCmd.h; sourceTree = "<group>"; };
-		01DE4C2D1DB7FD70004C41C2 /* ClearSurfacesCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClearSurfacesCmd.cpp; sourceTree = "<group>"; };
-		01DE4C2E1DB7FD70004C41C2 /* ClearSurfacesCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearSurfacesCmd.h; sourceTree = "<group>"; };
-		01DE4C2F1DB7FD70004C41C2 /* CmdManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CmdManager.cpp; sourceTree = "<group>"; };
-		01DE4C301DB7FD70004C41C2 /* CmdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdManager.h; sourceTree = "<group>"; };
-		01DE4C311DB7FD70004C41C2 /* DeselectSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeselectSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C321DB7FD70004C41C2 /* DeselectSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeselectSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C331DB7FD70004C41C2 /* DeselectTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeselectTexCoordCmd.cpp; sourceTree = "<group>"; };
-		01DE4C341DB7FD70004C41C2 /* DeselectTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeselectTexCoordCmd.h; sourceTree = "<group>"; };
-		01DE4C351DB7FD70004C41C2 /* DuplicateSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DuplicateSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C361DB7FD70004C41C2 /* DuplicateSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuplicateSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C371DB7FD70004C41C2 /* MvAllTexCoordsCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvAllTexCoordsCmd.cpp; sourceTree = "<group>"; };
-		01DE4C381DB7FD70004C41C2 /* MvAllTexCoordsCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvAllTexCoordsCmd.h; sourceTree = "<group>"; };
-		01DE4C391DB7FD70004C41C2 /* MvLayerDnCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvLayerDnCmd.cpp; sourceTree = "<group>"; };
-		01DE4C3A1DB7FD70004C41C2 /* MvLayerDnCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvLayerDnCmd.h; sourceTree = "<group>"; };
-		01DE4C3B1DB7FD70004C41C2 /* MvLayerUpCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvLayerUpCmd.cpp; sourceTree = "<group>"; };
-		01DE4C3C1DB7FD70004C41C2 /* MvLayerUpCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvLayerUpCmd.h; sourceTree = "<group>"; };
-		01DE4C3D1DB7FD70004C41C2 /* MvSelectionCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvSelectionCmd.cpp; sourceTree = "<group>"; };
-		01DE4C3E1DB7FD70004C41C2 /* MvSelectionCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvSelectionCmd.h; sourceTree = "<group>"; };
-		01DE4C3F1DB7FD70004C41C2 /* MvSurfaceVertCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvSurfaceVertCmd.cpp; sourceTree = "<group>"; };
-		01DE4C401DB7FD70004C41C2 /* MvSurfaceVertCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvSurfaceVertCmd.h; sourceTree = "<group>"; };
-		01DE4C411DB7FD70004C41C2 /* MvTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MvTexCoordCmd.cpp; sourceTree = "<group>"; };
-		01DE4C421DB7FD70004C41C2 /* MvTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MvTexCoordCmd.h; sourceTree = "<group>"; };
-		01DE4C431DB7FD70004C41C2 /* RmGridColCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RmGridColCmd.cpp; sourceTree = "<group>"; };
-		01DE4C441DB7FD70004C41C2 /* RmGridColCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmGridColCmd.h; sourceTree = "<group>"; };
-		01DE4C451DB7FD70004C41C2 /* RmGridRowCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RmGridRowCmd.cpp; sourceTree = "<group>"; };
-		01DE4C461DB7FD70004C41C2 /* RmGridRowCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmGridRowCmd.h; sourceTree = "<group>"; };
-		01DE4C471DB7FD70004C41C2 /* RmSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RmSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C481DB7FD70004C41C2 /* RmSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C491DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleSurfaceFromToCmd.cpp; sourceTree = "<group>"; };
-		01DE4C4A1DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleSurfaceFromToCmd.h; sourceTree = "<group>"; };
-		01DE4C4B1DB7FD70004C41C2 /* SelNextSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelNextSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C4C1DB7FD70004C41C2 /* SelNextSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelNextSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C4D1DB7FD70004C41C2 /* SelNextTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelNextTexCoordCmd.cpp; sourceTree = "<group>"; };
-		01DE4C4E1DB7FD70004C41C2 /* SelNextTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelNextTexCoordCmd.h; sourceTree = "<group>"; };
-		01DE4C4F1DB7FD70004C41C2 /* SelNextVertexCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelNextVertexCmd.cpp; sourceTree = "<group>"; };
-		01DE4C501DB7FD70004C41C2 /* SelNextVertexCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelNextVertexCmd.h; sourceTree = "<group>"; };
-		01DE4C511DB7FD70004C41C2 /* SelPrevSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelPrevSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C521DB7FD70004C41C2 /* SelPrevSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPrevSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C531DB7FD70004C41C2 /* SelPrevTexCoordCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelPrevTexCoordCmd.cpp; sourceTree = "<group>"; };
-		01DE4C541DB7FD70004C41C2 /* SelPrevTexCoordCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPrevTexCoordCmd.h; sourceTree = "<group>"; };
-		01DE4C551DB7FD70004C41C2 /* SelPrevVertexCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelPrevVertexCmd.cpp; sourceTree = "<group>"; };
-		01DE4C561DB7FD70004C41C2 /* SelPrevVertexCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelPrevVertexCmd.h; sourceTree = "<group>"; };
-		01DE4C571DB7FD70004C41C2 /* SelSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C581DB7FD70004C41C2 /* SelSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C591DB7FD70004C41C2 /* SelVertexCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelVertexCmd.cpp; sourceTree = "<group>"; };
-		01DE4C5A1DB7FD70004C41C2 /* SelVertexCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelVertexCmd.h; sourceTree = "<group>"; };
-		01DE4C5B1DB7FD70004C41C2 /* SetActivePresetCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetActivePresetCmd.cpp; sourceTree = "<group>"; };
-		01DE4C5C1DB7FD70004C41C2 /* SetActivePresetCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetActivePresetCmd.h; sourceTree = "<group>"; };
-		01DE4C5D1DB7FD70004C41C2 /* SetApplicationModeCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetApplicationModeCmd.cpp; sourceTree = "<group>"; };
-		01DE4C5E1DB7FD70004C41C2 /* SetApplicationModeCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetApplicationModeCmd.h; sourceTree = "<group>"; };
-		01DE4C5F1DB7FD70004C41C2 /* SetNextSourceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetNextSourceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C601DB7FD70004C41C2 /* SetNextSourceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNextSourceCmd.h; sourceTree = "<group>"; };
-		01DE4C611DB7FD70004C41C2 /* SetSourceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetSourceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C621DB7FD70004C41C2 /* SetSourceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSourceCmd.h; sourceTree = "<group>"; };
-		01DE4C631DB7FD70004C41C2 /* SetTexMapDrawModeCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SetTexMapDrawModeCmd.cpp; sourceTree = "<group>"; };
-		01DE4C641DB7FD70004C41C2 /* SetTexMapDrawModeCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetTexMapDrawModeCmd.h; sourceTree = "<group>"; };
-		01DE4C651DB7FD70004C41C2 /* StartDragSurfaceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartDragSurfaceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C661DB7FD70004C41C2 /* StartDragSurfaceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDragSurfaceCmd.h; sourceTree = "<group>"; };
-		01DE4C671DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToggleAnimatedSourceCmd.cpp; sourceTree = "<group>"; };
-		01DE4C681DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleAnimatedSourceCmd.h; sourceTree = "<group>"; };
-		01DE4C691DB7FD70004C41C2 /* TogglePerspectiveCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TogglePerspectiveCmd.cpp; sourceTree = "<group>"; };
-		01DE4C6A1DB7FD70004C41C2 /* TogglePerspectiveCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TogglePerspectiveCmd.h; sourceTree = "<group>"; };
-		01DE4C6B1DB7FD70004C41C2 /* TranslateCanvasCmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TranslateCanvasCmd.cpp; sourceTree = "<group>"; };
-		01DE4C6C1DB7FD70004C41C2 /* TranslateCanvasCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateCanvasCmd.h; sourceTree = "<group>"; };
-		01DE4C6E1DB7FD70004C41C2 /* Gui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gui.cpp; sourceTree = "<group>"; };
-		01DE4C6F1DB7FD70004C41C2 /* Gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gui.h; sourceTree = "<group>"; };
-		01DE4C711DB7FD70004C41C2 /* GuiBaseWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiBaseWidget.h; sourceTree = "<group>"; };
-		01DE4C721DB7FD70004C41C2 /* LayerPanelWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerPanelWidget.cpp; sourceTree = "<group>"; };
-		01DE4C731DB7FD70004C41C2 /* LayerPanelWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerPanelWidget.h; sourceTree = "<group>"; };
-		01DE4C741DB7FD70004C41C2 /* ProjectionEditorWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectionEditorWidget.cpp; sourceTree = "<group>"; };
-		01DE4C751DB7FD70004C41C2 /* ProjectionEditorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectionEditorWidget.h; sourceTree = "<group>"; };
-		01DE4C761DB7FD70004C41C2 /* ScaleWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScaleWidget.cpp; sourceTree = "<group>"; };
-		01DE4C771DB7FD70004C41C2 /* ScaleWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScaleWidget.h; sourceTree = "<group>"; };
-		01DE4C781DB7FD70004C41C2 /* SourcesEditorWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourcesEditorWidget.cpp; sourceTree = "<group>"; };
-		01DE4C791DB7FD70004C41C2 /* SourcesEditorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourcesEditorWidget.h; sourceTree = "<group>"; };
-		01DE4C7A1DB7FD70004C41C2 /* SurfaceHighlightWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceHighlightWidget.cpp; sourceTree = "<group>"; };
-		01DE4C7B1DB7FD70004C41C2 /* SurfaceHighlightWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceHighlightWidget.h; sourceTree = "<group>"; };
-		01DE4C7C1DB7FD70004C41C2 /* TextureEditorWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureEditorWidget.cpp; sourceTree = "<group>"; };
-		01DE4C7D1DB7FD70004C41C2 /* TextureEditorWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureEditorWidget.h; sourceTree = "<group>"; };
-		01DE4C7E1DB7FD70004C41C2 /* TextureHighlightWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureHighlightWidget.cpp; sourceTree = "<group>"; };
-		01DE4C7F1DB7FD70004C41C2 /* TextureHighlightWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureHighlightWidget.h; sourceTree = "<group>"; };
-		01DE4C811DB7FD70004C41C2 /* Info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Info.cpp; sourceTree = "<group>"; };
-		01DE4C821DB7FD70004C41C2 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
-		01DE4C841DB7FD70004C41C2 /* DirectoryWatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryWatcher.cpp; sourceTree = "<group>"; };
-		01DE4C851DB7FD70004C41C2 /* DirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryWatcher.h; sourceTree = "<group>"; };
-		01DE4C861DB7FD70004C41C2 /* MediaServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaServer.cpp; sourceTree = "<group>"; };
-		01DE4C871DB7FD70004C41C2 /* MediaServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaServer.h; sourceTree = "<group>"; };
-		01DE4C881DB7FD70004C41C2 /* ofxPiMapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxPiMapper.cpp; sourceTree = "<group>"; };
-		01DE4C891DB7FD70004C41C2 /* ofxPiMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxPiMapper.h; sourceTree = "<group>"; };
-		01DE4C8B1DB7FD70004C41C2 /* BaseSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSource.cpp; sourceTree = "<group>"; };
-		01DE4C8C1DB7FD70004C41C2 /* BaseSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSource.h; sourceTree = "<group>"; };
-		01DE4C8D1DB7FD70004C41C2 /* FboSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FboSource.cpp; sourceTree = "<group>"; };
-		01DE4C8E1DB7FD70004C41C2 /* FboSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FboSource.h; sourceTree = "<group>"; };
-		01DE4C8F1DB7FD70004C41C2 /* ImageSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSource.cpp; sourceTree = "<group>"; };
-		01DE4C901DB7FD70004C41C2 /* ImageSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSource.h; sourceTree = "<group>"; };
-		01DE4C911DB7FD70004C41C2 /* OMXPlayerCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OMXPlayerCache.cpp; sourceTree = "<group>"; };
-		01DE4C921DB7FD70004C41C2 /* OMXPlayerCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OMXPlayerCache.h; sourceTree = "<group>"; };
-		01DE4C931DB7FD70004C41C2 /* SourceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceType.h; sourceTree = "<group>"; };
-		01DE4C941DB7FD70004C41C2 /* VideoSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoSource.cpp; sourceTree = "<group>"; };
-		01DE4C951DB7FD70004C41C2 /* VideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoSource.h; sourceTree = "<group>"; };
-		01DE4C971DB7FD70004C41C2 /* BaseSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseSurface.cpp; sourceTree = "<group>"; };
-		01DE4C981DB7FD70004C41C2 /* BaseSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSurface.h; sourceTree = "<group>"; };
-		01DE4C991DB7FD70004C41C2 /* GridWarpSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GridWarpSurface.cpp; sourceTree = "<group>"; };
-		01DE4C9A1DB7FD70004C41C2 /* GridWarpSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridWarpSurface.h; sourceTree = "<group>"; };
-		01DE4C9B1DB7FD70004C41C2 /* HexagonSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HexagonSurface.cpp; sourceTree = "<group>"; };
-		01DE4C9C1DB7FD70004C41C2 /* HexagonSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonSurface.h; sourceTree = "<group>"; };
-		01DE4C9D1DB7FD70004C41C2 /* QuadSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadSurface.cpp; sourceTree = "<group>"; };
-		01DE4C9E1DB7FD70004C41C2 /* QuadSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadSurface.h; sourceTree = "<group>"; };
-		01DE4C9F1DB7FD70004C41C2 /* SurfaceFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceFactory.cpp; sourceTree = "<group>"; };
-		01DE4CA01DB7FD70004C41C2 /* SurfaceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceFactory.h; sourceTree = "<group>"; };
-		01DE4CA11DB7FD70004C41C2 /* SurfaceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceManager.cpp; sourceTree = "<group>"; };
-		01DE4CA21DB7FD70004C41C2 /* SurfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceManager.h; sourceTree = "<group>"; };
-		01DE4CA31DB7FD70004C41C2 /* SurfaceStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceStack.cpp; sourceTree = "<group>"; };
-		01DE4CA41DB7FD70004C41C2 /* SurfaceStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceStack.h; sourceTree = "<group>"; };
-		01DE4CA51DB7FD70004C41C2 /* SurfaceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceType.h; sourceTree = "<group>"; };
-		01DE4CA61DB7FD70004C41C2 /* TriangleSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleSurface.cpp; sourceTree = "<group>"; };
-		01DE4CA71DB7FD70004C41C2 /* TriangleSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleSurface.h; sourceTree = "<group>"; };
-		01DE4CA91DB7FD70004C41C2 /* BaseJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseJoint.cpp; sourceTree = "<group>"; };
-		01DE4CAA1DB7FD70004C41C2 /* BaseJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseJoint.h; sourceTree = "<group>"; };
-		01DE4CAB1DB7FD70004C41C2 /* CircleJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleJoint.cpp; sourceTree = "<group>"; };
-		01DE4CAC1DB7FD70004C41C2 /* CircleJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleJoint.h; sourceTree = "<group>"; };
-		01DE4CAD1DB7FD70004C41C2 /* EditorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorType.h; sourceTree = "<group>"; };
-		01DE4CAE1DB7FD70004C41C2 /* GuiMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuiMode.h; sourceTree = "<group>"; };
-		01DE4CAF1DB7FD70004C41C2 /* RadioList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RadioList.cpp; sourceTree = "<group>"; };
-		01DE4CB01DB7FD70004C41C2 /* RadioList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioList.h; sourceTree = "<group>"; };
-		01DE4CB21DB7FD70004C41C2 /* HomographyHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HomographyHelper.cpp; sourceTree = "<group>"; };
-		01DE4CB31DB7FD70004C41C2 /* HomographyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomographyHelper.h; sourceTree = "<group>"; };
-		01DE4CB41DB7FD70004C41C2 /* TerminalListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerminalListener.cpp; sourceTree = "<group>"; };
-		01DE4CB51DB7FD70004C41C2 /* TerminalListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerminalListener.h; sourceTree = "<group>"; };
 		01DE4D1E1DB7FD89004C41C2 /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
 		01DE4D1F1DB7FD89004C41C2 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		01DE4D201DB7FD89004C41C2 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
@@ -424,258 +430,260 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01DE4BBD1DB7FD70004C41C2 /* ofxPiMapper */ = {
+		01BBE1B01DBFE4D1000DC469 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C141DB7FD70004C41C2 /* src */,
-			);
-			name = ofxPiMapper;
-			path = ../../../addons/ofxPiMapper;
-			sourceTree = "<group>";
-		};
-		01DE4C141DB7FD70004C41C2 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				01DE4C151DB7FD70004C41C2 /* Application */,
-				01DE4C251DB7FD70004C41C2 /* Commands */,
-				01DE4C6D1DB7FD70004C41C2 /* Gui */,
-				01DE4C801DB7FD70004C41C2 /* Info */,
-				01DE4C831DB7FD70004C41C2 /* MediaServer */,
-				01DE4C881DB7FD70004C41C2 /* ofxPiMapper.cpp */,
-				01DE4C891DB7FD70004C41C2 /* ofxPiMapper.h */,
-				01DE4C8A1DB7FD70004C41C2 /* Sources */,
-				01DE4C961DB7FD70004C41C2 /* Surfaces */,
-				01DE4CA81DB7FD70004C41C2 /* UserInterface */,
-				01DE4CB11DB7FD70004C41C2 /* Utils */,
+				01BBE1B11DBFE4D1000DC469 /* Application */,
+				01BBE1C11DBFE4D1000DC469 /* Commands */,
+				01BBE2091DBFE4D1000DC469 /* Gui */,
+				01BBE21E1DBFE4D1000DC469 /* Info */,
+				01BBE2211DBFE4D1000DC469 /* MediaServer */,
+				01BBE2261DBFE4D1000DC469 /* ofxPiMapper.cpp */,
+				01BBE2271DBFE4D1000DC469 /* ofxPiMapper.h */,
+				01BBE2281DBFE4D1000DC469 /* Sources */,
+				01BBE2341DBFE4D1000DC469 /* Surfaces */,
+				01BBE2461DBFE4D1000DC469 /* UserInterface */,
+				01BBE24F1DBFE4D1000DC469 /* Utils */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		01DE4C151DB7FD70004C41C2 /* Application */ = {
+		01BBE1B11DBFE4D1000DC469 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C161DB7FD70004C41C2 /* Application.cpp */,
-				01DE4C171DB7FD70004C41C2 /* Application.h */,
-				01DE4C181DB7FD70004C41C2 /* Modes */,
-				01DE4C231DB7FD70004C41C2 /* SettingsLoader.cpp */,
-				01DE4C241DB7FD70004C41C2 /* SettingsLoader.h */,
+				01BBE1B21DBFE4D1000DC469 /* Application.cpp */,
+				01BBE1B31DBFE4D1000DC469 /* Application.h */,
+				01BBE1B41DBFE4D1000DC469 /* Modes */,
+				01BBE1BF1DBFE4D1000DC469 /* SettingsLoader.cpp */,
+				01BBE1C01DBFE4D1000DC469 /* SettingsLoader.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
 		};
-		01DE4C181DB7FD70004C41C2 /* Modes */ = {
+		01BBE1B41DBFE4D1000DC469 /* Modes */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C191DB7FD70004C41C2 /* ApplicationBaseMode.cpp */,
-				01DE4C1A1DB7FD70004C41C2 /* ApplicationBaseMode.h */,
-				01DE4C1B1DB7FD70004C41C2 /* PresentationMode.cpp */,
-				01DE4C1C1DB7FD70004C41C2 /* PresentationMode.h */,
-				01DE4C1D1DB7FD70004C41C2 /* ProjectionMappingMode.cpp */,
-				01DE4C1E1DB7FD70004C41C2 /* ProjectionMappingMode.h */,
-				01DE4C1F1DB7FD70004C41C2 /* SourceSelectionMode.cpp */,
-				01DE4C201DB7FD70004C41C2 /* SourceSelectionMode.h */,
-				01DE4C211DB7FD70004C41C2 /* TextureMappingMode.cpp */,
-				01DE4C221DB7FD70004C41C2 /* TextureMappingMode.h */,
+				01BBE1B51DBFE4D1000DC469 /* ApplicationBaseMode.cpp */,
+				01BBE1B61DBFE4D1000DC469 /* ApplicationBaseMode.h */,
+				01BBE1B71DBFE4D1000DC469 /* PresentationMode.cpp */,
+				01BBE1B81DBFE4D1000DC469 /* PresentationMode.h */,
+				01BBE1B91DBFE4D1000DC469 /* ProjectionMappingMode.cpp */,
+				01BBE1BA1DBFE4D1000DC469 /* ProjectionMappingMode.h */,
+				01BBE1BB1DBFE4D1000DC469 /* SourceSelectionMode.cpp */,
+				01BBE1BC1DBFE4D1000DC469 /* SourceSelectionMode.h */,
+				01BBE1BD1DBFE4D1000DC469 /* TextureMappingMode.cpp */,
+				01BBE1BE1DBFE4D1000DC469 /* TextureMappingMode.h */,
 			);
 			path = Modes;
 			sourceTree = "<group>";
 		};
-		01DE4C251DB7FD70004C41C2 /* Commands */ = {
+		01BBE1C11DBFE4D1000DC469 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C261DB7FD70004C41C2 /* AddGridColCmd.cpp */,
-				01DE4C271DB7FD70004C41C2 /* AddGridColCmd.h */,
-				01DE4C281DB7FD70004C41C2 /* AddGridRowCmd.cpp */,
-				01DE4C291DB7FD70004C41C2 /* AddGridRowCmd.h */,
-				01DE4C2A1DB7FD70004C41C2 /* AddSurfaceCmd.cpp */,
-				01DE4C2B1DB7FD70004C41C2 /* AddSurfaceCmd.h */,
-				01DE4C2C1DB7FD70004C41C2 /* BaseCmd.h */,
-				01DE4C2D1DB7FD70004C41C2 /* ClearSurfacesCmd.cpp */,
-				01DE4C2E1DB7FD70004C41C2 /* ClearSurfacesCmd.h */,
-				01DE4C2F1DB7FD70004C41C2 /* CmdManager.cpp */,
-				01DE4C301DB7FD70004C41C2 /* CmdManager.h */,
-				01DE4C311DB7FD70004C41C2 /* DeselectSurfaceCmd.cpp */,
-				01DE4C321DB7FD70004C41C2 /* DeselectSurfaceCmd.h */,
-				01DE4C331DB7FD70004C41C2 /* DeselectTexCoordCmd.cpp */,
-				01DE4C341DB7FD70004C41C2 /* DeselectTexCoordCmd.h */,
-				01DE4C351DB7FD70004C41C2 /* DuplicateSurfaceCmd.cpp */,
-				01DE4C361DB7FD70004C41C2 /* DuplicateSurfaceCmd.h */,
-				01DE4C371DB7FD70004C41C2 /* MvAllTexCoordsCmd.cpp */,
-				01DE4C381DB7FD70004C41C2 /* MvAllTexCoordsCmd.h */,
-				01DE4C391DB7FD70004C41C2 /* MvLayerDnCmd.cpp */,
-				01DE4C3A1DB7FD70004C41C2 /* MvLayerDnCmd.h */,
-				01DE4C3B1DB7FD70004C41C2 /* MvLayerUpCmd.cpp */,
-				01DE4C3C1DB7FD70004C41C2 /* MvLayerUpCmd.h */,
-				01DE4C3D1DB7FD70004C41C2 /* MvSelectionCmd.cpp */,
-				01DE4C3E1DB7FD70004C41C2 /* MvSelectionCmd.h */,
-				01DE4C3F1DB7FD70004C41C2 /* MvSurfaceVertCmd.cpp */,
-				01DE4C401DB7FD70004C41C2 /* MvSurfaceVertCmd.h */,
-				01DE4C411DB7FD70004C41C2 /* MvTexCoordCmd.cpp */,
-				01DE4C421DB7FD70004C41C2 /* MvTexCoordCmd.h */,
-				01DE4C431DB7FD70004C41C2 /* RmGridColCmd.cpp */,
-				01DE4C441DB7FD70004C41C2 /* RmGridColCmd.h */,
-				01DE4C451DB7FD70004C41C2 /* RmGridRowCmd.cpp */,
-				01DE4C461DB7FD70004C41C2 /* RmGridRowCmd.h */,
-				01DE4C471DB7FD70004C41C2 /* RmSurfaceCmd.cpp */,
-				01DE4C481DB7FD70004C41C2 /* RmSurfaceCmd.h */,
-				01DE4C491DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.cpp */,
-				01DE4C4A1DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.h */,
-				01DE4C4B1DB7FD70004C41C2 /* SelNextSurfaceCmd.cpp */,
-				01DE4C4C1DB7FD70004C41C2 /* SelNextSurfaceCmd.h */,
-				01DE4C4D1DB7FD70004C41C2 /* SelNextTexCoordCmd.cpp */,
-				01DE4C4E1DB7FD70004C41C2 /* SelNextTexCoordCmd.h */,
-				01DE4C4F1DB7FD70004C41C2 /* SelNextVertexCmd.cpp */,
-				01DE4C501DB7FD70004C41C2 /* SelNextVertexCmd.h */,
-				01DE4C511DB7FD70004C41C2 /* SelPrevSurfaceCmd.cpp */,
-				01DE4C521DB7FD70004C41C2 /* SelPrevSurfaceCmd.h */,
-				01DE4C531DB7FD70004C41C2 /* SelPrevTexCoordCmd.cpp */,
-				01DE4C541DB7FD70004C41C2 /* SelPrevTexCoordCmd.h */,
-				01DE4C551DB7FD70004C41C2 /* SelPrevVertexCmd.cpp */,
-				01DE4C561DB7FD70004C41C2 /* SelPrevVertexCmd.h */,
-				01DE4C571DB7FD70004C41C2 /* SelSurfaceCmd.cpp */,
-				01DE4C581DB7FD70004C41C2 /* SelSurfaceCmd.h */,
-				01DE4C591DB7FD70004C41C2 /* SelVertexCmd.cpp */,
-				01DE4C5A1DB7FD70004C41C2 /* SelVertexCmd.h */,
-				01DE4C5B1DB7FD70004C41C2 /* SetActivePresetCmd.cpp */,
-				01DE4C5C1DB7FD70004C41C2 /* SetActivePresetCmd.h */,
-				01DE4C5D1DB7FD70004C41C2 /* SetApplicationModeCmd.cpp */,
-				01DE4C5E1DB7FD70004C41C2 /* SetApplicationModeCmd.h */,
-				01DE4C5F1DB7FD70004C41C2 /* SetNextSourceCmd.cpp */,
-				01DE4C601DB7FD70004C41C2 /* SetNextSourceCmd.h */,
-				01DE4C611DB7FD70004C41C2 /* SetSourceCmd.cpp */,
-				01DE4C621DB7FD70004C41C2 /* SetSourceCmd.h */,
-				01DE4C631DB7FD70004C41C2 /* SetTexMapDrawModeCmd.cpp */,
-				01DE4C641DB7FD70004C41C2 /* SetTexMapDrawModeCmd.h */,
-				01DE4C651DB7FD70004C41C2 /* StartDragSurfaceCmd.cpp */,
-				01DE4C661DB7FD70004C41C2 /* StartDragSurfaceCmd.h */,
-				01DE4C671DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.cpp */,
-				01DE4C681DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.h */,
-				01DE4C691DB7FD70004C41C2 /* TogglePerspectiveCmd.cpp */,
-				01DE4C6A1DB7FD70004C41C2 /* TogglePerspectiveCmd.h */,
-				01DE4C6B1DB7FD70004C41C2 /* TranslateCanvasCmd.cpp */,
-				01DE4C6C1DB7FD70004C41C2 /* TranslateCanvasCmd.h */,
+				01BBE1C21DBFE4D1000DC469 /* AddGridColCmd.cpp */,
+				01BBE1C31DBFE4D1000DC469 /* AddGridColCmd.h */,
+				01BBE1C41DBFE4D1000DC469 /* AddGridRowCmd.cpp */,
+				01BBE1C51DBFE4D1000DC469 /* AddGridRowCmd.h */,
+				01BBE1C61DBFE4D1000DC469 /* AddSurfaceCmd.cpp */,
+				01BBE1C71DBFE4D1000DC469 /* AddSurfaceCmd.h */,
+				01BBE1C81DBFE4D1000DC469 /* BaseCmd.h */,
+				01BBE1C91DBFE4D1000DC469 /* ClearSurfacesCmd.cpp */,
+				01BBE1CA1DBFE4D1000DC469 /* ClearSurfacesCmd.h */,
+				01BBE1CB1DBFE4D1000DC469 /* CmdManager.cpp */,
+				01BBE1CC1DBFE4D1000DC469 /* CmdManager.h */,
+				01BBE1CD1DBFE4D1000DC469 /* DeselectSurfaceCmd.cpp */,
+				01BBE1CE1DBFE4D1000DC469 /* DeselectSurfaceCmd.h */,
+				01BBE1CF1DBFE4D1000DC469 /* DeselectTexCoordCmd.cpp */,
+				01BBE1D01DBFE4D1000DC469 /* DeselectTexCoordCmd.h */,
+				01BBE1D11DBFE4D1000DC469 /* DuplicateSurfaceCmd.cpp */,
+				01BBE1D21DBFE4D1000DC469 /* DuplicateSurfaceCmd.h */,
+				01BBE1D31DBFE4D1000DC469 /* MvAllTexCoordsCmd.cpp */,
+				01BBE1D41DBFE4D1000DC469 /* MvAllTexCoordsCmd.h */,
+				01BBE1D51DBFE4D1000DC469 /* MvLayerDnCmd.cpp */,
+				01BBE1D61DBFE4D1000DC469 /* MvLayerDnCmd.h */,
+				01BBE1D71DBFE4D1000DC469 /* MvLayerUpCmd.cpp */,
+				01BBE1D81DBFE4D1000DC469 /* MvLayerUpCmd.h */,
+				01BBE1D91DBFE4D1000DC469 /* MvSelectionCmd.cpp */,
+				01BBE1DA1DBFE4D1000DC469 /* MvSelectionCmd.h */,
+				01BBE1DB1DBFE4D1000DC469 /* MvSurfaceVertCmd.cpp */,
+				01BBE1DC1DBFE4D1000DC469 /* MvSurfaceVertCmd.h */,
+				01BBE1DD1DBFE4D1000DC469 /* MvTexCoordCmd.cpp */,
+				01BBE1DE1DBFE4D1000DC469 /* MvTexCoordCmd.h */,
+				01BBE1DF1DBFE4D1000DC469 /* RmGridColCmd.cpp */,
+				01BBE1E01DBFE4D1000DC469 /* RmGridColCmd.h */,
+				01BBE1E11DBFE4D1000DC469 /* RmGridRowCmd.cpp */,
+				01BBE1E21DBFE4D1000DC469 /* RmGridRowCmd.h */,
+				01BBE1E31DBFE4D1000DC469 /* RmSurfaceCmd.cpp */,
+				01BBE1E41DBFE4D1000DC469 /* RmSurfaceCmd.h */,
+				01BBE1E51DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.cpp */,
+				01BBE1E61DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.h */,
+				01BBE1E71DBFE4D1000DC469 /* SelNextSurfaceCmd.cpp */,
+				01BBE1E81DBFE4D1000DC469 /* SelNextSurfaceCmd.h */,
+				01BBE1E91DBFE4D1000DC469 /* SelNextTexCoordCmd.cpp */,
+				01BBE1EA1DBFE4D1000DC469 /* SelNextTexCoordCmd.h */,
+				01BBE1EB1DBFE4D1000DC469 /* SelNextVertexCmd.cpp */,
+				01BBE1EC1DBFE4D1000DC469 /* SelNextVertexCmd.h */,
+				01BBE1ED1DBFE4D1000DC469 /* SelPrevSurfaceCmd.cpp */,
+				01BBE1EE1DBFE4D1000DC469 /* SelPrevSurfaceCmd.h */,
+				01BBE1EF1DBFE4D1000DC469 /* SelPrevTexCoordCmd.cpp */,
+				01BBE1F01DBFE4D1000DC469 /* SelPrevTexCoordCmd.h */,
+				01BBE1F11DBFE4D1000DC469 /* SelPrevVertexCmd.cpp */,
+				01BBE1F21DBFE4D1000DC469 /* SelPrevVertexCmd.h */,
+				01BBE1F31DBFE4D1000DC469 /* SelSurfaceCmd.cpp */,
+				01BBE1F41DBFE4D1000DC469 /* SelSurfaceCmd.h */,
+				01BBE1F51DBFE4D1000DC469 /* SelVertexCmd.cpp */,
+				01BBE1F61DBFE4D1000DC469 /* SelVertexCmd.h */,
+				01BBE1F71DBFE4D1000DC469 /* SetApplicationModeCmd.cpp */,
+				01BBE1F81DBFE4D1000DC469 /* SetApplicationModeCmd.h */,
+				01BBE1F91DBFE4D1000DC469 /* SetNextSourceCmd.cpp */,
+				01BBE1FA1DBFE4D1000DC469 /* SetNextSourceCmd.h */,
+				01BBE1FB1DBFE4D1000DC469 /* SetPresetCmd.cpp */,
+				01BBE1FC1DBFE4D1000DC469 /* SetPresetCmd.h */,
+				01BBE1FD1DBFE4D1000DC469 /* SetSourceCmd.cpp */,
+				01BBE1FE1DBFE4D1000DC469 /* SetSourceCmd.h */,
+				01BBE1FF1DBFE4D1000DC469 /* SetTexMapDrawModeCmd.cpp */,
+				01BBE2001DBFE4D1000DC469 /* SetTexMapDrawModeCmd.h */,
+				01BBE2011DBFE4D1000DC469 /* StartDragSurfaceCmd.cpp */,
+				01BBE2021DBFE4D1000DC469 /* StartDragSurfaceCmd.h */,
+				01BBE2031DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.cpp */,
+				01BBE2041DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.h */,
+				01BBE2051DBFE4D1000DC469 /* TogglePerspectiveCmd.cpp */,
+				01BBE2061DBFE4D1000DC469 /* TogglePerspectiveCmd.h */,
+				01BBE2071DBFE4D1000DC469 /* TranslateCanvasCmd.cpp */,
+				01BBE2081DBFE4D1000DC469 /* TranslateCanvasCmd.h */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
 		};
-		01DE4C6D1DB7FD70004C41C2 /* Gui */ = {
+		01BBE2091DBFE4D1000DC469 /* Gui */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C6E1DB7FD70004C41C2 /* Gui.cpp */,
-				01DE4C6F1DB7FD70004C41C2 /* Gui.h */,
-				01DE4C701DB7FD70004C41C2 /* Widgets */,
+				01BBE20A1DBFE4D1000DC469 /* Gui.cpp */,
+				01BBE20B1DBFE4D1000DC469 /* Gui.h */,
+				01BBE20C1DBFE4D1000DC469 /* Widgets */,
 			);
 			path = Gui;
 			sourceTree = "<group>";
 		};
-		01DE4C701DB7FD70004C41C2 /* Widgets */ = {
+		01BBE20C1DBFE4D1000DC469 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C711DB7FD70004C41C2 /* GuiBaseWidget.h */,
-				01DE4C721DB7FD70004C41C2 /* LayerPanelWidget.cpp */,
-				01DE4C731DB7FD70004C41C2 /* LayerPanelWidget.h */,
-				01DE4C741DB7FD70004C41C2 /* ProjectionEditorWidget.cpp */,
-				01DE4C751DB7FD70004C41C2 /* ProjectionEditorWidget.h */,
-				01DE4C761DB7FD70004C41C2 /* ScaleWidget.cpp */,
-				01DE4C771DB7FD70004C41C2 /* ScaleWidget.h */,
-				01DE4C781DB7FD70004C41C2 /* SourcesEditorWidget.cpp */,
-				01DE4C791DB7FD70004C41C2 /* SourcesEditorWidget.h */,
-				01DE4C7A1DB7FD70004C41C2 /* SurfaceHighlightWidget.cpp */,
-				01DE4C7B1DB7FD70004C41C2 /* SurfaceHighlightWidget.h */,
-				01DE4C7C1DB7FD70004C41C2 /* TextureEditorWidget.cpp */,
-				01DE4C7D1DB7FD70004C41C2 /* TextureEditorWidget.h */,
-				01DE4C7E1DB7FD70004C41C2 /* TextureHighlightWidget.cpp */,
-				01DE4C7F1DB7FD70004C41C2 /* TextureHighlightWidget.h */,
+				01BBE20D1DBFE4D1000DC469 /* GuiBaseWidget.h */,
+				01BBE20E1DBFE4D1000DC469 /* LayerPanelWidget.cpp */,
+				01BBE20F1DBFE4D1000DC469 /* LayerPanelWidget.h */,
+				01BBE2101DBFE4D1000DC469 /* ProjectionEditorWidget.cpp */,
+				01BBE2111DBFE4D1000DC469 /* ProjectionEditorWidget.h */,
+				01BBE2121DBFE4D1000DC469 /* ScaleWidget.cpp */,
+				01BBE2131DBFE4D1000DC469 /* ScaleWidget.h */,
+				01BBE2141DBFE4D1000DC469 /* SourcesEditorWidget.cpp */,
+				01BBE2151DBFE4D1000DC469 /* SourcesEditorWidget.h */,
+				01BBE2161DBFE4D1000DC469 /* SurfaceHighlightWidget.cpp */,
+				01BBE2171DBFE4D1000DC469 /* SurfaceHighlightWidget.h */,
+				01BBE2181DBFE4D1000DC469 /* TextureConsumersWidget.cpp */,
+				01BBE2191DBFE4D1000DC469 /* TextureConsumersWidget.h */,
+				01BBE21A1DBFE4D1000DC469 /* TextureEditorWidget.cpp */,
+				01BBE21B1DBFE4D1000DC469 /* TextureEditorWidget.h */,
+				01BBE21C1DBFE4D1000DC469 /* TextureHighlightWidget.cpp */,
+				01BBE21D1DBFE4D1000DC469 /* TextureHighlightWidget.h */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
 		};
-		01DE4C801DB7FD70004C41C2 /* Info */ = {
+		01BBE21E1DBFE4D1000DC469 /* Info */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C811DB7FD70004C41C2 /* Info.cpp */,
-				01DE4C821DB7FD70004C41C2 /* Info.h */,
+				01BBE21F1DBFE4D1000DC469 /* Info.cpp */,
+				01BBE2201DBFE4D1000DC469 /* Info.h */,
 			);
 			path = Info;
 			sourceTree = "<group>";
 		};
-		01DE4C831DB7FD70004C41C2 /* MediaServer */ = {
+		01BBE2211DBFE4D1000DC469 /* MediaServer */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C841DB7FD70004C41C2 /* DirectoryWatcher.cpp */,
-				01DE4C851DB7FD70004C41C2 /* DirectoryWatcher.h */,
-				01DE4C861DB7FD70004C41C2 /* MediaServer.cpp */,
-				01DE4C871DB7FD70004C41C2 /* MediaServer.h */,
+				01BBE2221DBFE4D1000DC469 /* DirectoryWatcher.cpp */,
+				01BBE2231DBFE4D1000DC469 /* DirectoryWatcher.h */,
+				01BBE2241DBFE4D1000DC469 /* MediaServer.cpp */,
+				01BBE2251DBFE4D1000DC469 /* MediaServer.h */,
 			);
 			path = MediaServer;
 			sourceTree = "<group>";
 		};
-		01DE4C8A1DB7FD70004C41C2 /* Sources */ = {
+		01BBE2281DBFE4D1000DC469 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C8B1DB7FD70004C41C2 /* BaseSource.cpp */,
-				01DE4C8C1DB7FD70004C41C2 /* BaseSource.h */,
-				01DE4C8D1DB7FD70004C41C2 /* FboSource.cpp */,
-				01DE4C8E1DB7FD70004C41C2 /* FboSource.h */,
-				01DE4C8F1DB7FD70004C41C2 /* ImageSource.cpp */,
-				01DE4C901DB7FD70004C41C2 /* ImageSource.h */,
-				01DE4C911DB7FD70004C41C2 /* OMXPlayerCache.cpp */,
-				01DE4C921DB7FD70004C41C2 /* OMXPlayerCache.h */,
-				01DE4C931DB7FD70004C41C2 /* SourceType.h */,
-				01DE4C941DB7FD70004C41C2 /* VideoSource.cpp */,
-				01DE4C951DB7FD70004C41C2 /* VideoSource.h */,
+				01BBE2291DBFE4D1000DC469 /* BaseSource.cpp */,
+				01BBE22A1DBFE4D1000DC469 /* BaseSource.h */,
+				01BBE22B1DBFE4D1000DC469 /* FboSource.cpp */,
+				01BBE22C1DBFE4D1000DC469 /* FboSource.h */,
+				01BBE22D1DBFE4D1000DC469 /* ImageSource.cpp */,
+				01BBE22E1DBFE4D1000DC469 /* ImageSource.h */,
+				01BBE22F1DBFE4D1000DC469 /* OMXPlayerCache.cpp */,
+				01BBE2301DBFE4D1000DC469 /* OMXPlayerCache.h */,
+				01BBE2311DBFE4D1000DC469 /* SourceType.h */,
+				01BBE2321DBFE4D1000DC469 /* VideoSource.cpp */,
+				01BBE2331DBFE4D1000DC469 /* VideoSource.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		01DE4C961DB7FD70004C41C2 /* Surfaces */ = {
+		01BBE2341DBFE4D1000DC469 /* Surfaces */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4C971DB7FD70004C41C2 /* BaseSurface.cpp */,
-				01DE4C981DB7FD70004C41C2 /* BaseSurface.h */,
-				01DE4C991DB7FD70004C41C2 /* GridWarpSurface.cpp */,
-				01DE4C9A1DB7FD70004C41C2 /* GridWarpSurface.h */,
-				01DE4C9B1DB7FD70004C41C2 /* HexagonSurface.cpp */,
-				01DE4C9C1DB7FD70004C41C2 /* HexagonSurface.h */,
-				01DE4C9D1DB7FD70004C41C2 /* QuadSurface.cpp */,
-				01DE4C9E1DB7FD70004C41C2 /* QuadSurface.h */,
-				01DE4C9F1DB7FD70004C41C2 /* SurfaceFactory.cpp */,
-				01DE4CA01DB7FD70004C41C2 /* SurfaceFactory.h */,
-				01DE4CA11DB7FD70004C41C2 /* SurfaceManager.cpp */,
-				01DE4CA21DB7FD70004C41C2 /* SurfaceManager.h */,
-				01DE4CA31DB7FD70004C41C2 /* SurfaceStack.cpp */,
-				01DE4CA41DB7FD70004C41C2 /* SurfaceStack.h */,
-				01DE4CA51DB7FD70004C41C2 /* SurfaceType.h */,
-				01DE4CA61DB7FD70004C41C2 /* TriangleSurface.cpp */,
-				01DE4CA71DB7FD70004C41C2 /* TriangleSurface.h */,
+				01BBE2351DBFE4D1000DC469 /* BaseSurface.cpp */,
+				01BBE2361DBFE4D1000DC469 /* BaseSurface.h */,
+				01BBE2371DBFE4D1000DC469 /* GridWarpSurface.cpp */,
+				01BBE2381DBFE4D1000DC469 /* GridWarpSurface.h */,
+				01BBE2391DBFE4D1000DC469 /* HexagonSurface.cpp */,
+				01BBE23A1DBFE4D1000DC469 /* HexagonSurface.h */,
+				01BBE23B1DBFE4D1000DC469 /* QuadSurface.cpp */,
+				01BBE23C1DBFE4D1000DC469 /* QuadSurface.h */,
+				01BBE23D1DBFE4D1000DC469 /* SurfaceFactory.cpp */,
+				01BBE23E1DBFE4D1000DC469 /* SurfaceFactory.h */,
+				01BBE23F1DBFE4D1000DC469 /* SurfaceManager.cpp */,
+				01BBE2401DBFE4D1000DC469 /* SurfaceManager.h */,
+				01BBE2411DBFE4D1000DC469 /* SurfaceStack.cpp */,
+				01BBE2421DBFE4D1000DC469 /* SurfaceStack.h */,
+				01BBE2431DBFE4D1000DC469 /* SurfaceType.h */,
+				01BBE2441DBFE4D1000DC469 /* TriangleSurface.cpp */,
+				01BBE2451DBFE4D1000DC469 /* TriangleSurface.h */,
 			);
 			path = Surfaces;
 			sourceTree = "<group>";
 		};
-		01DE4CA81DB7FD70004C41C2 /* UserInterface */ = {
+		01BBE2461DBFE4D1000DC469 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4CA91DB7FD70004C41C2 /* BaseJoint.cpp */,
-				01DE4CAA1DB7FD70004C41C2 /* BaseJoint.h */,
-				01DE4CAB1DB7FD70004C41C2 /* CircleJoint.cpp */,
-				01DE4CAC1DB7FD70004C41C2 /* CircleJoint.h */,
-				01DE4CAD1DB7FD70004C41C2 /* EditorType.h */,
-				01DE4CAE1DB7FD70004C41C2 /* GuiMode.h */,
-				01DE4CAF1DB7FD70004C41C2 /* RadioList.cpp */,
-				01DE4CB01DB7FD70004C41C2 /* RadioList.h */,
+				01BBE2471DBFE4D1000DC469 /* BaseJoint.cpp */,
+				01BBE2481DBFE4D1000DC469 /* BaseJoint.h */,
+				01BBE2491DBFE4D1000DC469 /* CircleJoint.cpp */,
+				01BBE24A1DBFE4D1000DC469 /* CircleJoint.h */,
+				01BBE24B1DBFE4D1000DC469 /* EditorType.h */,
+				01BBE24C1DBFE4D1000DC469 /* GuiMode.h */,
+				01BBE24D1DBFE4D1000DC469 /* RadioList.cpp */,
+				01BBE24E1DBFE4D1000DC469 /* RadioList.h */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
 		};
-		01DE4CB11DB7FD70004C41C2 /* Utils */ = {
+		01BBE24F1DBFE4D1000DC469 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				01DE4CB21DB7FD70004C41C2 /* HomographyHelper.cpp */,
-				01DE4CB31DB7FD70004C41C2 /* HomographyHelper.h */,
-				01DE4CB41DB7FD70004C41C2 /* TerminalListener.cpp */,
-				01DE4CB51DB7FD70004C41C2 /* TerminalListener.h */,
+				01BBE2501DBFE4D1000DC469 /* HomographyHelper.cpp */,
+				01BBE2511DBFE4D1000DC469 /* HomographyHelper.h */,
+				01BBE2521DBFE4D1000DC469 /* TerminalListener.cpp */,
+				01BBE2531DBFE4D1000DC469 /* TerminalListener.h */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		01DE4BBD1DB7FD70004C41C2 /* ofxPiMapper */ = {
+			isa = PBXGroup;
+			children = (
+				01BBE1B01DBFE4D1000DC469 /* src */,
+			);
+			name = ofxPiMapper;
+			path = ../../../addons/ofxPiMapper;
 			sourceTree = "<group>";
 		};
 		01DE4D1C1DB7FD89004C41C2 /* ofxXmlSettings */ = {
@@ -991,8 +999,10 @@
 				01DE4DF61DB80532004C41C2 /* SharedData.cpp */,
 				01C63B781DB661440065ADDF /* Background.h */,
 				01C63B791DB661440065ADDF /* Background.cpp */,
-				01172AA01DB9574800B2BB04 /* BugsContainer.h */,
-				01172AA11DB9574800B2BB04 /* BugsContainer.cpp */,
+				01172AA01DB9574800B2BB04 /* BugContainer.h */,
+				01172AA11DB9574800B2BB04 /* BugContainer.cpp */,
+				01BBE29D1DBFE730000DC469 /* Bug.h */,
+				01BBE29E1DBFE730000DC469 /* Bug.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1093,124 +1103,126 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01BBE2711DBFE4D1000DC469 /* SelPrevTexCoordCmd.cpp in Sources */,
+				01BBE25D1DBFE4D1000DC469 /* AddSurfaceCmd.cpp in Sources */,
+				01BBE2611DBFE4D1000DC469 /* DeselectTexCoordCmd.cpp in Sources */,
+				01BBE2751DBFE4D1000DC469 /* SetApplicationModeCmd.cpp in Sources */,
 				01DE4DDC1DB7FDAC004C41C2 /* ByteBufferStream.cpp in Sources */,
-				01DE4CE31DB7FD70004C41C2 /* RmGridColCmd.cpp in Sources */,
 				01DE4DD91DB7FDAC004C41C2 /* Base64Encoding.cpp in Sources */,
+				01BBE2771DBFE4D1000DC469 /* SetPresetCmd.cpp in Sources */,
+				01BBE26F1DBFE4D1000DC469 /* SelNextVertexCmd.cpp in Sources */,
+				01BBE2901DBFE4D1000DC469 /* BaseSurface.cpp in Sources */,
+				01BBE2811DBFE4D1000DC469 /* ScaleWidget.cpp in Sources */,
 				01DE4DE11DB7FDAC004C41C2 /* DeviceFilter.cpp in Sources */,
-				01DE4D141DB7FD70004C41C2 /* HomographyHelper.cpp in Sources */,
-				01DE4CEE1DB7FD70004C41C2 /* SelVertexCmd.cpp in Sources */,
-				01DE4CCF1DB7FD70004C41C2 /* ApplicationBaseMode.cpp in Sources */,
+				01BBE25C1DBFE4D1000DC469 /* AddGridRowCmd.cpp in Sources */,
 				01DE4DEA1DB7FDAC004C41C2 /* PathFilterCollection.cpp in Sources */,
+				01BBE2631DBFE4D1000DC469 /* MvAllTexCoordsCmd.cpp in Sources */,
 				01C63B7A1DB661440065ADDF /* Background.cpp in Sources */,
-				01DE4D051DB7FD70004C41C2 /* FboSource.cpp in Sources */,
+				01BBE2921DBFE4D1000DC469 /* HexagonSurface.cpp in Sources */,
 				01DE4D3F1DB7FDA1004C41C2 /* ofxLabel.cpp in Sources */,
-				01DE4CD41DB7FD70004C41C2 /* SettingsLoader.cpp in Sources */,
-				01DE4CF01DB7FD70004C41C2 /* SetApplicationModeCmd.cpp in Sources */,
+				01BBE26A1DBFE4D1000DC469 /* RmGridRowCmd.cpp in Sources */,
+				01BBE2621DBFE4D1000DC469 /* DuplicateSurfaceCmd.cpp in Sources */,
+				01BBE2941DBFE4D1000DC469 /* SurfaceFactory.cpp in Sources */,
 				01DE4DEB1DB7FDAC004C41C2 /* RecursiveDirectoryIterator.cpp in Sources */,
 				01DE4D281DB7FD89004C41C2 /* ofxXmlSettings.cpp in Sources */,
-				01DE4CDE1DB7FD70004C41C2 /* MvLayerDnCmd.cpp in Sources */,
-				01DE4D111DB7FD70004C41C2 /* BaseJoint.cpp in Sources */,
+				01BBE2801DBFE4D1000DC469 /* ProjectionEditorWidget.cpp in Sources */,
 				01DE4DDB1DB7FDAC004C41C2 /* ByteBufferReader.cpp in Sources */,
+				01BBE26B1DBFE4D1000DC469 /* RmSurfaceCmd.cpp in Sources */,
+				01BBE2661DBFE4D1000DC469 /* MvSelectionCmd.cpp in Sources */,
+				01BBE2581DBFE4D1000DC469 /* SourceSelectionMode.cpp in Sources */,
 				01DE4DE81DB7FDAC004C41C2 /* HiddenFileFilter.cpp in Sources */,
-				01DE4CD91DB7FD70004C41C2 /* CmdManager.cpp in Sources */,
 				01DE4D3C1DB7FDA1004C41C2 /* ofxBaseGui.cpp in Sources */,
+				01BBE28F1DBFE4D1000DC469 /* VideoSource.cpp in Sources */,
 				01DE4DF31DB7FDAC004C41C2 /* snappy.cc in Sources */,
+				01BBE2861DBFE4D1000DC469 /* TextureHighlightWidget.cpp in Sources */,
 				01DE4DE51DB7FDAC004C41C2 /* DirectoryWatcherManager.cpp in Sources */,
+				01BBE2881DBFE4D1000DC469 /* DirectoryWatcher.cpp in Sources */,
+				01BBE2871DBFE4D1000DC469 /* Info.cpp in Sources */,
+				01BBE27C1DBFE4D1000DC469 /* TogglePerspectiveCmd.cpp in Sources */,
+				01BBE26D1DBFE4D1000DC469 /* SelNextSurfaceCmd.cpp in Sources */,
+				01BBE2841DBFE4D1000DC469 /* TextureConsumersWidget.cpp in Sources */,
 				01DE4DF01DB7FDAC004C41C2 /* URIEncoding.cpp in Sources */,
+				01BBE2721DBFE4D1000DC469 /* SelPrevVertexCmd.cpp in Sources */,
 				01DE4DF11DB7FDAC004C41C2 /* snappy-sinksource.cc in Sources */,
-				01DE4D091DB7FD70004C41C2 /* BaseSurface.cpp in Sources */,
-				01DE4CF11DB7FD70004C41C2 /* SetNextSourceCmd.cpp in Sources */,
 				01DE4DE31DB7FDAC004C41C2 /* DirectoryUtils.cpp in Sources */,
-				01DE4CE11DB7FD70004C41C2 /* MvSurfaceVertCmd.cpp in Sources */,
 				01DE4DEE1DB7FDAC004C41C2 /* SearchPath.cpp in Sources */,
 				01DE4DEF1DB7FDAC004C41C2 /* SLIPEncoding.cpp in Sources */,
-				01DE4CDF1DB7FD70004C41C2 /* MvLayerUpCmd.cpp in Sources */,
-				01DE4CFF1DB7FD70004C41C2 /* TextureHighlightWidget.cpp in Sources */,
-				01DE4CF91DB7FD70004C41C2 /* LayerPanelWidget.cpp in Sources */,
-				01DE4CD71DB7FD70004C41C2 /* AddSurfaceCmd.cpp in Sources */,
-				01DE4CF81DB7FD70004C41C2 /* Gui.cpp in Sources */,
-				01DE4D0D1DB7FD70004C41C2 /* SurfaceFactory.cpp in Sources */,
+				01BBE28E1DBFE4D1000DC469 /* OMXPlayerCache.cpp in Sources */,
+				01BBE2571DBFE4D1000DC469 /* ProjectionMappingMode.cpp in Sources */,
 				01DE4DE01DB7FDAC004C41C2 /* Compression.cpp in Sources */,
-				01172AA21DB9574800B2BB04 /* BugsContainer.cpp in Sources */,
-				01DE4D0A1DB7FD70004C41C2 /* GridWarpSurface.cpp in Sources */,
-				01DE4D021DB7FD70004C41C2 /* MediaServer.cpp in Sources */,
-				01DE4CD81DB7FD70004C41C2 /* ClearSurfacesCmd.cpp in Sources */,
+				01BBE2651DBFE4D1000DC469 /* MvLayerUpCmd.cpp in Sources */,
+				01BBE25B1DBFE4D1000DC469 /* AddGridColCmd.cpp in Sources */,
+				01BBE28D1DBFE4D1000DC469 /* ImageSource.cpp in Sources */,
+				01172AA21DB9574800B2BB04 /* BugContainer.cpp in Sources */,
 				01DE4DDD1DB7FDAC004C41C2 /* ByteBufferUtils.cpp in Sources */,
-				01DE4CDB1DB7FD70004C41C2 /* DeselectTexCoordCmd.cpp in Sources */,
-				01DE4CD61DB7FD70004C41C2 /* AddGridRowCmd.cpp in Sources */,
-				01DE4CD21DB7FD70004C41C2 /* SourceSelectionMode.cpp in Sources */,
-				01DE4D011DB7FD70004C41C2 /* DirectoryWatcher.cpp in Sources */,
-				01DE4CE01DB7FD70004C41C2 /* MvSelectionCmd.cpp in Sources */,
-				01DE4D101DB7FD70004C41C2 /* TriangleSurface.cpp in Sources */,
 				01DE4D421DB7FDA1004C41C2 /* ofxSliderGroup.cpp in Sources */,
-				01DE4CEF1DB7FD70004C41C2 /* SetActivePresetCmd.cpp in Sources */,
-				01DE4CF41DB7FD70004C41C2 /* StartDragSurfaceCmd.cpp in Sources */,
-				01DE4CE71DB7FD70004C41C2 /* SelNextSurfaceCmd.cpp in Sources */,
-				01DE4CFC1DB7FD70004C41C2 /* SourcesEditorWidget.cpp in Sources */,
+				01BBE2691DBFE4D1000DC469 /* RmGridColCmd.cpp in Sources */,
+				01BBE29F1DBFE730000DC469 /* Bug.cpp in Sources */,
 				01DE4DE91DB7FDAC004C41C2 /* LinkFilter.cpp in Sources */,
-				01DE4D0E1DB7FD70004C41C2 /* SurfaceManager.cpp in Sources */,
+				01BBE2821DBFE4D1000DC469 /* SourcesEditorWidget.cpp in Sources */,
+				01BBE26E1DBFE4D1000DC469 /* SelNextTexCoordCmd.cpp in Sources */,
+				01BBE2541DBFE4D1000DC469 /* Application.cpp in Sources */,
 				01DE4D431DB7FDA1004C41C2 /* ofxToggle.cpp in Sources */,
+				01BBE28C1DBFE4D1000DC469 /* FboSource.cpp in Sources */,
 				01DE4D271DB7FD89004C41C2 /* tinyxmlparser.cpp in Sources */,
-				01DE4D131DB7FD70004C41C2 /* RadioList.cpp in Sources */,
-				01DE4CE41DB7FD70004C41C2 /* RmGridRowCmd.cpp in Sources */,
-				01DE4CFE1DB7FD70004C41C2 /* TextureEditorWidget.cpp in Sources */,
+				01BBE2701DBFE4D1000DC469 /* SelPrevSurfaceCmd.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				01DE4CF51DB7FD70004C41C2 /* ToggleAnimatedSourceCmd.cpp in Sources */,
-				01DE4CFA1DB7FD70004C41C2 /* ProjectionEditorWidget.cpp in Sources */,
-				01DE4D071DB7FD70004C41C2 /* OMXPlayerCache.cpp in Sources */,
+				01BBE27B1DBFE4D1000DC469 /* ToggleAnimatedSourceCmd.cpp in Sources */,
+				01BBE2561DBFE4D1000DC469 /* PresentationMode.cpp in Sources */,
 				01DE4DE61DB7FDAC004C41C2 /* FileExtensionFilter.cpp in Sources */,
+				01BBE27A1DBFE4D1000DC469 /* StartDragSurfaceCmd.cpp in Sources */,
+				01BBE2831DBFE4D1000DC469 /* SurfaceHighlightWidget.cpp in Sources */,
+				01BBE2551DBFE4D1000DC469 /* ApplicationBaseMode.cpp in Sources */,
+				01BBE2671DBFE4D1000DC469 /* MvSurfaceVertCmd.cpp in Sources */,
+				01BBE2991DBFE4D1000DC469 /* CircleJoint.cpp in Sources */,
 				01DE4D251DB7FD89004C41C2 /* tinyxml.cpp in Sources */,
+				01BBE27E1DBFE4D1000DC469 /* Gui.cpp in Sources */,
+				01BBE2731DBFE4D1000DC469 /* SelSurfaceCmd.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				01DE4DE21DB7FDAC004C41C2 /* DirectoryFilter.cpp in Sources */,
 				01DE4D411DB7FDA1004C41C2 /* ofxSlider.cpp in Sources */,
-				01DE4CE51DB7FD70004C41C2 /* RmSurfaceCmd.cpp in Sources */,
-				01DE4D121DB7FD70004C41C2 /* CircleJoint.cpp in Sources */,
-				01DE4CD01DB7FD70004C41C2 /* PresentationMode.cpp in Sources */,
-				01DE4CCE1DB7FD70004C41C2 /* Application.cpp in Sources */,
+				01BBE2761DBFE4D1000DC469 /* SetNextSourceCmd.cpp in Sources */,
+				01BBE2781DBFE4D1000DC469 /* SetSourceCmd.cpp in Sources */,
+				01BBE2891DBFE4D1000DC469 /* MediaServer.cpp in Sources */,
+				01BBE2851DBFE4D1000DC469 /* TextureEditorWidget.cpp in Sources */,
+				01BBE25A1DBFE4D1000DC469 /* SettingsLoader.cpp in Sources */,
+				01BBE2931DBFE4D1000DC469 /* QuadSurface.cpp in Sources */,
 				01DE4DD71DB7FDAC004C41C2 /* README.md in Sources */,
 				01DE4DE41DB7FDAC004C41C2 /* DirectoryWatcher.cpp in Sources */,
 				01DE4DF71DB80532004C41C2 /* SharedData.cpp in Sources */,
-				01DE4D081DB7FD70004C41C2 /* VideoSource.cpp in Sources */,
+				01BBE28B1DBFE4D1000DC469 /* BaseSource.cpp in Sources */,
 				01DE4D3E1DB7FDA1004C41C2 /* ofxGuiGroup.cpp in Sources */,
+				01BBE2951DBFE4D1000DC469 /* SurfaceManager.cpp in Sources */,
 				01DE4DDA1DB7FDAC004C41C2 /* ByteBuffer.cpp in Sources */,
-				01DE4CE61DB7FD70004C41C2 /* ScaleSurfaceFromToCmd.cpp in Sources */,
-				01DE4CF71DB7FD70004C41C2 /* TranslateCanvasCmd.cpp in Sources */,
+				01BBE2591DBFE4D1000DC469 /* TextureMappingMode.cpp in Sources */,
+				01BBE28A1DBFE4D1000DC469 /* ofxPiMapper.cpp in Sources */,
+				01BBE2961DBFE4D1000DC469 /* SurfaceStack.cpp in Sources */,
+				01BBE27F1DBFE4D1000DC469 /* LayerPanelWidget.cpp in Sources */,
+				01BBE2971DBFE4D1000DC469 /* TriangleSurface.cpp in Sources */,
+				01BBE27D1DBFE4D1000DC469 /* TranslateCanvasCmd.cpp in Sources */,
+				01BBE25F1DBFE4D1000DC469 /* CmdManager.cpp in Sources */,
+				01BBE29B1DBFE4D1000DC469 /* HomographyHelper.cpp in Sources */,
+				01BBE2791DBFE4D1000DC469 /* SetTexMapDrawModeCmd.cpp in Sources */,
+				01BBE2681DBFE4D1000DC469 /* MvTexCoordCmd.cpp in Sources */,
+				01BBE2741DBFE4D1000DC469 /* SelVertexCmd.cpp in Sources */,
+				01BBE2911DBFE4D1000DC469 /* GridWarpSurface.cpp in Sources */,
 				01DE4DF21DB7FDAC004C41C2 /* snappy-stubs-internal.cc in Sources */,
-				01DE4CD11DB7FD70004C41C2 /* ProjectionMappingMode.cpp in Sources */,
-				01DE4CE21DB7FD70004C41C2 /* MvTexCoordCmd.cpp in Sources */,
 				01DE4DEC1DB7FDAC004C41C2 /* RecursiveDirectoryIteratorStategies.cpp in Sources */,
-				01DE4D0B1DB7FD70004C41C2 /* HexagonSurface.cpp in Sources */,
-				01DE4CEA1DB7FD70004C41C2 /* SelPrevSurfaceCmd.cpp in Sources */,
 				01DE4D261DB7FD89004C41C2 /* tinyxmlerror.cpp in Sources */,
+				01BBE29C1DBFE4D1000DC469 /* TerminalListener.cpp in Sources */,
 				01DE4DD81DB7FDAC004C41C2 /* lz4.c in Sources */,
-				01DE4CFD1DB7FD70004C41C2 /* SurfaceHighlightWidget.cpp in Sources */,
-				01DE4CD31DB7FD70004C41C2 /* TextureMappingMode.cpp in Sources */,
-				01DE4CF31DB7FD70004C41C2 /* SetTexMapDrawModeCmd.cpp in Sources */,
+				01BBE26C1DBFE4D1000DC469 /* ScaleSurfaceFromToCmd.cpp in Sources */,
+				01BBE25E1DBFE4D1000DC469 /* ClearSurfacesCmd.cpp in Sources */,
+				01BBE2601DBFE4D1000DC469 /* DeselectSurfaceCmd.cpp in Sources */,
 				01DE4DDE1DB7FDAC004C41C2 /* ByteBufferWriter.cpp in Sources */,
 				01DE4D3D1DB7FDA1004C41C2 /* ofxButton.cpp in Sources */,
 				01DE4DE71DB7FDAC004C41C2 /* HexBinaryEncoding.cpp in Sources */,
-				01DE4D0F1DB7FD70004C41C2 /* SurfaceStack.cpp in Sources */,
-				01DE4D061DB7FD70004C41C2 /* ImageSource.cpp in Sources */,
-				01DE4CEC1DB7FD70004C41C2 /* SelPrevVertexCmd.cpp in Sources */,
-				01DE4CFB1DB7FD70004C41C2 /* ScaleWidget.cpp in Sources */,
-				01DE4D031DB7FD70004C41C2 /* ofxPiMapper.cpp in Sources */,
-				01DE4CEB1DB7FD70004C41C2 /* SelPrevTexCoordCmd.cpp in Sources */,
-				01DE4CF21DB7FD70004C41C2 /* SetSourceCmd.cpp in Sources */,
-				01DE4CE81DB7FD70004C41C2 /* SelNextTexCoordCmd.cpp in Sources */,
-				01DE4CE91DB7FD70004C41C2 /* SelNextVertexCmd.cpp in Sources */,
-				01DE4D041DB7FD70004C41C2 /* BaseSource.cpp in Sources */,
+				01BBE2641DBFE4D1000DC469 /* MvLayerDnCmd.cpp in Sources */,
 				01DE4D401DB7FDA1004C41C2 /* ofxPanel.cpp in Sources */,
-				01DE4D151DB7FD70004C41C2 /* TerminalListener.cpp in Sources */,
-				01DE4CDC1DB7FD70004C41C2 /* DuplicateSurfaceCmd.cpp in Sources */,
-				01DE4CF61DB7FD70004C41C2 /* TogglePerspectiveCmd.cpp in Sources */,
 				01DE4DDF1DB7FDAC004C41C2 /* COBSEncoding.cpp in Sources */,
-				01DE4D001DB7FD70004C41C2 /* Info.cpp in Sources */,
+				01BBE29A1DBFE4D1000DC469 /* RadioList.cpp in Sources */,
+				01BBE2981DBFE4D1000DC469 /* BaseJoint.cpp in Sources */,
 				01DE4DED1DB7FDAC004C41C2 /* RegexPathFilter.cpp in Sources */,
-				01DE4CD51DB7FD70004C41C2 /* AddGridColCmd.cpp in Sources */,
-				01DE4CDA1DB7FD70004C41C2 /* DeselectSurfaceCmd.cpp in Sources */,
-				01DE4D0C1DB7FD70004C41C2 /* QuadSurface.cpp in Sources */,
-				01DE4CDD1DB7FD70004C41C2 /* MvAllTexCoordsCmd.cpp in Sources */,
-				01DE4CED1DB7FD70004C41C2 /* SelSurfaceCmd.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
