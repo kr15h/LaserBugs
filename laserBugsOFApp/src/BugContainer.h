@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "FboSource.h"
 #include "SharedData.h"
+#include "Bug.h"
 
 namespace laserbugs{
 
@@ -18,6 +19,8 @@ class BugContainer : public ofx::piMapper::FboSource{
 	
 	private:
 		shared_ptr<SharedData> _sharedData;
+	
+		vector<Bug *> _bugs;
 };
 
 } // namespace laserbugs

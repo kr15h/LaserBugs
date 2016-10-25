@@ -15,12 +15,47 @@ void BugContainer::setup(){
 	}
 
 	allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	
+	// Create bugs
+	float intervalX =
+		(float)_sharedData->getAppWidth() /
+		((float)_sharedData->getBugCols() + 1.0f);
+	float intervalY =
+		(float)_sharedData->getAppHeight() /
+		((float)_sharedData->getBugRows() + 1.0f);
+	for(unsigned int col = 0; col < _sharedData->getBugCols(); ++col){
+		for(unsigned int row = 0; row < _sharedData->getBugRows(); ++row){
+			ofPoint position;
+			position.x = ((float)col + 1.0f) * intervalX;
+			position.y = ((float)row + 1.0f) * intervalY;
+			
+			// TODO: set remaining variables
+			Bug * b = new Bug(position, 0.4f, 0.4f, 100, 10, 1000, 100);
+			b->setSharedData(_sharedData);
+			_bugs.push_back(b);
+		}
+	}
+	
+	/*
+	Bug(
+			ofPoint position,
+			float rotationSpeed,
+			float movementSpeed,
+			int eachLoopTime,
+			int shiftTime,
+			int blinkTime,
+			int laserRange);
+	*/
 }
 
 void BugContainer::update(){
 	if(_sharedData == 0){
 		ofLogError("Background::setup", "Please provide SharedData");
 		return;
+	}
+	
+	for(unsigned int i = 0; i < _bugs.size(); ++i){
+		_bugs[i]->update();
 	}
 }
 
@@ -42,6 +77,10 @@ void BugContainer::draw(){
 	ofDrawLine(getWidth() - 20, 10, 10, getHeight() - 20);
 	
 	ofPopStyle();
+	
+	for(unsigned int i = 0; i < _bugs.size(); ++i){
+		_bugs[i]->draw();
+	}
 }
 
 void BugContainer::setSharedData(shared_ptr<SharedData> sd){
