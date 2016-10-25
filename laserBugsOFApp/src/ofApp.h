@@ -4,7 +4,7 @@
 #include "ofxPiMapper.h"
 #include "SharedData.h"
 #include "Background.h"
-#include "BugsContainer.h"
+#include "BugContainer.h"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -19,5 +19,5 @@ class ofApp : public ofBaseApp{
 		shared_ptr<laserbugs::SharedData> sharedData;
 	
 		laserbugs::Background background;
-		laserbugs::BugsContainer container;
+		laserbugs::BugContainer container;
 };
