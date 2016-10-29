@@ -22,6 +22,12 @@ class Bug{
 		void update();
 		void draw();
 	
+		void selfblinking();
+		void react(vector<Bug *> & bugs);
+		void collision(vector<Bug *> & bugs);
+		void edgeDetection();
+		void movement();
+	
 		void setSharedData(shared_ptr<SharedData> sd);
 	
 	private:
