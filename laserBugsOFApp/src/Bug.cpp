@@ -2,26 +2,6 @@
 
 namespace laserbugs{
 
-Bug::Bug(
-	ofPoint position,
-	float rotationSpeed,
-	float movementSpeed,
-	int eachLoopTime,
-	int shiftTime,
-	int blinkTime,
-	int laserRange){
-	
-	_sharedData = 0;
-	
-	_position = position;
-	_rotationSpeed = rotationSpeed;
-	_movementSpeed = movementSpeed;
-	_eachLoopTime = eachLoopTime;
-	_shiftTime = shiftTime;
-	_blinkTime = blinkTime;
-	_laserRange = laserRange;
-}
-
 void Bug::setup(){
 	if(_sharedData == 0){
 		ofLogError("Bug::setup", "Please provide SharedData");
@@ -42,44 +22,53 @@ void Bug::draw(){
 		return;
 	}
 	
+	/*
 	ofPushStyle();
 	ofSetColor(0, 255, 255);
 	ofDrawCircle(_position.x, _position.y, 5);
 	ofPopStyle();
+	*/
 	
-	/*
 	// change color to fill depend on it's detecting or not.
-    if (lightMode == "ON")  fill(0, 200, 0);  
-    else fill(150);
-    // else fill(loopTime / 10);
-
+	// Fill color
+	if (_lightMode == "ON") {
+		ofSetColor(0, 200, 0);
+	}else{
+		ofSetColor(150);
+	}
+	
     //drawing Modules
-    strokeWeight(1);
-    ellipseMode(RADIUS);
-    stroke(100, 100, 100);
-    ellipse(location.x, location.y, rotSize, rotSize);
-    line(location.x, location.y, location.x + cos(angle)*rotSize, location.y + sin(angle)*rotSize);
+    ofSetLineWidth(1);
+	
+	// Line color
+	ofSetColor(100, 100, 100);
+    ofDrawEllipse(_location.x, _location.y, _rotSize, _rotSize);
+	
+    ofDrawLine(
+		_location.x,
+		_location.y,
+		_location.x + cos(_angle) * _rotSize,
+		_location.y + sin(_angle) * _rotSize);
+	
 
     //drawing lasers
-    stroke(0, 255, 0);
-    strokeWeight(2);
-    // if(detectCount != 0 || turnMode != "OFF" || lightMode == "ON"){ // when it's on the corner, light is on
-    if (lightMode == "ON") { // when it's on the corner, light is on
-      // if(detectCount != 0){
-
-      // line(location.x + cos(angle)*rotSize, location.y + sin(angle)*rotSize, 
-      // location.x + cos(angle)*rotSize*300, location.y + sin(angle)*rotSize*300);
-
-      for(int i = 0; i<laserRange; i++){
-        stroke(0, 255, 0, 255-i*255/laserRange);
-        point(location.x + cos(angle)*i, location.y + sin(angle)*i);
-      }
+	ofSetColor(0, 255, 0);
+	ofSetLineWidth(2);
+	
+    if (_lightMode == "ON") { // when it's on the corner, light is on
+		for(int i = 0; i < _laserRange; ++i){
+			ofSetColor(0, 255, 0,
+				255 - (int)((float)i * 255.0f / (float)_laserRange));
+			
+			ofDrawCircle(
+				_location.x + cos(_angle)*i,
+				_location.y + sin(_angle)*i, 2);
+				//point(location.x + cos(angle)*i, location.y + sin(angle)*i);
+		}
     }
-
-    // reset detect count when finish to draw
-    detectCount = 0;
-  }
-	*/
+	
+	// reset detect count when finish to draw
+    _detectCount = 0;
 }
 
 void Bug::selfblinking(){
