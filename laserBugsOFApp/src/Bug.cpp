@@ -108,45 +108,62 @@ void Bug::selfblinking(){
 }
 
 void Bug::react(vector<Bug *> & bugs){
-/*
-for (Rotator other : rots) {
+
+///for (Rotator other : rots) {
+	for(unsigned int i = 0; i < bugs.size(); ++i){
+		Bug * other = bugs[i];
+
+
       // calculate the distance
-      if (location != other.location) { // this line is important to ignore itself
-        float distance = PVector.dist(other.location, location);
-        // calculate the tolerance from distance and rotSize
-        float tolerance = atan2(rotSize, distance);
-        // calculate the angle of two rotators
-        float collideAngle = atan2(other.location.y - location.y, 
-        other.location.x - location.x);
-        capAngle = collideAngle;
-        collideAngle = collideAngle + PI;  // because atan2 value is -PI ~ PI      
-        // compare the angle of other's laser and itself
-        float diff = abs(collideAngle - other.angle);
+      //if (location != other.location) { // this line is important to ignore itself
+		if(_location != other->getLocation()){
+			float distance = other->getLocation().distance(_location);
+//			float distance = PVector.dist(other.location, location);
+			// calculate the tolerance from distance and rotSize
+			float tolerance = atan2(_rotSize, distance);
+			//float tolerance = atan2(rotSize, distance);
+			// calculate the angle of two rotators
+			float collideAngle = atan2(
+				other->getLocation().y - _location.y,
+				other->getLocation().x - _location.x);
+			//float collideAngle = atan2(other.location.y - location.y,
+					//other.location.x - location.x);
+			_capAngle = collideAngle;
+			collideAngle = collideAngle + PI;
+			//collideAngle = collideAngle + PI;  // because atan2 value is -PI ~ PI
+			// compare the angle of other's laser and itself
+			float diff = abs(collideAngle - other->getAngle());
+			//float diff = abs(collideAngle - other.angle);
         // if(other.detectCount > 1 || other.turnMode != "OFF"){ 
-        if (other.lightMode == "ON") { 
+			if(other->getLightMode() == "ON"){
           // when it's on the corner, light is on
           // if(other.detectCount > 1){ 
           // if (diff < tolerance || abs(diff - TWO_PI) < tolerance) {
-          if (diff < tolerance || abs(diff - TWO_PI) < tolerance && distance < laserRange) {
-            detectCount ++;
-            shift = shift + 5; 
-            detectFlag = true;
+				
+				if(
+				(diff < tolerance) ||
+				((abs(diff - TWO_PI) < tolerance) &&
+				(distance < (float)_laserRange))){
+					_detectCount++;
+					_shift = _shift + 5;
+					_detectFlag = true;
             // if (detectFlag && !lastDetectFlag && lightMode == "OFF") {
-            if (detectFlag && !lastDetectFlag) {
-              //most important line of code for SYNC
-              shiftTime = shiftTime + (loopTime - ((millis() + shiftTime) % loopTime));
-              lastDetectFlag = true;
-            }
-          } else {
-            detectFlag = false;
-            if (!detectFlag && lastDetectFlag) {
-              lastDetectFlag = false;
-            }
-          }
-        }
-      }
-    }
-*/
+					if(_detectFlag && !_lastDetectFlag){
+						//most important line of code for SYNC
+						_shiftTime =_shiftTime + (_loopTime - ((
+							ofGetElapsedTimeMillis() + _shiftTime) % _loopTime));
+						//shiftTime = shiftTime + (loopTime - ((millis() + shiftTime) % loopTime));
+						_lastDetectFlag = true;
+					}
+				}else{
+					_detectFlag = false;
+					if(!_detectFlag && _lastDetectFlag){
+						_lastDetectFlag = false;
+					}
+				}
+			}
+		}
+	}
 }
 
 void Bug::collision(vector<Bug *> & bugs){

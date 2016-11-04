@@ -41,6 +41,12 @@ class Bug{
 		void movement();
 	
 		void setSharedData(shared_ptr<SharedData> sd);
+
+		string getLightMode(){ return _lightMode; }
+
+		ofPoint getLocation(){ return _location; }
+	
+		float getAngle(){ return _angle; }
 	
 	private:
 		shared_ptr<SharedData> _sharedData;
@@ -51,6 +57,8 @@ class Bug{
 		ofPoint _location;
 	
 		bool _soundFlag;
+		bool _detectFlag;
+		bool _lastDetectFlag;
 	
 		float _rotationSpeed;
 		float _movementSpeed;
@@ -58,12 +66,14 @@ class Bug{
 		float _angle;
 		float _rSpeed;
 		float _r;
+		float _capAngle;
 	
 		int _loopTime;
 		int _shiftTime;
 		int _blinkTime;
 		int _laserRange;
 		int _detectCount;
+		int _shift;
 	
 };
 
