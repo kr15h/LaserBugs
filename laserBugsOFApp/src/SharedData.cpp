@@ -20,6 +20,14 @@ unsigned int SharedData::getBugRows(){
 	return _bugRows;
 }
 
+unsigned int SharedData::getModuleSize(){
+	return _moduleSize;
+}
+
+unsigned int SharedData::getLaserRange(){
+	return _laserRange;
+}
+
 float SharedData::getTurnAmount(){
 	return _turnAmount;
 }

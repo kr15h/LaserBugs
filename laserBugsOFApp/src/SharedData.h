@@ -2,12 +2,6 @@
 
 #include "ofxOsc.h"
 
-#define SHARED_DATA_APP_WIDTH 1920
-#define SHARED_DATA_APP_HEIGHT 1080
-
-#define SHARED_DATA_BUG_COLS 7
-#define SHARED_DATA_BUG_ROWS 7
-
 namespace laserbugs{
 	
 class SharedData{
@@ -15,10 +9,12 @@ class SharedData{
 		SharedData(){
 			debug = false;
 
-			_appWidth = SHARED_DATA_APP_WIDTH;
-			_appHeight = SHARED_DATA_APP_HEIGHT;
-			_bugCols = SHARED_DATA_BUG_COLS;
-			_bugRows = SHARED_DATA_BUG_ROWS;
+			_appWidth = 1920;
+			_appHeight = 1080;
+			_bugCols = 7;
+			_bugRows = 7;
+			_moduleSize = 5; // Size of one bug? Half diameter
+			_laserRange = 300;
 			
 			_turnAmount = 2.416f;
 		
@@ -32,6 +28,8 @@ class SharedData{
 		unsigned int getAppHeight();
 		unsigned int getBugCols();
 		unsigned int getBugRows();
+		unsigned int getModuleSize();
+		unsigned int getLaserRange();
 	
 		float getTurnAmount();
 	
@@ -42,6 +40,8 @@ class SharedData{
 		unsigned int _appHeight;
 		unsigned int _bugCols;
 		unsigned int _bugRows;
+		unsigned int _moduleSize;
+		unsigned int _laserRange;
 	
 		float _turnAmount;
 	
