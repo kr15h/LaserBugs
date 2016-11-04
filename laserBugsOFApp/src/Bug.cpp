@@ -267,39 +267,47 @@ void Bug::edgeDetection(){
 }
 
 void Bug::movement(){
-/*
-// rotate and change direction
-    if (turnMode != "OFF") {
-      if (turnMode == "CW") {
-        angle += rSpeed;
-        // rotation finish
-        if (angle > targetAngle) {
-          if (angle < 0) angle = angle + TWO_PI;
-          if (angle > TWO_PI) angle = angle - TWO_PI;
+	// rotate and change direction
+	if(_turnMode != "OFF"){
+		if(_turnMode == "CW"){
+			_angle += _rSpeed;
+			// rotation finish
+			if(_angle > _targetAngle){
+				if (_angle < 0.0f){
+					_angle = _angle + TWO_PI;
+				}
+				
+				if(_angle > TWO_PI){
+					_angle = _angle - TWO_PI;
+				}
 
-          // move a little to prevent detect end again
-          location.x = location.x + cos(angle)*mSpeed*2;
-          location.y = location.y + sin(angle)*mSpeed*2;
-          turnMode = "OFF";
-        }
-      } else if (turnMode == "CCW") {
-        angle -= rSpeed;
-        //rotation finish
-        if (angle < targetAngle) {
-          if (angle < 0) angle = angle + TWO_PI;
-          if (angle > TWO_PI) angle = angle - TWO_PI;
+				// move a little to prevent detect end again
+				_location.x = _location.x + cos(_angle) * _mSpeed * 2.0f;
+				_location.y = _location.y + sin(_angle) * _mSpeed * 2.0f;
+				_turnMode = "OFF";
+			}
+		}else if(_turnMode == "CCW"){
+			_angle -= _rSpeed;
+			//rotation finish
+			if(_angle < _targetAngle){
+				if(_angle < 0.0f){
+					_angle = _angle + TWO_PI;
+				}
+				
+				if(_angle > TWO_PI){
+					_angle = _angle - TWO_PI;
+				}
 
-          // move a little to prevent detect end again
-          location.x = location.x + cos(angle)*mSpeed*2;
-          location.y = location.y + sin(angle)*mSpeed*2;
-          turnMode = "OFF";
-        }
-      }
+				// move a little to prevent detect end again
+				_location.x = _location.x + cos(_angle) * _mSpeed * 2.0f;
+				_location.y = _location.y + sin(_angle) * _mSpeed * 2.0f;
+				_turnMode = "OFF";
+			}
+		}
     }else{
-      location.x = location.x + cos(angle)*mSpeed;
-      location.y = location.y + sin(angle)*mSpeed;
+		_location.x = _location.x + cos(_angle) * _mSpeed;
+		_location.y = _location.y + sin(_angle) * _mSpeed;
     }
-*/
 }
 
 void Bug::setSharedData(shared_ptr<SharedData> sd){

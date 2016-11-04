@@ -65,7 +65,8 @@ class Bug{
 		float _movementSpeed;
 		float _rotSize;
 		float _angle;
-		float _rSpeed;
+		float _rSpeed; // Rotation speed?
+		float _mSpeed; // Movement speed?
 		float _r;
 		float _capAngle;
 		float _targetAngle;
