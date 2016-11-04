@@ -207,59 +207,63 @@ void Bug::collision(vector<Bug *> & bugs){
 }
 
 void Bug::edgeDetection(){
-/*
-// reflection detect for X axis end
-    if (turnMode == "OFF") {
-      // for right end
-      if (location.x > (width-(rotSize))) {
-        if (angle < TWO_PI && angle > PI*3/2) { // angle is down
-          turnMode = "CCW";
-          targetAngle = angle - turnAmount;
-        } else if (angle > 0 && angle < HALF_PI) { // angle is up
-          turnMode = "CW";
-          targetAngle = angle + turnAmount;
-        }
-      }
-      //for left end
-      else if (location.x < (rotSize)) {
-        if (angle > PI) { // angle is up
-          turnMode = "CW";
-          targetAngle = angle + turnAmount;
-        } else if (angle < PI) { // angle is down
-          turnMode = "CCW";
-          targetAngle = angle - turnAmount;
-        }
-      }
-      // reflection detect for Y axis end
-      // for bottom end
-      if (location.y > (height-(rotSize))) {
-        // print("bot", angle, ' ');
-        if (angle > (HALF_PI)) { // angle is right
-          turnMode = "CW";
-          targetAngle = angle + turnAmount;
+	// reflection detect for X axis end
+	if(_turnMode == "OFF"){
+	//if (turnMode == "OFF") {
+		// for right end
+		if(_location.x > ((float)ofGetWidth() - _rotSize)){
+		//if (location.x > (width-(rotSize))) {
+			if(_angle < TWO_PI && _angle > PI * 3.0f / 2.0f){
+			//if (angle < TWO_PI && angle > PI*3/2) { // angle is down
+				_turnMode = "CCW";
+				_targetAngle = _angle - _sharedData->getTurnAmount();
+			}else if(_angle > 0.0f && _angle < HALF_PI){
+			//}else if(angle > 0 && angle < HALF_PI) { // angle is up
+				_turnMode = "CW";
+				_targetAngle = _angle + _sharedData->getTurnAmount();
+			}
+		}
+		//for left end
+		else if(_location.x < _rotSize){
+		//else if (location.x < (rotSize)) {
+			if(_angle > PI){ // angle is up
+				_turnMode = "CW";
+				_targetAngle = _angle + _sharedData->getTurnAmount();
+			}else if(_angle < PI){ // angle is down
+				_turnMode = "CCW";
+				_targetAngle = _angle - _sharedData->getTurnAmount();
+			}
+		}
+		// reflection detect for Y axis end
+		// for bottom end
+		if(_location.y > (ofGetHeight() - _rotSize)){
+		//if (location.y > (height-(rotSize))) {
+			// print("bot", angle, ' ');
+			if(_angle > (HALF_PI)){ // angle is right
+				_turnMode = "CW";
+				_targetAngle = _angle + _sharedData->getTurnAmount();
           // println(turnMode);
-        } else if (angle < (HALF_PI)) { // angle is left
-          turnMode = "CCW";
-          targetAngle = angle - turnAmount;
-          // println(turnMode);
-        }
-      }
-      //for top end
-      else if (location.y < (rotSize)) {
-        // print("top", angle, ' ');
-        if (angle > PI+HALF_PI) { // angle is left
-          turnMode = "CW";
-          targetAngle = angle + turnAmount;
-          // println(turnMode);
-        } else if (angle < PI+HALF_PI) { // angle is right
-          turnMode = "CCW";
-          targetAngle = angle - turnAmount;
-          // println(turnMode);
-        }
-      }
+			}else if(_angle < (HALF_PI)){ // angle is left
+				_turnMode = "CCW";
+				_targetAngle = _angle - _sharedData->getTurnAmount();
+				// println(turnMode);
+			}
+		}
+		//for top end
+		else if(_location.y < _rotSize){
+			// print("top", angle, ' ');
+			if(_angle > PI + HALF_PI){ // angle is left
+				_turnMode = "CW";
+				_targetAngle = _angle + _sharedData->getTurnAmount();
+				// println(turnMode);
+			}else if(_angle < PI + HALF_PI) { // angle is right
+				_turnMode = "CCW";
+				_targetAngle = _angle - _sharedData->getTurnAmount();
+				// println(turnMode);
+			}
+		}
       // println(angle, " ", targetAngle);
     }
-*/
 }
 
 void Bug::movement(){
