@@ -167,38 +167,43 @@ void Bug::react(vector<Bug *> & bugs){
 }
 
 void Bug::collision(vector<Bug *> & bugs){
-/*
- void collision(ArrayList<Rotator> rots) {
-    for (Rotator other : rots) {
-      if (location != other.location) { // to ignore itself
-        float d = PVector.dist(other.location, location); // calculate the distance to other modules
-        if (d < rotSize*2) {
-          // calculate the angle of two mods
-          float collideAngle = atan2(location.y - other.location.y, 
-          location.x - other.location.x);
-          collideAngle = collideAngle + PI;
-          if (turnMode == "OFF") {
-            if (angle > PI) {
-              if (angle - collideAngle < PI && angle - collideAngle > 0) {
-                turnMode = "CW";
-                targetAngle = angle + turnAmount;
-              } else {
-                turnMode = "CCW";
-                targetAngle = angle - turnAmount;
-              }
-            } else if (angle < PI) {
-              if (collideAngle - angle < PI && collideAngle - angle > 0) {
-                turnMode = "CCW";
-                targetAngle = angle - turnAmount;
-              } else {
-                turnMode = "CW";
-                targetAngle = angle + turnAmount;
-              }
-            }
-          }
-        }
-      }
-*/
+	for(unsigned int i = 0; i < bugs.size(); ++i){
+	//for (Rotator other : rots) {
+		Bug * other = bugs[i];
+		if(_location != other->getLocation()){
+		//if (location != other.location) { // to ignore itself
+			float d = other->getLocation().distance(_location);
+			//float d = PVector.dist(other.location, location); // calculate the distance to other modules
+			if(d < _rotSize * 2.0f){
+			//if (d < rotSize*2) {
+				// calculate the angle of two mods
+				float collideAngle = atan2(_location.y - other->getLocation().y,
+					_location.x - other->getLocation().x);
+				//float collideAngle = atan2(location.y - other.location.y,
+				//	location.x - other.location.x);
+				collideAngle = collideAngle + PI;
+				if(_turnMode == "OFF"){
+					if(_angle > PI){
+						if((_angle - collideAngle) < PI && (_angle - collideAngle) > 0){
+							_turnMode = "CW";
+							_targetAngle = _angle + _sharedData->getTurnAmount();
+						}else{
+							_turnMode = "CCW";
+							_targetAngle = _angle - _sharedData->getTurnAmount();
+						}
+					}else if(_angle < PI){
+						if((collideAngle - _angle) < PI && (collideAngle - _angle) > 0){
+							_turnMode = "CCW";
+							_targetAngle = _angle - _sharedData->getTurnAmount();
+						}else{
+							_turnMode = "CW";
+							_targetAngle = _angle + _sharedData->getTurnAmount();
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 void Bug::edgeDetection(){

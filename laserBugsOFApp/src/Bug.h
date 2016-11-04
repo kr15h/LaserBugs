@@ -52,6 +52,7 @@ class Bug{
 		shared_ptr<SharedData> _sharedData;
 	
 		string _lightMode;
+		string _turnMode;
 	
 		ofPoint _position;
 		ofPoint _location;
@@ -67,6 +68,7 @@ class Bug{
 		float _rSpeed;
 		float _r;
 		float _capAngle;
+		float _targetAngle;
 	
 		int _loopTime;
 		int _shiftTime;

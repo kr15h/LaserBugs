@@ -20,6 +20,10 @@ unsigned int SharedData::getBugRows(){
 	return _bugRows;
 }
 
+float SharedData::getTurnAmount(){
+	return _turnAmount;
+}
+
 shared_ptr<ofxOscSender> SharedData::getOscSender(){
 	return _oscSender;
 }

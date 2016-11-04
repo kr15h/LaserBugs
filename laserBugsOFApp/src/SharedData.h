@@ -19,6 +19,8 @@ class SharedData{
 			_appHeight = SHARED_DATA_APP_HEIGHT;
 			_bugCols = SHARED_DATA_BUG_COLS;
 			_bugRows = SHARED_DATA_BUG_ROWS;
+			
+			_turnAmount = 2.416f;
 		
 			_oscSender = make_shared<ofxOscSender>();
 			_oscSender->setup("127.0.0.1", 5678);
@@ -31,6 +33,8 @@ class SharedData{
 		unsigned int getBugCols();
 		unsigned int getBugRows();
 	
+		float getTurnAmount();
+	
 		shared_ptr<ofxOscSender> getOscSender();
 	
 	private:
@@ -38,6 +42,8 @@ class SharedData{
 		unsigned int _appHeight;
 		unsigned int _bugCols;
 		unsigned int _bugRows;
+	
+		float _turnAmount;
 	
 		shared_ptr<ofxOscSender> _oscSender;
 };
