@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "SharedData.h"
+#include "ofxOsc.h"
 
 namespace laserbugs{
 
@@ -11,16 +12,17 @@ class Bug{
 			ofPoint position,
 			float rotationSpeed,
 			float movementSpeed,
-			int eachLoopTime,
+			int loopTime,
 			int shiftTime,
 			int blinkTime,
 			int laserRange){
 			
 			_sharedData = 0;
+			_soundFlag = true;
 			_position = position;
 			_rotationSpeed = rotationSpeed;
 			_movementSpeed = movementSpeed;
-			_eachLoopTime = eachLoopTime;
+			_loopTime = loopTime;
 			_shiftTime = shiftTime;
 			_blinkTime = blinkTime;
 			_laserRange = laserRange;
@@ -48,12 +50,16 @@ class Bug{
 		ofPoint _position;
 		ofPoint _location;
 	
+		bool _soundFlag;
+	
 		float _rotationSpeed;
 		float _movementSpeed;
 		float _rotSize;
 		float _angle;
+		float _rSpeed;
+		float _r;
 	
-		int _eachLoopTime;
+		int _loopTime;
 		int _shiftTime;
 		int _blinkTime;
 		int _laserRange;

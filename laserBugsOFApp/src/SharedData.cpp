@@ -1,15 +1,8 @@
+#pragma once
+
 #include "SharedData.h"
 
 namespace laserbugs{
-
-SharedData::SharedData(){
-	debug = false;
-
-	_appWidth = SHARED_DATA_APP_WIDTH;
-	_appHeight = SHARED_DATA_APP_HEIGHT;
-	_bugCols = SHARED_DATA_BUG_COLS;
-	_bugRows = SHARED_DATA_BUG_ROWS;
-}
 
 unsigned int SharedData::getAppWidth(){
 	return _appWidth;
@@ -25,6 +18,10 @@ unsigned int SharedData::getBugCols(){
 
 unsigned int SharedData::getBugRows(){
 	return _bugRows;
+}
+
+shared_ptr<ofxOscSender> SharedData::getOscSender(){
+	return _oscSender;
 }
 
 } // namespace laserbugs

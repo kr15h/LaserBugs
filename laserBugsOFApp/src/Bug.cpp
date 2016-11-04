@@ -72,29 +72,39 @@ void Bug::draw(){
 }
 
 void Bug::selfblinking(){
- /*
- if ((millis() + shiftTime) % loopTime < blinkTime) {
-      lightMode = "ON";
-      if(r > 0.5) angle += rSpeed;
-      else angle -= rSpeed;
-      if (soundFlag) {
-        OscMessage msg = new OscMessage("/collision");
-        float xpos = map(location.x, 0, width, -1, 1);
-        msg.add(xpos);
-        // if(loopTime == 2000) msg.add(800);
-        // else msg.add(1000);
-        // msg.add(int(random(700,740)));
-        msg.add(440);
-        osc.send(msg, supercollider); 
-        soundFlag = false;
-        r = random(0, 1);
-      }
-      // println(lightMode);
-    } else {
-      lightMode = "OFF";
-      soundFlag = true;
-    }
- */
+	if((ofGetElapsedTimeMillis() + _shiftTime) % _loopTime < _blinkTime){
+		_lightMode = "ON";
+		if(_r > 0.5){
+			_angle += _rSpeed;
+		}else{
+			_angle -= _rSpeed;
+		}
+		
+		if(_soundFlag){
+			ofxOscMessage msg;
+			msg.setAddress("/collision");
+			float xpos = ofMap(_location.x, 0.0f, (float)ofGetWidth(), -1.0f, 1.0f);
+			//float xpos = map(location.x, 0, width, -1, 1);
+			msg.addFloatArg(xpos);
+			msg.addIntArg(440);
+			//OscMessage msg = new OscMessage("/collision");
+			
+			//msg.add(xpos);
+			// if(loopTime == 2000) msg.add(800);
+			// else msg.add(1000);
+			// msg.add(int(random(700,740)));
+			//msg.add(440);
+			_sharedData->getOscSender()->sendMessage(msg);
+			//osc.send(msg, supercollider);
+			_soundFlag = false;
+			_r = ofRandom(0.0f, 1.0f);
+			//r = random(0, 1);
+		}
+		// println(lightMode);
+	}else{
+		_lightMode = "OFF";
+		_soundFlag = true;
+	}
 }
 
 void Bug::react(vector<Bug *> & bugs){
