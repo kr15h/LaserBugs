@@ -9,7 +9,7 @@ namespace laserbugs{
 class Bug{
 	public:
 		Bug(
-			ofPoint position,
+			ofPoint location,
 			float rotationSpeed,
 			float movementSpeed,
 			int loopTime,
@@ -19,13 +19,16 @@ class Bug{
 			
 			_sharedData = 0;
 			_soundFlag = true;
-			_position = position;
+			_location = location;
 			_rotationSpeed = rotationSpeed;
 			_movementSpeed = movementSpeed;
 			_loopTime = loopTime;
 			_shiftTime = shiftTime;
 			_blinkTime = blinkTime;
 			_laserRange = laserRange;
+			
+			// TODO: use enum's here
+			_turnMode = "OFF";
 		}
 	
 		//(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime, laserRange)
@@ -41,6 +44,7 @@ class Bug{
 		void movement();
 	
 		void setSharedData(shared_ptr<SharedData> sd);
+		void setBlinkTime(int time);
 
 		string getLightMode(){ return _lightMode; }
 
@@ -54,7 +58,6 @@ class Bug{
 		string _lightMode;
 		string _turnMode;
 	
-		ofPoint _position;
 		ofPoint _location;
 	
 		bool _soundFlag;

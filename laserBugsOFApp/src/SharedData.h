@@ -11,8 +11,8 @@ class SharedData{
 
 			_appWidth = 1920;
 			_appHeight = 1080;
-			_bugCols = 7;
-			_bugRows = 7;
+			_bugCols = 8;
+			_bugRows = 5;
 			_moduleSize = 5; // Size of one bug? Half diameter
 			_laserRange = 300;
 			

@@ -3,41 +3,20 @@
 namespace laserbugs{
 
 void Bug::setup(){
-	if(_sharedData == 0){
-		ofLogError("Bug::setup", "Please provide SharedData");
-		return;
-	}
+	
 }
 
 void Bug::update(){
-	if(_sharedData == 0){
-		ofLogError("Bug::setup", "Please provide SharedData");
-		return;
-	}
+	
 }
 
 void Bug::draw(){
-	if(_sharedData == 0){
-		ofLogError("Bug::setup", "Please provide SharedData");
-		return;
-	}
-	
-	/*
 	ofPushStyle();
-	ofSetColor(0, 255, 255);
-	ofDrawCircle(_position.x, _position.y, 5);
-	ofPopStyle();
-	*/
 	
-	// change color to fill depend on it's detecting or not.
-	// Fill color
-	if (_lightMode == "ON") {
-		ofSetColor(0, 200, 0);
-	}else{
-		ofSetColor(150);
-	}
+	ofSetColor(0, 255, 255, 255);
+	ofDrawRectangle(_location.x - 10, _location.y - 10, 20, 20);
 	
-    //drawing Modules
+    // drawing Modules
     ofSetLineWidth(1);
 	
 	// Line color
@@ -47,15 +26,15 @@ void Bug::draw(){
     ofDrawLine(
 		_location.x,
 		_location.y,
-		_location.x + cos(_angle) * _rotSize,
-		_location.y + sin(_angle) * _rotSize);
+		_location.x + (cos(_angle) * _rotSize),
+		_location.y + (sin(_angle) * _rotSize));
 	
 
     //drawing lasers
 	ofSetColor(0, 255, 0);
 	ofSetLineWidth(2);
 	
-    if (_lightMode == "ON") { // when it's on the corner, light is on
+    if(_lightMode == "ON"){ // when it's on the corner, light is on
 		for(int i = 0; i < _laserRange; ++i){
 			ofSetColor(0, 255, 0,
 				255 - (int)((float)i * 255.0f / (float)_laserRange));
@@ -63,12 +42,13 @@ void Bug::draw(){
 			ofDrawCircle(
 				_location.x + cos(_angle)*i,
 				_location.y + sin(_angle)*i, 2);
-				//point(location.x + cos(angle)*i, location.y + sin(angle)*i);
 		}
     }
 	
 	// reset detect count when finish to draw
     _detectCount = 0;
+	
+	ofPopStyle();
 }
 
 void Bug::selfblinking(){
@@ -94,7 +74,7 @@ void Bug::selfblinking(){
 			// else msg.add(1000);
 			// msg.add(int(random(700,740)));
 			//msg.add(440);
-			_sharedData->getOscSender()->sendMessage(msg);
+			//_sharedData->getOscSender()->sendMessage(msg);
 			//osc.send(msg, supercollider);
 			_soundFlag = false;
 			_r = ofRandom(0.0f, 1.0f);
@@ -114,11 +94,10 @@ void Bug::react(vector<Bug *> & bugs){
 		Bug * other = bugs[i];
 
 
-      // calculate the distance
-      //if (location != other.location) { // this line is important to ignore itself
+		// calculate the distance
 		if(_location != other->getLocation()){
 			float distance = other->getLocation().distance(_location);
-//			float distance = PVector.dist(other.location, location);
+			// float distance = PVector.dist(other.location, location);
 			// calculate the tolerance from distance and rotSize
 			float tolerance = atan2(_rotSize, distance);
 			//float tolerance = atan2(rotSize, distance);
@@ -267,6 +246,9 @@ void Bug::edgeDetection(){
 }
 
 void Bug::movement(){
+
+	ofLogNotice("Bug::movement") << "_turnMode: " << _turnMode;
+
 	// rotate and change direction
 	if(_turnMode != "OFF"){
 		if(_turnMode == "CW"){
@@ -312,6 +294,10 @@ void Bug::movement(){
 
 void Bug::setSharedData(shared_ptr<SharedData> sd){
 	_sharedData = sd;
+}
+
+void Bug::setBlinkTime(int time){
+	_blinkTime = time;
 }
 
 } // namespace laserbugs

@@ -8,6 +8,8 @@
 
 class ofApp : public ofBaseApp{
 	public:
+		ofApp(shared_ptr<laserbugs::SharedData> sd);
+	
 		void setup();
 		void update();
 		void draw();
@@ -16,8 +18,11 @@ class ofApp : public ofBaseApp{
 	
 		ofxPiMapper mapper;
 	
-		shared_ptr<laserbugs::SharedData> sharedData;
+	
 	
 		laserbugs::Background background;
 		laserbugs::BugContainer container;
+	
+	private:
+		shared_ptr<laserbugs::SharedData> _sharedData;
 };

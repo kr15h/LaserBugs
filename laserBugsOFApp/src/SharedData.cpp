@@ -29,7 +29,7 @@ unsigned int SharedData::getLaserRange(){
 }
 
 float SharedData::getTurnAmount(){
-	return _turnAmount;
+	return 2.416f;
 }
 
 shared_ptr<ofxOscSender> SharedData::getOscSender(){
