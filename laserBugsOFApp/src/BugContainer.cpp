@@ -70,11 +70,12 @@ void BugContainer::draw(){
 	ofPushStyle();
 	
 	ofSetLineWidth(4);
-	ofSetColor(255);
+	ofSetColor(255, 0, 255, 200);
 	ofNoFill();
 	ofDrawRectangle(10, 10, getWidth() - 20, getHeight() - 20);
 	
-	ofSetLineWidth(2);
+	ofSetLineWidth(4);
+	//ofSetColor(255, 255, 0, 200);
 	ofDrawLine(10, 10, getWidth() - 20, getHeight() - 20);
 	ofDrawLine(getWidth() - 20, 10, 10, getHeight() - 20);
 	
@@ -106,9 +107,9 @@ void BugContainer::createBugs(){
 		for (int j = 0; j < _sharedData->getBugCols(); j++) {
 			float xpos = ((float)j + 0.5f) * xInterval;
 			float ypos = ((float)i + 0.5f) * yInterval;
-			ofLogNotice("BugContainer::createBugs")
-				<< "xpos: " << xpos
-				<< "ypos: " << ypos;
+			//ofLogNotice("BugContainer::createBugs")
+			//	<< "xpos: " << xpos
+			//	<< "ypos: " << ypos;
 				
 			float rotateSpeed = 0.04f;
 			float moveSpeed = 0.4f;

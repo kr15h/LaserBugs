@@ -71,16 +71,19 @@ void Background::drawGrid(){
 	ofSetColor(0);
 	ofDrawRectangle(0, 0, getWidth(), getHeight());
 	for(float y = _rowHeight; y < getHeight(); y += _rowHeight){
-		ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
+		//ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
+		ofSetColor(255, 255, 0, 100);
 		ofDrawLine(0, y, getWidth(), y);
 		for(float x = _colWidth; x < getWidth(); x += _colWidth){
 			if(y == _rowHeight){
-				ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
+				//ofSetColor(BACKGROUND_LINE_BRIGHTNESS);
+				ofSetColor(255, 255, 0, 100);
 				ofDrawLine(x, 0, x, getHeight());
 			}
 			ofSetColor(0);
 			ofDrawCircle(x, y, BACKGROUND_DOT_SIZE + BACKGROUND_DOT_MARGIN);
-			ofSetColor(BACKGROUND_DOT_BRIGHTNESS);
+			//ofSetColor(BACKGROUND_DOT_BRIGHTNESS);
+			ofSetColor(255, 255, 0, 100);
 			ofDrawCircle(x, y, BACKGROUND_DOT_SIZE);
 		}
 	}

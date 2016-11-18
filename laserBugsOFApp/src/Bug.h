@@ -20,8 +20,8 @@ class Bug{
 			_sharedData = 0;
 			_soundFlag = true;
 			_location = location;
-			_rotationSpeed = rotationSpeed;
-			_movementSpeed = movementSpeed;
+			_rSpeed = rotationSpeed;
+			_mSpeed = movementSpeed;
 			_loopTime = loopTime;
 			_shiftTime = shiftTime;
 			_blinkTime = blinkTime;
@@ -29,6 +29,18 @@ class Bug{
 			
 			// TODO: use enum's here
 			_turnMode = "OFF";
+			
+			_rotSize = 7.0f;
+			
+			while(_mSpeed < 0.4f){
+				_mSpeed = ofRandom(1.5f);
+			}
+			
+			while(_rSpeed < 0.05f){
+				_rSpeed = ofRandom(0.45f);
+			}
+			
+			_pulseOffset = ofRandom(2.0f);
 		}
 	
 		//(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime, laserRange)
@@ -73,6 +85,7 @@ class Bug{
 		float _r;
 		float _capAngle;
 		float _targetAngle;
+		float _pulseOffset;
 	
 		int _loopTime;
 		int _shiftTime;

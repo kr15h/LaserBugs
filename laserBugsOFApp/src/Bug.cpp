@@ -13,26 +13,36 @@ void Bug::update(){
 void Bug::draw(){
 	ofPushStyle();
 	
-	ofSetColor(0, 255, 255, 255);
-	ofDrawRectangle(_location.x - 10, _location.y - 10, 20, 20);
+	ofSetColor(0, 255, 255, 200);
+	ofSetLineWidth(4);
+	ofDrawCircle(_location.x, _location.y,
+		_rotSize + 4.0f + (cos(ofGetElapsedTimef() * (4.0f + _pulseOffset))));
+	
+	/*
+	ofDrawRectangle(
+		_location.x - ((_rotSize + 10.0f) / 2.0f),
+		_location.y - ((_rotSize + 10.0f) / 2.0f),
+		_rotSize + 10.0f,
+		_rotSize + 10.0f);
+	*/
 	
     // drawing Modules
-    ofSetLineWidth(1);
+    ofSetLineWidth(2);
 	
 	// Line color
-	ofSetColor(100, 100, 100);
+	ofSetColor(255, 0, 255, 255);
+	ofFill();
     ofDrawEllipse(_location.x, _location.y, _rotSize, _rotSize);
 	
     ofDrawLine(
 		_location.x,
 		_location.y,
-		_location.x + (cos(_angle) * _rotSize),
-		_location.y + (sin(_angle) * _rotSize));
+		_location.x + (cos(_angle) * _rotSize * 2.5f),
+		_location.y + (sin(_angle) * _rotSize * 2.5f));
 	
 
     //drawing lasers
-	ofSetColor(0, 255, 0);
-	ofSetLineWidth(2);
+	ofSetColor(0, 255, 0, 255);
 	
     if(_lightMode == "ON"){ // when it's on the corner, light is on
 		for(int i = 0; i < _laserRange; ++i){
@@ -63,7 +73,7 @@ void Bug::selfblinking(){
 		if(_soundFlag){
 			ofxOscMessage msg;
 			msg.setAddress("/collision");
-			float xpos = ofMap(_location.x, 0.0f, (float)ofGetWidth(), -1.0f, 1.0f);
+			float xpos = ofMap(_location.x, 0.0f, (float)900, -1.0f, 1.0f);
 			//float xpos = map(location.x, 0, width, -1, 1);
 			msg.addFloatArg(xpos);
 			msg.addIntArg(440);
@@ -92,7 +102,6 @@ void Bug::react(vector<Bug *> & bugs){
 ///for (Rotator other : rots) {
 	for(unsigned int i = 0; i < bugs.size(); ++i){
 		Bug * other = bugs[i];
-
 
 		// calculate the distance
 		if(_location != other->getLocation()){
@@ -190,7 +199,7 @@ void Bug::edgeDetection(){
 	if(_turnMode == "OFF"){
 	//if (turnMode == "OFF") {
 		// for right end
-		if(_location.x > ((float)ofGetWidth() - _rotSize)){
+		if(_location.x > (900.0f - _rotSize)){
 		//if (location.x > (width-(rotSize))) {
 			if(_angle < TWO_PI && _angle > PI * 3.0f / 2.0f){
 			//if (angle < TWO_PI && angle > PI*3/2) { // angle is down
@@ -215,7 +224,7 @@ void Bug::edgeDetection(){
 		}
 		// reflection detect for Y axis end
 		// for bottom end
-		if(_location.y > (ofGetHeight() - _rotSize)){
+		if(_location.y > (600.0f - _rotSize)){
 		//if (location.y > (height-(rotSize))) {
 			// print("bot", angle, ' ');
 			if(_angle > (HALF_PI)){ // angle is right
@@ -242,12 +251,13 @@ void Bug::edgeDetection(){
 			}
 		}
       // println(angle, " ", targetAngle);
+	  //ofLogNotice("Bug::edgeDetection") << "angle: " << _targetAngle;
     }
 }
 
 void Bug::movement(){
 
-	ofLogNotice("Bug::movement") << "_turnMode: " << _turnMode;
+	//ofLogNotice("Bug::movement") << "_turnMode: " << _turnMode;
 
 	// rotate and change direction
 	if(_turnMode != "OFF"){

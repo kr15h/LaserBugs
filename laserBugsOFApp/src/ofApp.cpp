@@ -16,6 +16,8 @@ void ofApp::setup(){
 	
 	container.createBugs();
 	container.start();
+	
+	ofSetFullscreen(true);
 }
 
 void ofApp::update(){
@@ -39,5 +41,7 @@ void ofApp::keyPressed(int key){
 		container.stop();
 		container.createBugs();
 		container.start();
+	}else if(key == 'f'){
+		ofToggleFullscreen();
 	}
 }

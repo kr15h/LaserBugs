@@ -9,14 +9,14 @@ class SharedData{
 		SharedData(){
 			debug = false;
 
-			_appWidth = 1920;
-			_appHeight = 1080;
-			_bugCols = 8;
+			_appWidth = 900;
+			_appHeight = 600;
+			_bugCols = 7;
 			_bugRows = 5;
 			_moduleSize = 5; // Size of one bug? Half diameter
 			_laserRange = 300;
 			
-			_turnAmount = 2.416f;
+			_turnAmount = 2.5f;
 		
 			_oscSender = make_shared<ofxOscSender>();
 			_oscSender->setup("127.0.0.1", 5678);
