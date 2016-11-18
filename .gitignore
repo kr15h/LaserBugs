@@ -2,3 +2,4 @@
 xcuserdata
 laserBugsOFApp/bin/*
 !laserBugsOFApp/bin/data
+laserBugsOFApp/obj

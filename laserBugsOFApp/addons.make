@@ -3,3 +3,5 @@ ofxGui
 ofxXmlSettings
 ofxPiMapper
 ofxOMXPlayer
+ofxOsc
+
