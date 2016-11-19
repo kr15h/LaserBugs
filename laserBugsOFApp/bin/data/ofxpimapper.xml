@@ -20,7 +20,7 @@
         </vertices>
         <texCoords>
             <texCoord>
-                <x>0.004826389</x>
+                <x>0.027048612</x>
                 <y>0.104629628</y>
             </texCoord>
             <texCoord>
@@ -32,7 +32,7 @@
                 <y>0.258703709</y>
             </texCoord>
             <texCoord>
-                <x>0.004826389</x>
+                <x>0.027048612</x>
                 <y>0.258703709</y>
             </texCoord>
         </texCoords>
@@ -1820,7 +1820,7 @@
         </vertices>
         <texCoords>
             <texCoord>
-                <x>0.004826389</x>
+                <x>0.059270833</x>
                 <y>0.259629607</y>
             </texCoord>
             <texCoord>
@@ -1832,7 +1832,7 @@
                 <y>0.413703710</y>
             </texCoord>
             <texCoord>
-                <x>0.004826389</x>
+                <x>0.059270833</x>
                 <y>0.413703710</y>
             </texCoord>
         </texCoords>
