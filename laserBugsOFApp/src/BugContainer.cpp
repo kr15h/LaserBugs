@@ -65,6 +65,9 @@ void BugContainer::draw(){
 
 	ofPushStyle();
 	
+	ofSetColor(0, 255, 255, 150);
+	ofDrawRectangle(0, 0, _sharedData->appWidth, _sharedData->appHeight);
+	
 	ofSetLineWidth(4);
 	ofSetColor(255, 0, 255, 200);
 	ofNoFill();

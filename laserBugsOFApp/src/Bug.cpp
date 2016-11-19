@@ -107,7 +107,7 @@ void Bug::selfblinking(){
 		if(_soundFlag){
 			ofxOscMessage msg;
 			msg.setAddress("/collision");
-			float xpos = ofMap(_location.x, 0.0f, (float)900, -1.0f, 1.0f);
+			float xpos = ofMap(_location.x, 0.0f, (float)_sharedData->appWidth, -1.0f, 1.0f);
 			//float xpos = map(location.x, 0, width, -1, 1);
 			msg.addFloatArg(xpos);
 			msg.addIntArg(440);
