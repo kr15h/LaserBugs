@@ -2,6 +2,34 @@
 
 namespace laserbugs{
 
+Bug::Bug(
+	ofPoint location,
+	float rotationSpeed,
+	float movementSpeed,
+	int loopTime,
+	int shiftTime,
+	int blinkTime,
+	int laserRange,
+	shared_ptr<SharedData> sd){
+	
+	_soundFlag = true;
+	_location = location;
+	_rSpeed = rotationSpeed;
+	_mSpeed = movementSpeed;
+	_loopTime = loopTime;
+	_shiftTime = shiftTime;
+	_blinkTime = blinkTime;
+	_laserRange = laserRange;
+	_sharedData = sd;
+	
+	// TODO: use enum's here
+	_turnMode = "OFF";
+	
+	_rotSize = _sharedData->bugSize;
+	
+	_pulseOffset = ofRandom(2.0f);
+}
+
 void Bug::setup(){
 	
 }
@@ -13,18 +41,15 @@ void Bug::update(){
 void Bug::draw(){
 	ofPushStyle();
 	
-	ofSetColor(0, 255, 255, 200);
+	ofSetColor(0, 255, 255, 255);
 	ofSetLineWidth(4);
-	ofDrawCircle(_location.x, _location.y,
-		_rotSize + 4.0f + (cos(ofGetElapsedTimef() * (4.0f + _pulseOffset))));
-	
-	/*
+	//ofDrawCircle(_location.x, _location.y,
+	//	_rotSize + 4.0f + (cos(ofGetElapsedTimef() * (4.0f + _pulseOffset))));
 	ofDrawRectangle(
-		_location.x - ((_rotSize + 10.0f) / 2.0f),
-		_location.y - ((_rotSize + 10.0f) / 2.0f),
-		_rotSize + 10.0f,
-		_rotSize + 10.0f);
-	*/
+		_location.x - ((_rotSize + 4.0f) / 2.0f),
+		_location.y - ((_rotSize + 4.0f) / 2.0f),
+		_rotSize + 4.0f + (cos(ofGetElapsedTimef() * (4.0f + _pulseOffset))),
+		_rotSize + 4.0f + (cos(ofGetElapsedTimef() * (4.0f + _pulseOffset))));
 	
     // drawing Modules
     ofSetLineWidth(2);
@@ -32,7 +57,12 @@ void Bug::draw(){
 	// Line color
 	ofSetColor(255, 0, 255, 255);
 	ofFill();
-    ofDrawEllipse(_location.x, _location.y, _rotSize, _rotSize);
+    //ofDrawEllipse(_location.x, _location.y, _rotSize, _rotSize);
+	ofDrawRectangle(
+		_location.x - (_rotSize / 2.0f),
+		_location.y - (_rotSize / 2.0f),
+		_rotSize,
+		_rotSize);
 	
     ofDrawLine(
 		_location.x,
@@ -49,9 +79,13 @@ void Bug::draw(){
 			ofSetColor(0, 255, 0,
 				255 - (int)((float)i * 255.0f / (float)_laserRange));
 			
-			ofDrawCircle(
-				_location.x + cos(_angle)*i,
-				_location.y + sin(_angle)*i, 2);
+			//ofDrawCircle(
+			//	_location.x + cos(_angle)*i,
+			//	_location.y + sin(_angle)*i, 2);
+			ofDrawRectangle(
+				_location.x + cos(_angle) * i,
+				_location.y + sin(_angle) * i,
+				2, 2);
 		}
     }
 	
@@ -174,18 +208,18 @@ void Bug::collision(vector<Bug *> & bugs){
 					if(_angle > PI){
 						if((_angle - collideAngle) < PI && (_angle - collideAngle) > 0){
 							_turnMode = "CW";
-							_targetAngle = _angle + _sharedData->getTurnAmount();
+							_targetAngle = _angle + _sharedData->turnAmount;
 						}else{
 							_turnMode = "CCW";
-							_targetAngle = _angle - _sharedData->getTurnAmount();
+							_targetAngle = _angle - _sharedData->turnAmount;
 						}
 					}else if(_angle < PI){
 						if((collideAngle - _angle) < PI && (collideAngle - _angle) > 0){
 							_turnMode = "CCW";
-							_targetAngle = _angle - _sharedData->getTurnAmount();
+							_targetAngle = _angle - _sharedData->turnAmount;
 						}else{
 							_turnMode = "CW";
-							_targetAngle = _angle + _sharedData->getTurnAmount();
+							_targetAngle = _angle + _sharedData->turnAmount;
 						}
 					}
 				}
@@ -204,11 +238,11 @@ void Bug::edgeDetection(){
 			if(_angle < TWO_PI && _angle > PI * 3.0f / 2.0f){
 			//if (angle < TWO_PI && angle > PI*3/2) { // angle is down
 				_turnMode = "CCW";
-				_targetAngle = _angle - _sharedData->getTurnAmount();
+				_targetAngle = _angle - _sharedData->turnAmount;
 			}else if(_angle > 0.0f && _angle < HALF_PI){
 			//}else if(angle > 0 && angle < HALF_PI) { // angle is up
 				_turnMode = "CW";
-				_targetAngle = _angle + _sharedData->getTurnAmount();
+				_targetAngle = _angle + _sharedData->turnAmount;
 			}
 		}
 		//for left end
@@ -216,10 +250,10 @@ void Bug::edgeDetection(){
 		//else if (location.x < (rotSize)) {
 			if(_angle > PI){ // angle is up
 				_turnMode = "CW";
-				_targetAngle = _angle + _sharedData->getTurnAmount();
+				_targetAngle = _angle + _sharedData->turnAmount;
 			}else if(_angle < PI){ // angle is down
 				_turnMode = "CCW";
-				_targetAngle = _angle - _sharedData->getTurnAmount();
+				_targetAngle = _angle - _sharedData->turnAmount;
 			}
 		}
 		// reflection detect for Y axis end
@@ -229,11 +263,11 @@ void Bug::edgeDetection(){
 			// print("bot", angle, ' ');
 			if(_angle > (HALF_PI)){ // angle is right
 				_turnMode = "CW";
-				_targetAngle = _angle + _sharedData->getTurnAmount();
+				_targetAngle = _angle + _sharedData->turnAmount;
           // println(turnMode);
 			}else if(_angle < (HALF_PI)){ // angle is left
 				_turnMode = "CCW";
-				_targetAngle = _angle - _sharedData->getTurnAmount();
+				_targetAngle = _angle - _sharedData->turnAmount;
 				// println(turnMode);
 			}
 		}
@@ -242,11 +276,11 @@ void Bug::edgeDetection(){
 			// print("top", angle, ' ');
 			if(_angle > PI + HALF_PI){ // angle is left
 				_turnMode = "CW";
-				_targetAngle = _angle + _sharedData->getTurnAmount();
+				_targetAngle = _angle + _sharedData->turnAmount;
 				// println(turnMode);
 			}else if(_angle < PI + HALF_PI) { // angle is right
 				_turnMode = "CCW";
-				_targetAngle = _angle - _sharedData->getTurnAmount();
+				_targetAngle = _angle - _sharedData->turnAmount;
 				// println(turnMode);
 			}
 		}
@@ -300,10 +334,6 @@ void Bug::movement(){
 		_location.x = _location.x + cos(_angle) * _mSpeed;
 		_location.y = _location.y + sin(_angle) * _mSpeed;
     }
-}
-
-void Bug::setSharedData(shared_ptr<SharedData> sd){
-	_sharedData = sd;
 }
 
 void Bug::setBlinkTime(int time){

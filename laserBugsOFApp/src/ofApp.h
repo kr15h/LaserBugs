@@ -18,10 +18,8 @@ class ofApp : public ofBaseApp{
 	
 		ofxPiMapper mapper;
 	
-	
-	
-		laserbugs::Background background;
-		laserbugs::BugContainer container;
+		shared_ptr<laserbugs::Background> background;
+		shared_ptr<laserbugs::BugContainer> container;
 	
 	private:
 		shared_ptr<laserbugs::SharedData> _sharedData;

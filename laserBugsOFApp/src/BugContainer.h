@@ -9,19 +9,15 @@ namespace laserbugs{
 
 class BugContainer : public ofx::piMapper::FboSource{
 	public:
-		BugContainer();
+		BugContainer(shared_ptr<SharedData> sd);
 	
 		void setup();
 		void update();
 		void draw();
-	
 		void createBugs();
 		void start();
 		void stop();
-	
 		void blinkTimeSlider();
-	
-		void setSharedData(shared_ptr<SharedData> sd);
 	
 	private:
 		shared_ptr<SharedData> _sharedData;

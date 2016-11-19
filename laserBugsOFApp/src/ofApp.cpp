@@ -7,15 +7,15 @@ ofApp::ofApp(shared_ptr<laserbugs::SharedData> sd){
 void ofApp::setup(){
 	ofBackground(0);
 
-	background.setSharedData(_sharedData);
-	container.setSharedData(_sharedData);
+	background = make_shared<laserbugs::Background>(_sharedData);
+	container = make_shared<laserbugs::BugContainer>(_sharedData);
 	
-	mapper.registerFboSource(background);
-	mapper.registerFboSource(container);
+	mapper.registerFboSource(background.get());
+	mapper.registerFboSource(container.get());
 	mapper.setup();
 	
-	container.createBugs();
-	container.start();
+	container->createBugs();
+	container->start();
 	
 	ofSetFullscreen(true);
 }
@@ -38,9 +38,9 @@ void ofApp::keyPressed(int key){
 	if(key == ' '){
 		_sharedData->debug = !_sharedData->debug;
 	}else if(key == 'l'){
-		container.stop();
-		container.createBugs();
-		container.start();
+		container->stop();
+		container->createBugs();
+		container->start();
 	}else if(key == 'f'){
 		ofToggleFullscreen();
 	}

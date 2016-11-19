@@ -17,7 +17,7 @@ namespace laserbugs{
 
 class Background : public ofx::piMapper::FboSource{
 	public:
-		Background();
+		Background(shared_ptr<SharedData> sd);
 	
 		void setup();
 		void update();
@@ -26,8 +26,7 @@ class Background : public ofx::piMapper::FboSource{
 		void calcGrid();
 		void drawGrid();
 		void drawCellNumbers();
-	
-		void setSharedData(shared_ptr<SharedData> sd);
+
 		void setNumCols(unsigned int cols);
 		void setNumRows(unsigned int rows);
 	

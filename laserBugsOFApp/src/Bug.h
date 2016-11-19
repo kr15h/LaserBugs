@@ -15,33 +15,8 @@ class Bug{
 			int loopTime,
 			int shiftTime,
 			int blinkTime,
-			int laserRange){
-			
-			_sharedData = 0;
-			_soundFlag = true;
-			_location = location;
-			_rSpeed = rotationSpeed;
-			_mSpeed = movementSpeed;
-			_loopTime = loopTime;
-			_shiftTime = shiftTime;
-			_blinkTime = blinkTime;
-			_laserRange = laserRange;
-			
-			// TODO: use enum's here
-			_turnMode = "OFF";
-			
-			_rotSize = 7.0f;
-			
-			while(_mSpeed < 0.4f){
-				_mSpeed = ofRandom(1.5f);
-			}
-			
-			while(_rSpeed < 0.05f){
-				_rSpeed = ofRandom(0.45f);
-			}
-			
-			_pulseOffset = ofRandom(2.0f);
-		}
+			int laserRange,
+			shared_ptr<SharedData> sd);
 	
 		//(new Rotator(xpos, ypos, rotateSpeed, moveSpeed, eachloopTime, shiftTime, blinkTime, laserRange)
 	
@@ -54,8 +29,6 @@ class Bug{
 		void collision(vector<Bug *> & bugs);
 		void edgeDetection();
 		void movement();
-	
-		void setSharedData(shared_ptr<SharedData> sd);
 		void setBlinkTime(int time);
 
 		string getLightMode(){ return _lightMode; }

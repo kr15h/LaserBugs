@@ -1,39 +1,22 @@
-#pragma once
-
 #include "SharedData.h"
 
 namespace laserbugs{
 
-unsigned int SharedData::getAppWidth(){
-	return _appWidth;
-}
-
-unsigned int SharedData::getAppHeight(){
-	return _appHeight;
-}
-
-unsigned int SharedData::getBugCols(){
-	return _bugCols;
-}
-
-unsigned int SharedData::getBugRows(){
-	return _bugRows;
-}
-
-unsigned int SharedData::getModuleSize(){
-	return _moduleSize;
-}
-
-unsigned int SharedData::getLaserRange(){
-	return _laserRange;
-}
-
-float SharedData::getTurnAmount(){
-	return 2.416f;
-}
-
-shared_ptr<ofxOscSender> SharedData::getOscSender(){
-	return _oscSender;
+SharedData::SharedData(){
+	debug = false;
+	
+	appWidth = 900;
+	appHeight = 600;
+	bugCols = 7;
+	bugRows = 5;
+	moduleSize = 5; // Size of one bug? Half diameter
+	laserRange = 300;
+	
+	turnAmount = 2.5f;
+	bugSize = 7.0f;
+	
+	oscSender = make_shared<ofxOscSender>();
+	oscSender->setup("127.0.0.1", 5678);
 }
 
 } // namespace laserbugs

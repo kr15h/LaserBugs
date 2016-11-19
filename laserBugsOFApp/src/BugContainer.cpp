@@ -2,13 +2,10 @@
 
 namespace laserbugs{
 
-BugContainer::BugContainer(){
+BugContainer::BugContainer(shared_ptr<SharedData> sd){
 	name = "Bugs Container";
-
-	_sharedData = 0;
-	
+	_sharedData = sd;
 	_startFlag = false;
-	
 	_loopTime = 3000;
 	_blinkTime = 200;
 	_laserRange = 300;
@@ -20,24 +17,23 @@ void BugContainer::setup(){
 		return;
 	}
 
-	allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	allocate(_sharedData->appWidth, _sharedData->appHeight);
 	
 	// Create bugs
 	float intervalX =
-		(float)_sharedData->getAppWidth() /
-		((float)_sharedData->getBugCols() + 1.0f);
+		(float)_sharedData->appWidth /
+		((float)_sharedData->bugCols + 1.0f);
 	float intervalY =
-		(float)_sharedData->getAppHeight() /
-		((float)_sharedData->getBugRows() + 1.0f);
-	for(unsigned int col = 0; col < _sharedData->getBugCols(); ++col){
-		for(unsigned int row = 0; row < _sharedData->getBugRows(); ++row){
+		(float)_sharedData->appHeight /
+		((float)_sharedData->bugRows + 1.0f);
+	for(unsigned int col = 0; col < _sharedData->bugCols; ++col){
+		for(unsigned int row = 0; row < _sharedData->bugRows; ++row){
 			ofPoint position;
 			position.x = ((float)col + 1.0f) * intervalX;
 			position.y = ((float)row + 1.0f) * intervalY;
 			
 			// TODO: set remaining variables
-			Bug * b = new Bug(position, 0.4f, 0.4f, 100, 10, 1000, 100);
-			b->setSharedData(_sharedData);
+			Bug * b = new Bug(position, 0.4f, 0.4f, 100, 10, 1000, 100, _sharedData);
 			_bugs.push_back(b);
 		}
 	}
@@ -97,14 +93,14 @@ void BugContainer::stop(){
 void BugContainer::createBugs(){
 	_bugs.clear();
 	float xInterval =
-		(float)_sharedData->getAppWidth() /
-		(float)_sharedData->getBugCols() + 1.0f;
+		(float)_sharedData->appWidth /
+		(float)_sharedData->bugCols + 1.0f;
 	float yInterval =
-		(float)_sharedData->getAppHeight() /
-		(float)_sharedData->getBugRows() + 1.0f;
+		(float)_sharedData->appHeight /
+		(float)_sharedData->bugRows + 1.0f;
 		
-	for (int i = 0; i < _sharedData->getBugRows(); i++) {
-		for (int j = 0; j < _sharedData->getBugCols(); j++) {
+	for (int i = 0; i < _sharedData->bugRows; i++) {
+		for (int j = 0; j < _sharedData->bugCols; j++) {
 			float xpos = ((float)j + 0.5f) * xInterval;
 			float ypos = ((float)i + 0.5f) * yInterval;
 			//ofLogNotice("BugContainer::createBugs")
@@ -134,7 +130,8 @@ void BugContainer::createBugs(){
 				eachloopTime,
 				shiftTime,
 				_blinkTime,
-				_laserRange);
+				_laserRange,
+				_sharedData);
 				
 			_bugs.push_back(b);
 		}
@@ -145,10 +142,6 @@ void BugContainer::blinkTimeSlider(){
 	for(int i = 0; i < _bugs.size(); ++i){
 		_bugs[i]->setBlinkTime(_blinkTime);
 	}
-}
-
-void BugContainer::setSharedData(shared_ptr<SharedData> sd){
-	_sharedData = sd;
 }
 
 } // namespace laserbugs

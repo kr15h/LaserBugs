@@ -2,10 +2,10 @@
 
 namespace laserbugs{
 
-Background::Background(){
+Background::Background(shared_ptr<SharedData> sd){
 	name = "Background";
 	
-	_sharedData = 0;
+	_sharedData = sd;
 	_numCols = 0;
 	_numRows = 0;
 	_colWidth = 0.0f;
@@ -18,11 +18,11 @@ void Background::setup(){
 		return;
 	}
 
-	allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	allocate(_sharedData->appWidth, _sharedData->appHeight);
 	
 	ofTextureData texData;
-	texData.width = _sharedData->getAppWidth();
-	texData.height = _sharedData->getAppHeight();
+	texData.width = _sharedData->appWidth;
+	texData.height = _sharedData->appHeight;
 	_gridTexture.allocate(texData);
 	_cellNumbersTexture.allocate(texData);
 	
@@ -62,7 +62,7 @@ void Background::calcGrid(){
 
 void Background::drawGrid(){
 	ofFbo fbo;
-	fbo.allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	fbo.allocate(_sharedData->appWidth, _sharedData->appHeight);
 	
 	fbo.begin();
 	ofClear(0);
@@ -96,7 +96,7 @@ void Background::drawGrid(){
 
 void Background::drawCellNumbers(){
 	ofFbo fbo;
-	fbo.allocate(_sharedData->getAppWidth(), _sharedData->getAppHeight());
+	fbo.allocate(_sharedData->appWidth, _sharedData->appHeight);
 	
 	fbo.begin();
 	ofClear(0);
@@ -115,10 +115,6 @@ void Background::drawCellNumbers(){
 	fbo.end();
 	
 	_cellNumbersTexture = fbo.getTexture();
-}
-
-void Background::setSharedData(shared_ptr<SharedData> sd){
-	_sharedData = sd;
 }
 
 void Background::setNumCols(unsigned int cols){
